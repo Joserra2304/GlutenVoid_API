@@ -27,7 +27,7 @@ public class UserController {
         } else if (!isAdmin.isEmpty()) {
             return ResponseEntity.ok(userService.filterByAdmin(Boolean.parseBoolean(isAdmin)));
         } else{
-            return ResponseEntity.ok(userService.getAll());
+            return ResponseEntity.ok(userService.findAll());
         }
     }
 

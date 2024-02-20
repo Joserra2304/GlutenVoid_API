@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserService {
 
-    List<User> getAll();
+    List<User> findAll();
 
     List<User> filterByAdmin(boolean isAdmin);
     List<User> filterByGlutenCondition(GlutenCondition glutenCondition);

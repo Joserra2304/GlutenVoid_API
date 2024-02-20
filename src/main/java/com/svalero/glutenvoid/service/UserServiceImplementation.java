@@ -15,17 +15,17 @@ public class UserServiceImplementation implements UserService {
     UserRepository userRepository;
 
     @Override
-    public List<User> getAll() {
-        return userRepository.getAll();
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
     @Override
     public List<User> filterByAdmin(boolean isAdmin) {
-        return userRepository.getByAdmin(isAdmin);
+        return userRepository.findByAdmin(isAdmin);
     }
 
     @Override
     public List<User> filterByGlutenCondition(GlutenCondition glutenCondition) {
-        return userRepository.getByGlutenCondition(glutenCondition);
+        return userRepository.findByGlutenCondition(glutenCondition);
     }
 }

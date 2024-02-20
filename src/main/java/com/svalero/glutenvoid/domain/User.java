@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity(name= "user")
 public class User {
 
     @Id
@@ -44,7 +45,7 @@ public class User {
     private GlutenCondition glutenCondition;
 
     @Column
-    private boolean isAdmin;
+    private boolean admin;
 }
 
 

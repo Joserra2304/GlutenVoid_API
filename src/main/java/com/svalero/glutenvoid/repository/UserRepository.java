@@ -10,10 +10,10 @@ import java.util.List;
 @Repository
 public interface UserRepository extends CrudRepository<User,Long> {
 
-    List<User> getAll();
+    List<User> findAll();
 
-    List<User> getByGlutenCondition(GlutenCondition glutenCondition);
+    List<User> findByGlutenCondition(GlutenCondition glutenCondition);
 
-    List<User> getByAdmin(boolean isAdmin);
+    List<User> findByAdmin(boolean isAdmin);
 
 }
