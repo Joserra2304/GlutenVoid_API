@@ -7,6 +7,6 @@ public class Recipe {
     private String description;
     private String ingredients;
     private String instructions;
-    private int cookTime;
+    private int preparationTime;
 
 }
