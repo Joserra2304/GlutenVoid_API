@@ -40,8 +40,8 @@ public class User {
     private String profileBio;
 
     @Column
-    @NotBlank
-    private String glutenCondition;
+    @Enumerated(EnumType.STRING)
+    private GlutenCondition glutenCondition;
 
     @Column
     private boolean isAdmin;
