@@ -38,9 +38,11 @@ public class User {
     private String password;
 
     @Column
+    @NotNull
     private String profileBio;
 
     @Column
+    @NotNull
     @Enumerated(EnumType.STRING)
     private GlutenCondition glutenCondition;
 

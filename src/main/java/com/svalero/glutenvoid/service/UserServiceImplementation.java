@@ -28,4 +28,9 @@ public class UserServiceImplementation implements UserService {
     public List<User> filterByGlutenCondition(GlutenCondition glutenCondition) {
         return userRepository.findByGlutenCondition(glutenCondition);
     }
+
+    @Override
+    public User addUser(User user) {
+        return userRepository.save(user);
+    }
 }

@@ -12,5 +12,5 @@ public interface UserService {
     List<User> filterByAdmin(boolean isAdmin);
     List<User> filterByGlutenCondition(GlutenCondition glutenCondition);
 
-
+    User addUser(User user);
 }
