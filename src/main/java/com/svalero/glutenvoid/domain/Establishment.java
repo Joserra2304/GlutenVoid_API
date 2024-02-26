@@ -28,12 +28,17 @@ public class Establishment {
     @Column
     private String description;
 
+
     @Column
     @PositiveOrZero
     private int phoneNumber;
 
     @Column
-    private String location;
+    private String address;
+
+    @Column
+    private String city;
+
 
     @Column
     private double latitude;

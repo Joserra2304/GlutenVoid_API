@@ -29,7 +29,6 @@ public class Product {
 
     @Column
     @NotNull
-    @NotBlank
     private boolean hasGluten;
 
     @Column
