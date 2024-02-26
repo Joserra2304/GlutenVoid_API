@@ -1,5 +1,7 @@
 package com.svalero.glutenvoid.domain;
 
+import com.svalero.glutenvoid.domain.heritages.EstablishmentFavourite;
+import com.svalero.glutenvoid.domain.heritages.RecipeFavourite;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -8,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -55,10 +58,10 @@ public class User {
     private boolean admin;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Recipe> recipes = new ArrayList<>();
+    private Set<RecipeFavourite> recipeFavourites = new HashSet<>();
 
-    @OneToMany(mappedBy = "user")
-    private Set<UserFavourite> favourites;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<EstablishmentFavourite> establishmentFavourites = new HashSet<>();
 }
 
 

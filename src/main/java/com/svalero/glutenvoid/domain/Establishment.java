@@ -1,5 +1,7 @@
 package com.svalero.glutenvoid.domain;
 
+import com.svalero.glutenvoid.domain.heritages.EstablishmentFavourite;
+import com.svalero.glutenvoid.domain.heritages.UserFavourite;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -53,5 +55,5 @@ public class Establishment {
     private boolean glutenFreeOption;
 
     @OneToMany(mappedBy = "establishment")
-    private Set<UserFavourite> favouredBy;
+    private Set<EstablishmentFavourite> favouredBy;
 }
