@@ -7,10 +7,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name= "user")
+@Entity(name = "user")
 public class User {
 
     @Id
@@ -48,6 +53,12 @@ public class User {
 
     @Column
     private boolean admin;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Recipe> recipes = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private Set<UserFavourite> favourites;
 }
 
 

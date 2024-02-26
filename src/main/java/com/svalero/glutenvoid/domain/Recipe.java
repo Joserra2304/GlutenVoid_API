@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity(name = "recipe")
 public class Recipe {
 
     @Id
@@ -31,5 +32,9 @@ public class Recipe {
 
     @Column
     private int preparationTime;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
 }

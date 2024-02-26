@@ -7,9 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
+@Entity(name= "establishment")
 public class Establishment {
 
     @Id
@@ -40,7 +45,8 @@ public class Establishment {
     private double rating;
 
     @Column
-    @NotBlank
     private boolean glutenFreeOption;
 
+    @OneToMany(mappedBy = "establishment")
+    private Set<UserFavourite> favouredBy;
 }
