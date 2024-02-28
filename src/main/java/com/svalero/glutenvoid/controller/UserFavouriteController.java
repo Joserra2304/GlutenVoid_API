@@ -17,13 +17,12 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/userFavourites")
 public class UserFavouriteController {
 
     @Autowired
     UserFavouriteService userFavouriteService;
 
-    @GetMapping
+    @GetMapping("/userFavourites")
     public ResponseEntity<?> getUserFavourites(
             @RequestParam(name = "id", required = true) Long userId,
             @RequestParam(name = "favouriteType", required = false) String favouriteType) {
@@ -45,7 +44,7 @@ public class UserFavouriteController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/userFavourites")
     public ResponseEntity<UserFavourite> addUserFavourite(@RequestBody UserFavouriteDto userFavouriteDto) {
         UserFavourite savedUserFavourite = userFavouriteService.addFavouriteUser(userFavouriteDto);
         return ResponseEntity.ok(savedUserFavourite);
