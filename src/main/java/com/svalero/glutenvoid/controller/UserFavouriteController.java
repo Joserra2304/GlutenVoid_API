@@ -38,10 +38,10 @@ public class UserFavouriteController {
             responseApi.setUsername(favourite.getUser().getUsername());
 
             if(favourite instanceof RecipeFavourite){
-                Recipe recipe = ((RecipeFavourite) favourite).getRecipe();
-                if(recipe != null){
-                    responseApi.setRecipeId(recipe.getId());
-                    responseApi.setRecipeName(recipe.getName());
+                RecipeFavourite recipeFavourite = (RecipeFavourite) favourite;
+                if(recipeFavourite.getRecipe() != null){
+                    responseApi.setRecipeId(recipeFavourite.getRecipe().getId());
+                    responseApi.setRecipeName(recipeFavourite.getRecipe().getName());
                 } else {
                     // Agregar log aquí para saber si recipe es null
                     System.out.println("Recipe is null for favourite id: " + favourite.getId());
@@ -49,10 +49,10 @@ public class UserFavouriteController {
             }
 
             if (favourite instanceof EstablishmentFavourite){
-                Establishment establishment = ((EstablishmentFavourite) favourite).getEstablishment();
-                if(establishment != null){
-                    responseApi.setEstablishmentId(establishment.getId());
-                    responseApi.setEstablishmentName(establishment.getName());
+                EstablishmentFavourite establishmentFavourite = (EstablishmentFavourite) favourite;
+                if(establishmentFavourite.getEstablishment() != null){
+                    responseApi.setEstablishmentId(establishmentFavourite.getEstablishment().getId());
+                    responseApi.setEstablishmentName(establishmentFavourite.getEstablishment().getName());
                 }
             }
             responseFavourites.add(responseApi);
