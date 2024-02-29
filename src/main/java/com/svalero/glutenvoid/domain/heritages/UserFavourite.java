@@ -2,6 +2,8 @@ package com.svalero.glutenvoid.domain.heritages;
 
 
 
+import com.svalero.glutenvoid.domain.Establishment;
+import com.svalero.glutenvoid.domain.Recipe;
 import com.svalero.glutenvoid.domain.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,5 +25,7 @@ public abstract class UserFavourite {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+
 }
 

@@ -55,30 +55,33 @@ public class UserFavouriteServiceImplementation implements UserFavouriteService 
 
     @Override
     public UserFavourite addFavouriteUser(UserFavouriteDto userFavouriteDto) {
+        User user = userRepository.findById(userFavouriteDto.getUserId())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user ID"));
 
         if(userFavouriteDto.getEstablishmentId() != null){
-            Establishment establishment = establishmentRepository.findById(userFavouriteDto.getEstablishmentId()).orElse(null);
-            User user = userRepository.findById(userFavouriteDto.getUserId()).orElse(null);
+            Establishment establishment = establishmentRepository.findById(userFavouriteDto.getEstablishmentId())
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid establishment ID"));
 
-            if(establishment != null && user != null){
-                EstablishmentFavourite favourite = new EstablishmentFavourite();
-                favourite.setUser(user);
-                favourite.setEstablishment(establishment);
-                return userFavouriteRepository.save(favourite);
-            }
-        } else if (userFavouriteDto.getRecipeId() != null){
-            Recipe recipe = recipeRepository.findById(userFavouriteDto.getRecipeId()).orElse(null);
-            User user = userRepository.findById(userFavouriteDto.getUserId()).orElse(null);
+            EstablishmentFavourite favourite = new EstablishmentFavourite();
+            favourite.setUser(user);
+            favourite.setEstablishment(establishment);
+            return userFavouriteRepository.save(favourite);
 
-            if(recipe != null && user != null){
-                RecipeFavourite favourite = new RecipeFavourite();
-                favourite.setUser(user);
-                favourite.setRecipe(recipe);
-                return userFavouriteRepository.save(favourite);
-            }
         }
-        return null;
+
+        if (userFavouriteDto.getRecipeId() != null){
+            Recipe recipe = recipeRepository.findById(userFavouriteDto.getRecipeId()).
+                orElseThrow(() -> new IllegalArgumentException("Invalid recipe ID"));
+
+            RecipeFavourite favourite = new RecipeFavourite();
+            favourite.setUser(user);
+            favourite.setRecipe(recipe);
+            return userFavouriteRepository.save(favourite);
+
+        }
+        throw new IllegalArgumentException("Favourite details are not specified");
     }
 
-
 }
+
+
