@@ -12,6 +12,8 @@ public interface UserRepository extends CrudRepository<User,Long> {
 
     List<User> findAll();
 
+
+
     List<User> findByGlutenCondition(GlutenCondition glutenCondition);
 
     List<User> findByAdmin(boolean isAdmin);

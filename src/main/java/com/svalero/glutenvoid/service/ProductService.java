@@ -9,6 +9,7 @@ public interface ProductService {
 
     List<Product> findAll();
 
+
     List<Product> filterByGluten(boolean hasGluten);
     List<Product> filterByCompany(String company);
 
