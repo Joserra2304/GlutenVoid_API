@@ -1,7 +1,8 @@
 package com.svalero.glutenvoid.repository;
 
-import com.svalero.glutenvoid.domain.Establishment;
 import com.svalero.glutenvoid.domain.User;
+import com.svalero.glutenvoid.domain.heritages.EstablishmentFavourite;
+import com.svalero.glutenvoid.domain.heritages.RecipeFavourite;
 import com.svalero.glutenvoid.domain.heritages.UserFavourite;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -13,8 +14,10 @@ public interface UserFavouriteRepository extends CrudRepository<UserFavourite, L
 
     List<UserFavourite> findAll();
 
-    List<UserFavourite> findByUser(User user);
+    List<UserFavourite> findByUserId(Long user_id);
 
-    List<UserFavourite> findByEstablishment (Establishment establishment);
+    List<EstablishmentFavourite> findEstablishmentFavouritesByUserId(Long user_id);
+
+    List<RecipeFavourite> findRecipeFavouritesByUserId(Long user_id);
 
 }

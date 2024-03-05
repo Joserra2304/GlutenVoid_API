@@ -20,6 +20,12 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
+    public User findById(long id) {
+        return userRepository.findById(id).orElseThrow();
+    }
+
+
+    @Override
     public List<User> filterByAdmin(boolean isAdmin) {
         return userRepository.findByAdmin(isAdmin);
     }

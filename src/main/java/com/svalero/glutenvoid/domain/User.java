@@ -1,7 +1,11 @@
 package com.svalero.glutenvoid.domain;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.svalero.glutenvoid.domain.heritages.EstablishmentFavourite;
 import com.svalero.glutenvoid.domain.heritages.RecipeFavourite;
+import com.svalero.glutenvoid.domain.heritages.UserFavourite;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -19,6 +23,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "user")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class User {
 
     @Id
@@ -62,6 +67,7 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<EstablishmentFavourite> establishmentFavourites = new HashSet<>();
+
 }
 
 
