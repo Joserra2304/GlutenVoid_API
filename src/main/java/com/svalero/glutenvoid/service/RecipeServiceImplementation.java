@@ -20,6 +20,11 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
+    public Recipe findById(long id) {
+        return recipeRepository.findById(id).orElseThrow();
+    }
+
+    @Override
     public List<Recipe> filterByName(String name) {
         return recipeRepository.findByName(name);
     }

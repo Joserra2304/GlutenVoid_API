@@ -30,6 +30,11 @@ public class UserController {
         }
     }
 
+    @GetMapping("/users/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable long id){
+        return ResponseEntity.ok(userService.findById(id));
+    }
+
     @PostMapping("/users")
     public  ResponseEntity<User> addUser(@Valid @RequestBody User user){
 

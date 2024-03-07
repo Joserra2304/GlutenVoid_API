@@ -8,6 +8,8 @@ public interface EstablishmentService {
 
     List<Establishment> findAll();
 
+    Establishment findById(long id);
+
     List<Establishment> filterByGlutenFree(boolean glutenFree);
     List<Establishment> filterByCity(String city);
 

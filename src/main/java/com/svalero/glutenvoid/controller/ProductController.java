@@ -2,6 +2,7 @@ package com.svalero.glutenvoid.controller;
 
 import com.svalero.glutenvoid.domain.GlutenCondition;
 import com.svalero.glutenvoid.domain.Product;
+import com.svalero.glutenvoid.domain.Recipe;
 import com.svalero.glutenvoid.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class ProductController {
         } else{
             return ResponseEntity.ok(productService.findAll());
         }
+    }
+
+    @GetMapping("/products/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable long id){
+        return ResponseEntity.ok(productService.findById(id));
     }
 
     @PostMapping("/products")

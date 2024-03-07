@@ -20,6 +20,11 @@ public class ProductServiceImplementation implements ProductService {
     }
 
     @Override
+    public Product findById(long id) {
+        return productRepository.findById(id).orElseThrow();
+    }
+
+    @Override
     public List<Product> filterByGluten(boolean hasGluten) {
         return productRepository.findByHasGluten(hasGluten);
     }

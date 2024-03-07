@@ -19,6 +19,11 @@ public class EstablishmentServiceImplementation implements EstablishmentService 
     }
 
     @Override
+    public Establishment findById(long id) {
+        return establishmentRepository.findById(id).orElseThrow();
+    }
+
+    @Override
     public List<Establishment> filterByGlutenFree(boolean glutenFree) {
         return establishmentRepository.findByGlutenFreeOption(glutenFree);
     }

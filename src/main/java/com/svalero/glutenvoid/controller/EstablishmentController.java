@@ -29,6 +29,11 @@ public class EstablishmentController {
         }
     }
 
+    @GetMapping("/establishment/{id}")
+    public ResponseEntity<Establishment> getEstablishmentById(@PathVariable long id){
+        return ResponseEntity.ok(establishmentService.findById(id));
+    }
+
     @PostMapping("/establishments")
     public ResponseEntity<Establishment> addEstablishment(@Valid @RequestBody Establishment establishment){
         Establishment newEstablishment = establishmentService.addEstablishment(establishment);

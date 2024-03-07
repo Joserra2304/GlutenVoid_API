@@ -37,6 +37,11 @@ public class RecipeController {
         }
     }
 
+    @GetMapping("/recipes/{id}")
+    public ResponseEntity<Recipe> getRecipeById(@PathVariable long id){
+        return ResponseEntity.ok(recipeService.findById(id));
+    }
+
     @PostMapping("/recipes")
     public ResponseEntity<Recipe> addRecipe(@Valid @RequestBody RecipeDto recipeDto){
 
