@@ -37,4 +37,10 @@ public class EstablishmentServiceImplementation implements EstablishmentService 
     public Establishment addEstablishment(Establishment establishment) {
         return establishmentRepository.save(establishment);
     }
+
+    @Override
+    public void deleteEstablishment(long id) {
+        Establishment deleteEstablishment = establishmentRepository.findById(id).orElseThrow();
+        establishmentRepository.delete(deleteEstablishment);
+    }
 }

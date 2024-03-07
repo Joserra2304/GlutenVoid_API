@@ -82,6 +82,12 @@ public class UserFavouriteServiceImplementation implements UserFavouriteService 
         throw new IllegalArgumentException("Favourite details are not specified");
     }
 
+    @Override
+    public void deleteFavourite(long id) {
+        UserFavourite deleteFavourite = userFavouriteRepository.findById(id).orElseThrow();
+        userFavouriteRepository.delete(deleteFavourite);
+    }
+
 }
 
 

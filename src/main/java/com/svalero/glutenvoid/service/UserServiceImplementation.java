@@ -39,4 +39,10 @@ public class UserServiceImplementation implements UserService {
     public User addUser(User user) {
         return userRepository.save(user);
     }
+
+    @Override
+    public void deleteUser(long id) {
+        User deleteUser = userRepository.findById(id).orElseThrow();
+        userRepository.delete(deleteUser);
+    }
 }

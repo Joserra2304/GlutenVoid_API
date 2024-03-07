@@ -38,4 +38,10 @@ public class RecipeServiceImplementation implements RecipeService {
     public Recipe addRecipe(Recipe recipe) {
         return recipeRepository.save(recipe);
     }
+
+    @Override
+    public void deleteRecipe(long id) {
+        Recipe deleteRecipe = recipeRepository.findById(id).orElseThrow();
+        recipeRepository.delete(deleteRecipe);
+    }
 }

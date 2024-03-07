@@ -14,4 +14,6 @@ public interface EstablishmentService {
     List<Establishment> filterByCity(String city);
 
     Establishment addEstablishment(Establishment establishment);
+
+    void deleteEstablishment(long id);
 }

@@ -39,4 +39,13 @@ public class EstablishmentController {
         Establishment newEstablishment = establishmentService.addEstablishment(establishment);
         return ResponseEntity.ok(newEstablishment);
     }
+
+    @DeleteMapping("/establishments/{id}")
+    public ResponseEntity<String> deleteEstablishment(@PathVariable long id){
+        establishmentService.deleteEstablishment(id);
+
+        String deleteMessage = "Establishment deleted successfully";
+        return  ResponseEntity.ok(deleteMessage);
+
+    }
 }
