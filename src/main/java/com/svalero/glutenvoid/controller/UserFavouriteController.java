@@ -103,4 +103,13 @@ public class UserFavouriteController {
 
         return ResponseEntity.ok(responseApi);
     }
+
+    @DeleteMapping("/userFavourites/{id}")
+    public ResponseEntity<String> deleteFavourite(@PathVariable long id){
+        userFavouriteService.deleteFavourite(id);
+
+        String deleteMessage = "Favourite deleted successfully";
+        return  ResponseEntity.ok(deleteMessage);
+
+    }
 }

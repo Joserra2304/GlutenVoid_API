@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class RecipeController {
@@ -61,6 +62,21 @@ public class RecipeController {
 
         Recipe newRecipe = recipeService.addRecipe(recipe);
         return ResponseEntity.ok(newRecipe);
+    }
+
+    @DeleteMapping("/recipes/{id}")
+    public ResponseEntity<String> deleteRecipe(@PathVariable long id){
+        recipeService.deleteRecipe(id);
+
+        String deleteMessage = "Recipe deleted successfully";
+        return  ResponseEntity.ok(deleteMessage);
+
+    }
+
+    @PatchMapping("/recipes/{id}")
+    public ResponseEntity<Recipe> updateRecipePartially(@PathVariable long id, @RequestBody Map<String, Object> updates){
+        Recipe updateRecipe = recipeService.updateRecipeByField(id, updates);
+        return  ResponseEntity.ok(updateRecipe);
     }
 
 

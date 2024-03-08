@@ -21,4 +21,8 @@ public interface UserFavouriteService {
 
     UserFavourite addFavouriteUser(UserFavouriteDto userFavouriteDto);
 
+    void deleteFavourite(long id);
+
+
+
 }

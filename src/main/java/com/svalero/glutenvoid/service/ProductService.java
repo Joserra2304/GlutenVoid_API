@@ -4,6 +4,7 @@ import com.svalero.glutenvoid.domain.GlutenCondition;
 import com.svalero.glutenvoid.domain.Product;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ProductService {
 
@@ -15,5 +16,9 @@ Product findById(long id);
     List<Product> filterByCompany(String company);
 
     Product addProduct(Product product);
+
+    void deleteProduct(long id);
+
+    Product updateProductByField(long id, Map<String, Object> updates);
 
 }
