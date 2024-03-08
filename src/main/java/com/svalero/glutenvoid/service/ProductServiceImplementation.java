@@ -2,6 +2,7 @@ package com.svalero.glutenvoid.service;
 
 import com.svalero.glutenvoid.domain.Product;
 import com.svalero.glutenvoid.domain.User;
+import com.svalero.glutenvoid.exception.ProductNotFoundException;
 import com.svalero.glutenvoid.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,17 +22,17 @@ public class ProductServiceImplementation implements ProductService {
     }
 
     @Override
-    public Product findById(long id) {
-        return productRepository.findById(id).orElseThrow();
+    public Product findById(long id) throws ProductNotFoundException {
+        return productRepository.findById(id).orElseThrow(ProductNotFoundException::new);
     }
 
     @Override
-    public List<Product> filterByGluten(boolean hasGluten) {
+    public List<Product> filterByGluten(boolean hasGluten) throws ProductNotFoundException {
         return productRepository.findByHasGluten(hasGluten);
     }
 
     @Override
-    public List<Product> filterByCompany(String company) {
+    public List<Product> filterByCompany(String company) throws ProductNotFoundException {
         return productRepository.findByCompany(company);
     }
 
@@ -41,13 +42,13 @@ public class ProductServiceImplementation implements ProductService {
     }
 
     @Override
-    public void deleteProduct(long id) {
-        Product deleteProduct = productRepository.findById(id).orElseThrow();
+    public void deleteProduct(long id) throws ProductNotFoundException {
+        Product deleteProduct = productRepository.findById(id).orElseThrow(ProductNotFoundException::new);
         productRepository.delete(deleteProduct);
     }
 
     @Override
-    public Product updateProductByField(long id, Map<String, Object> updates) {
+    public Product updateProductByField(long id, Map<String, Object> updates) throws ProductNotFoundException{
         Product newUpdate = findById(id);
 
         updates.forEach((key, value) -> {
