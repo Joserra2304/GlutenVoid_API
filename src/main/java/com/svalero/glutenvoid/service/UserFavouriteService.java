@@ -23,4 +23,6 @@ public interface UserFavouriteService {
 
     void deleteFavourite(long id);
 
+
+
 }

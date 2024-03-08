@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class RecipeServiceImplementation implements RecipeService {
@@ -43,5 +44,29 @@ public class RecipeServiceImplementation implements RecipeService {
     public void deleteRecipe(long id) {
         Recipe deleteRecipe = recipeRepository.findById(id).orElseThrow();
         recipeRepository.delete(deleteRecipe);
+    }
+
+    @Override
+    public Recipe updateRecipeByField(long id, Map<String, Object> updates) {
+        Recipe newUpdate = findById(id);
+
+        updates.forEach((key, value) -> {
+            switch (key) {
+                case "name":
+                    newUpdate.setName((String) value);
+                    break;
+                case "description":
+                    newUpdate.setDescription((String) value);
+                    break;
+                case "ingredients":
+                    newUpdate.setIngredients((String) value);
+                    break;
+                case "preparationTime":
+                    newUpdate.setPreparationTime(Integer.parseInt(value.toString()));
+                    break;
+            }
+        });
+
+        return recipeRepository.save(newUpdate);
     }
 }

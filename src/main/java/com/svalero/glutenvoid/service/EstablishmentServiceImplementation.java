@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class EstablishmentServiceImplementation implements EstablishmentService {
@@ -42,5 +43,45 @@ public class EstablishmentServiceImplementation implements EstablishmentService 
     public void deleteEstablishment(long id) {
         Establishment deleteEstablishment = establishmentRepository.findById(id).orElseThrow();
         establishmentRepository.delete(deleteEstablishment);
+    }
+
+    @Override
+    public Establishment updateEstablishmentByField(long id, Map<String, Object> updates) {
+        Establishment newUpdate = findById(id);
+
+        updates.forEach((key, value) -> {
+            switch (key) {
+                case "name":
+                    newUpdate.setName((String) value);
+                    break;
+                case "description":
+                    newUpdate.setDescription((String) value);
+                    break;
+                case "phoneNumber":
+                    newUpdate.setPhoneNumber(Integer.parseInt(value.toString()));
+                    break;
+                case "address":
+                    newUpdate.setAddress((String) value);
+                    break;
+                case "city":
+                    newUpdate.setCity((String) value);
+                    break;
+                case "latitude":
+                    newUpdate.setLatitude(Double.parseDouble(value.toString()));
+                    break;
+                case "longitude":
+                    newUpdate.setLongitude(Double.parseDouble(value.toString()));
+                    break;
+                case "rating":
+                    newUpdate.setRating(Double.parseDouble(value.toString()));
+                    break;
+                case "glutenFreeOption":
+                    newUpdate.setGlutenFreeOption(Boolean.parseBoolean(value.toString()));
+                    break;
+            }
+        });
+
+
+        return  establishmentRepository.save(newUpdate);
     }
 }

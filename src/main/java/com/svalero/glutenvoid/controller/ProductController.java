@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ProductController {
@@ -50,4 +51,12 @@ public class ProductController {
         return  ResponseEntity.ok(deleteMessage);
 
     }
-}
+
+    @PatchMapping("/products/{id}")
+    public ResponseEntity<Product> updateProductPartially(@PathVariable long id, @RequestBody Map<String, Object> updates) {
+        Product updateProduct = productService.updateProductByField(id, updates);
+        return ResponseEntity.ok(updateProduct);
+
+    }
+ }
+
