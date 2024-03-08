@@ -7,6 +7,8 @@ import com.svalero.glutenvoid.exception.EstablishmentNotFoundException;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.service.EstablishmentService;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,8 @@ import java.util.Map;
 
 @RestController
 public class EstablishmentController {
+
+    private final Logger logger = LoggerFactory.getLogger(EstablishmentController.class);
 
     @Autowired
     EstablishmentService establishmentService;
@@ -69,7 +73,7 @@ public class EstablishmentController {
 
     @ExceptionHandler(EstablishmentNotFoundException.class)
     public  ResponseEntity<ErrorMessage> establishmentNotFoundException(EstablishmentNotFoundException enfe){
-        //Logger
+       logger.error(enfe.getMessage(), enfe);
         ErrorMessage notFound = new ErrorMessage(404, enfe.getMessage());
         return new ResponseEntity<>(notFound, HttpStatus.NOT_FOUND);
     }
@@ -83,14 +87,14 @@ public class EstablishmentController {
             errors.put(fieldname, message);
         });
 
-        //Logger
+        logger.error(manve.getMessage(), manve);
         ErrorMessage badRequest = new ErrorMessage(400, "Bad Request", errors);
         return new ResponseEntity<>(badRequest, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorMessage> handleException(Exception e) {
-        //Logger
+        logger.error(e.getMessage(), e);
         ErrorMessage errorMessage = new ErrorMessage(500, "Internal Server Error");
         return new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
     }

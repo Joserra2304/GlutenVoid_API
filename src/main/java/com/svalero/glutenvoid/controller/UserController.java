@@ -75,7 +75,7 @@ public class UserController {
 
     @ExceptionHandler(UserNotFoundException.class)
     public  ResponseEntity<ErrorMessage> userNotFoundException(UserNotFoundException unfe){
-        //Logger
+        logger.error(unfe.getMessage(), unfe);
         ErrorMessage notFound = new ErrorMessage(404, unfe.getMessage());
         return new ResponseEntity<>(notFound, HttpStatus.NOT_FOUND);
     }
@@ -89,14 +89,14 @@ public class UserController {
             errors.put(fieldname, message);
         });
 
-       //Logger
+       logger.error(manve.getMessage(), manve);
         ErrorMessage badRequest = new ErrorMessage(400, "Bad Request", errors);
         return new ResponseEntity<>(badRequest, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorMessage> handleException(Exception e) {
-       //Logger
+        logger.error(e.getMessage(), e);
         ErrorMessage errorMessage = new ErrorMessage(500, "Internal Server Error");
         return new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
     }
