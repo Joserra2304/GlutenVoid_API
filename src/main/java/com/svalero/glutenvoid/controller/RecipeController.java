@@ -3,6 +3,7 @@ package com.svalero.glutenvoid.controller;
 import com.svalero.glutenvoid.domain.Recipe;
 import com.svalero.glutenvoid.domain.User;
 import com.svalero.glutenvoid.domain.dto.RecipeDto;
+import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.service.RecipeService;
 import com.svalero.glutenvoid.service.UserService;
 import jakarta.validation.Valid;
@@ -44,7 +45,7 @@ public class RecipeController {
     }
 
     @PostMapping("/recipes")
-    public ResponseEntity<Recipe> addRecipe(@Valid @RequestBody RecipeDto recipeDto){
+    public ResponseEntity<Recipe> addRecipe(@Valid @RequestBody RecipeDto recipeDto) throws UserNotFoundException {
 
         User user = userService.findById(recipeDto.getUserId());
         if(user == null){
