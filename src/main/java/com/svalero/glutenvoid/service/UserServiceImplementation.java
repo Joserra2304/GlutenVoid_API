@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+
 
 @Service
 public class UserServiceImplementation implements UserService {
@@ -94,6 +96,11 @@ public class UserServiceImplementation implements UserService {
         });
 
         return userRepository.save(newUpdate);
+    }
+
+    @Override
+    public Optional<User> loginRequest(String username, String password) {
+        return userRepository.findByUsernameAndPassword(username, password);
     }
 
 

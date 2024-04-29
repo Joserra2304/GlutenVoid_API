@@ -1,0 +1,162 @@
+2024-03-18 19:45:58,880 DEBUG o.j.l.LoggerProviders [background-preinit] Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2024-03-18 19:45:58,907 INFO o.s.b.StartupInfoLogger [main] Starting GlutenVoidApiApplication using Java 17.0.4.1 with PID 19152 (C:\Users\Aussar\Documents\MisCursos\DAM\3.Proyecto\GlutenVoid_API\target\classes started by Aussar in C:\Users\Aussar\Documents\MisCursos\DAM\3.Proyecto\GlutenVoid_API)
+2024-03-18 19:45:58,907 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-03-18 19:45:58,908 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-03-18 19:45:59,697 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-18 19:45:59,699 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2024-03-18 19:45:59,699 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-18 19:45:59,751 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-03-18 19:45:59,791 DEBUG c.z.h.HikariConfig [main] Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93
+2024-03-18 19:46:00,124 DEBUG c.z.h.HikariConfig [main] HikariPool-1 - configuration:
+2024-03-18 19:46:00,126 DEBUG c.z.h.HikariConfig [main] allowPoolSuspension.............false
+2024-03-18 19:46:00,126 DEBUG c.z.h.HikariConfig [main] autoCommit......................true
+2024-03-18 19:46:00,126 DEBUG c.z.h.HikariConfig [main] catalog.........................none
+2024-03-18 19:46:00,126 DEBUG c.z.h.HikariConfig [main] connectionInitSql...............none
+2024-03-18 19:46:00,127 DEBUG c.z.h.HikariConfig [main] connectionTestQuery.............none
+2024-03-18 19:46:00,127 DEBUG c.z.h.HikariConfig [main] connectionTimeout...............30000
+2024-03-18 19:46:00,127 DEBUG c.z.h.HikariConfig [main] dataSource......................none
+2024-03-18 19:46:00,127 DEBUG c.z.h.HikariConfig [main] dataSourceClassName.............none
+2024-03-18 19:46:00,127 DEBUG c.z.h.HikariConfig [main] dataSourceJNDI..................none
+2024-03-18 19:46:00,127 DEBUG c.z.h.HikariConfig [main] dataSourceProperties............{password=<masked>}
+2024-03-18 19:46:00,128 DEBUG c.z.h.HikariConfig [main] driverClassName................."com.mysql.cj.jdbc.Driver"
+2024-03-18 19:46:00,128 DEBUG c.z.h.HikariConfig [main] exceptionOverrideClassName......none
+2024-03-18 19:46:00,128 DEBUG c.z.h.HikariConfig [main] healthCheckProperties...........{}
+2024-03-18 19:46:00,128 DEBUG c.z.h.HikariConfig [main] healthCheckRegistry.............none
+2024-03-18 19:46:00,128 DEBUG c.z.h.HikariConfig [main] idleTimeout.....................600000
+2024-03-18 19:46:00,128 DEBUG c.z.h.HikariConfig [main] initializationFailTimeout.......1
+2024-03-18 19:46:00,128 DEBUG c.z.h.HikariConfig [main] isolateInternalQueries..........false
+2024-03-18 19:46:00,129 DEBUG c.z.h.HikariConfig [main] jdbcUrl.........................jdbc:mysql://localhost:3306/glutenvoid
+2024-03-18 19:46:00,129 DEBUG c.z.h.HikariConfig [main] keepaliveTime...................0
+2024-03-18 19:46:00,129 DEBUG c.z.h.HikariConfig [main] leakDetectionThreshold..........0
+2024-03-18 19:46:00,129 DEBUG c.z.h.HikariConfig [main] maxLifetime.....................1800000
+2024-03-18 19:46:00,129 DEBUG c.z.h.HikariConfig [main] maximumPoolSize.................10
+2024-03-18 19:46:00,129 DEBUG c.z.h.HikariConfig [main] metricRegistry..................none
+2024-03-18 19:46:00,130 DEBUG c.z.h.HikariConfig [main] metricsTrackerFactory...........none
+2024-03-18 19:46:00,130 DEBUG c.z.h.HikariConfig [main] minimumIdle.....................10
+2024-03-18 19:46:00,130 DEBUG c.z.h.HikariConfig [main] password........................<masked>
+2024-03-18 19:46:00,130 DEBUG c.z.h.HikariConfig [main] poolName........................"HikariPool-1"
+2024-03-18 19:46:00,130 DEBUG c.z.h.HikariConfig [main] readOnly........................false
+2024-03-18 19:46:00,130 DEBUG c.z.h.HikariConfig [main] registerMbeans..................false
+2024-03-18 19:46:00,131 DEBUG c.z.h.HikariConfig [main] scheduledExecutor...............none
+2024-03-18 19:46:00,131 DEBUG c.z.h.HikariConfig [main] schema..........................none
+2024-03-18 19:46:00,131 DEBUG c.z.h.HikariConfig [main] threadFactory...................internal
+2024-03-18 19:46:00,131 DEBUG c.z.h.HikariConfig [main] transactionIsolation............default
+2024-03-18 19:46:00,131 DEBUG c.z.h.HikariConfig [main] username........................"glutenvoid_admin"
+2024-03-18 19:46:00,131 DEBUG c.z.h.HikariConfig [main] validationTimeout...............5000
+2024-03-18 19:46:00,131 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2024-03-18 19:46:00,359 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@534762ed
+2024-03-18 19:46:00,360 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-03-18 19:46:00,462 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+2024-03-18 19:46:00,476 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@787e0f4c
+2024-03-18 19:46:00,503 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1851f003
+2024-03-18 19:46:00,532 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@77317ff7
+2024-03-18 19:46:00,564 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c1f0cfb
+2024-03-18 19:46:00,595 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@89903c4
+2024-03-18 19:46:00,626 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ebda1bb
+2024-03-18 19:46:00,658 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@42de8425
+2024-03-18 19:46:00,687 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@43e846eb
+2024-03-18 19:46:00,719 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e773931
+2024-03-18 19:46:00,741 DEBUG c.z.h.p.HikariPool [HikariPool-1 connection adder] HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+2024-03-18 19:46:01,389 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-18 19:46:01,510 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.EstablishmentController:
+	{PATCH [/establishments/{id}]}: updateEstablishmentPartially(long,Map)
+	{DELETE [/establishments/{id}]}: deleteEstablishment(long)
+	{GET [/establishments/{id}]}: getEstablishmentById(long)
+	{GET [/establishments]}: getEstablishments(String,String)
+	{POST [/establishments]}: addEstablishment(Establishment)
+2024-03-18 19:46:01,515 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.ProductController:
+	{PATCH [/products/{id}]}: updateProductPartially(long,Map)
+	{POST [/products]}: addProduct(Product)
+	{DELETE [/products/{id}]}: deleteProduct(long)
+	{GET [/products]}: getProducts(String,String)
+	{GET [/products/{id}]}: getProductById(long)
+2024-03-18 19:46:01,516 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.RecipeController:
+	{PATCH [/recipes/{id}]}: updateRecipePartially(long,Map)
+	{DELETE [/recipes/{id}]}: deleteRecipe(long)
+	{GET [/recipes]}: getRecipes(String,String)
+	{GET [/recipes/{id}]}: getRecipeById(long)
+	{POST [/recipes]}: addRecipe(RecipeDto)
+2024-03-18 19:46:01,518 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.UserController:
+	{POST [/users]}: addUser(User)
+	{PATCH [/users/{id}]}: updateUserPartially(long,Map)
+	{DELETE [/users/{id}]}: deleteUser(long)
+	{GET [/users/{id}]}: getUserById(long)
+	{GET [/users]}: getUsers(String,String)
+2024-03-18 19:46:01,519 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.UserFavouriteController:
+	{GET [/userFavourites]}: getAllFavourites()
+	{GET [/userFavourites/{id}]}: getUserFavourites(Long,String)
+	{POST [/userFavourites]}: addUserFavourite(UserFavouriteDto)
+	{DELETE [/userFavourites/{id}]}: deleteFavourite(long)
+2024-03-18 19:46:01,520 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2024-03-18 19:46:01,525 DEBUG o.s.w.s.h.AbstractDetectingUrlHandlerMapping [main] 'beanNameHandlerMapping' {}
+2024-03-18 19:46:01,579 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]}
+2024-03-18 19:46:01,706 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryController:
+	{OPTIONS [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForRepositories()
+	{HEAD [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForRepositories()
+	{GET [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: listRepositories()
+2024-03-18 19:46:01,708 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryEntityController:
+	{GET [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: getCollectionResource(RootResourceInformation,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{HEAD [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForItemResource(RootResourceInformation,Serializable,PersistentEntityResourceAssembler)
+	{HEAD [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headCollectionResource(RootResourceInformation,DefaultedPageable)
+	{GET [/{repository}], produces [application/x-spring-data-compact+json || text/uri-list]}: getCollectionResourceCompact(RootResourceInformation,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{OPTIONS [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForCollectionResource(RootResourceInformation)
+	{POST [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: postCollectionResource(RootResourceInformation,PersistentEntityResource,PersistentEntityResourceAssembler,String)
+	{OPTIONS [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForItemResource(RootResourceInformation)
+	{GET [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: getItemResource(RootResourceInformation,Serializable,PersistentEntityResourceAssembler,HttpHeaders)
+	{PUT [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: putItemResource(RootResourceInformation,PersistentEntityResource,Serializable,PersistentEntityResourceAssembler,ETag,String)
+	{DELETE [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deleteItemResource(RootResourceInformation,Serializable,ETag,PersistentEntityResourceAssembler,String)
+	{PATCH [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: patchItemResource(RootResourceInformation,PersistentEntityResource,Serializable,PersistentEntityResourceAssembler,ETag,String)
+2024-03-18 19:46:01,712 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryPropertyReferenceController:
+	{DELETE [/{repository}/{id}/{property}/{propertyId}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deletePropertyReferenceId(RootResourceInformation,Serializable,String,String)
+	{[PATCH, PUT, POST] [/{repository}/{id}/{property}], consumes [application/json || application/x-spring-data-compact+json || text/uri-list], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: createPropertyReference(RootResourceInformation,HttpMethod,CollectionModel,Serializable,String)
+	{GET [/{repository}/{id}/{property}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: followPropertyReference(RootResourceInformation,Serializable,String,RepresentationModelAssemblers)
+	{GET [/{repository}/{id}/{property}/{propertyId}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: followPropertyReference(RootResourceInformation,Serializable,String,String,RepresentationModelAssemblers)
+	{GET [/{repository}/{id}/{property}], produces [text/uri-list]}: followPropertyReferenceCompact(RootResourceInformation,Serializable,String,HttpHeaders,RepresentationModelAssemblers)
+	{DELETE [/{repository}/{id}/{property}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deletePropertyReference(RootResourceInformation,Serializable,String)
+2024-03-18 19:46:01,714 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositorySearchController:
+	{GET [/{repository}/search/{search}], produces [application/x-spring-data-compact+json]}: executeSearchCompact(RootResourceInformation,HttpHeaders,MultiValueMap,String,String,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{GET [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: listSearches(RootResourceInformation)
+	{OPTIONS [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForSearches(RootResourceInformation)
+	{GET [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: executeSearch(RootResourceInformation,MultiValueMap,String,DefaultedPageable,Sort,HttpHeaders,RepresentationModelAssemblers)
+	{OPTIONS [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForSearch(RootResourceInformation,String)
+	{HEAD [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForSearches(RootResourceInformation)
+	{HEAD [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForSearch(RootResourceInformation,String)
+2024-03-18 19:46:01,716 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositorySchemaController:
+	{GET [/profile/{repository}], produces [application/schema+json]}: schema(RootResourceInformation)
+2024-03-18 19:46:01,716 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.a.AlpsController:
+	{GET [/profile/{repository}], produces [application/alps+json || */*]}: descriptor(RootResourceInformation)
+	{OPTIONS [/profile/{repository}], produces [application/alps+json]}: alpsOptions()
+2024-03-18 19:46:01,717 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.ProfileController:
+	{GET [/profile]}: listAllFormsOfMetadata()
+	{OPTIONS [/profile]}: profileOptions()
+2024-03-18 19:46:01,745 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2024-03-18 19:46:01,765 INFO o.s.b.StartupInfoLogger [main] Started GlutenVoidApiApplication in 3.075 seconds (process running for 3.394)
+2024-03-18 19:46:30,463 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-03-18 19:46:30,463 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-03-18 19:47:00,471 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-03-18 19:47:00,471 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-03-18 19:47:30,477 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-03-18 19:47:30,477 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-03-18 19:48:00,479 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-03-18 19:48:00,479 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-03-18 19:48:30,483 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-03-18 19:48:30,483 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-03-18 19:49:00,487 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-03-18 19:49:00,487 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-03-18 19:49:30,503 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-03-18 19:49:30,503 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
