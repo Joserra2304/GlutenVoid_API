@@ -75,9 +75,6 @@ public class EstablishmentServiceImplementation implements EstablishmentService 
                 case "longitude":
                     newUpdate.setLongitude(Double.parseDouble(value.toString()));
                     break;
-                case "rating":
-                    newUpdate.setRating(Double.parseDouble(value.toString()));
-                    break;
                 case "glutenFreeOption":
                     newUpdate.setGlutenFreeOption(Boolean.parseBoolean(value.toString()));
                     break;
