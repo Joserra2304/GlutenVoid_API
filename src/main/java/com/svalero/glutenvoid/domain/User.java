@@ -53,8 +53,4 @@ public class User {
     @Column
     private boolean admin;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private Set<Recipe> recipes = new HashSet<>();
-
 }
