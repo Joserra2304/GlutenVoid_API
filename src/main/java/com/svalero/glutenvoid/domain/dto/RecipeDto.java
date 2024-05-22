@@ -17,8 +17,7 @@ public class RecipeDto {
     private String instructions;
     private int preparationTime;
 
-    private String userName;
-
+    private long userId;
 
     public RecipeDto(Recipe recipe) {
         this.id = recipe.getId();
@@ -27,6 +26,6 @@ public class RecipeDto {
         this.ingredients = recipe.getIngredients();
         this.instructions = recipe.getInstructions();
         this.preparationTime = recipe.getPreparationTime();
-        this.userName = recipe.getUser() != null ? recipe.getUser().getName() : null; // Manéjalo adecuadamente
+        this.userId = recipe.getUser() != null ? recipe.getUser().getId() : null;
     }
 }
