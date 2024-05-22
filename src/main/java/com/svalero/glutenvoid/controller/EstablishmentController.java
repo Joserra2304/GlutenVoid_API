@@ -1,10 +1,8 @@
 package com.svalero.glutenvoid.controller;
 
 import com.svalero.glutenvoid.domain.Establishment;
-import com.svalero.glutenvoid.domain.Product;
 import com.svalero.glutenvoid.exception.ErrorMessage;
 import com.svalero.glutenvoid.exception.EstablishmentNotFoundException;
-import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.service.EstablishmentService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
