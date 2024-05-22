@@ -33,7 +33,7 @@ public class Recipe {
     @Column
     private int preparationTime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 

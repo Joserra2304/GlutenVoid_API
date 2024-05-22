@@ -1,5 +1,6 @@
 package com.svalero.glutenvoid.domain.dto;
 
+import com.svalero.glutenvoid.domain.Recipe;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,16 @@ public class RecipeDto {
     private String instructions;
     private int preparationTime;
 
-    private long userId;
+    private String userName;
 
+
+    public RecipeDto(Recipe recipe) {
+        this.id = recipe.getId();
+        this.name = recipe.getName();
+        this.description = recipe.getDescription();
+        this.ingredients = recipe.getIngredients();
+        this.instructions = recipe.getInstructions();
+        this.preparationTime = recipe.getPreparationTime();
+        this.userName = recipe.getUser() != null ? recipe.getUser().getName() : null; // Manéjalo adecuadamente
+    }
 }

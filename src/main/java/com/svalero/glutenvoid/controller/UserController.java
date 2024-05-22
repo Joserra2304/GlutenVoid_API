@@ -3,6 +3,7 @@ package com.svalero.glutenvoid.controller;
 import com.svalero.glutenvoid.domain.GlutenCondition;
 import com.svalero.glutenvoid.domain.User;
 import com.svalero.glutenvoid.domain.dto.LoginRequest;
+import com.svalero.glutenvoid.domain.dto.UserDto;
 import com.svalero.glutenvoid.exception.ErrorMessage;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.service.UserService;
@@ -10,8 +11,7 @@ import jakarta.validation.Valid;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
@@ -47,11 +47,13 @@ public class UserController {
         }
     }
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable long id) throws UserNotFoundException {
-        logger.info("Usuario mostrado con el id: "+id);
-        return ResponseEntity.ok(userService.findById(id));
+    @GetMapping(value = "/users/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserDto> getUserById(@PathVariable Long id) throws UserNotFoundException {
+        User user = userService.findById(id);
+        UserDto userDto = new UserDto(user);
+        return ResponseEntity.ok(userDto);
     }
+
 
     @PostMapping("/users")
     public  ResponseEntity<User> addUser(@Valid @RequestBody User user){

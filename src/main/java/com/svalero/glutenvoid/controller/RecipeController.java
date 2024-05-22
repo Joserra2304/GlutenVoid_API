@@ -3,11 +3,13 @@ package com.svalero.glutenvoid.controller;
 import com.svalero.glutenvoid.domain.Recipe;
 import com.svalero.glutenvoid.domain.User;
 import com.svalero.glutenvoid.domain.dto.RecipeDto;
+import com.svalero.glutenvoid.domain.dto.RecipeResponseDto;
 import com.svalero.glutenvoid.exception.ErrorMessage;
 import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.service.RecipeService;
 import com.svalero.glutenvoid.service.UserService;
+import jakarta.persistence.NonUniqueResultException;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,25 +56,39 @@ public class RecipeController {
     }
 
     @PostMapping("/recipes")
-    public ResponseEntity<Recipe> addRecipe(@Valid @RequestBody RecipeDto recipeDto) throws UserNotFoundException {
-
-        User user = userService.findById(recipeDto.getUserId());
-        if(user == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+    public ResponseEntity<Object> addRecipe(@RequestBody RecipeDto recipeDto) {
+        try {
+            Recipe recipe = convertToEntity(recipeDto);
+            Recipe savedRecipe = recipeService.addRecipe(recipe);
+            RecipeDto responseDto = new RecipeDto(savedRecipe);
+            return new ResponseEntity<>(responseDto, HttpStatus.CREATED);
+        } catch (UserNotFoundException | NonUniqueResultException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
+    }
+
+
+    private Recipe convertToEntity(RecipeDto recipeDto) throws UserNotFoundException {
+        List<User> users = userService.findByName(recipeDto.getUserName());
+        if (users.isEmpty()) {
+            throw new UserNotFoundException("No user found with username: " + recipeDto.getUserName());
+        }
+        if (users.size() > 1) {
+            throw new NonUniqueResultException("More than one user found with username: " + recipeDto.getUserName());
+        }
+        User user = users.get(0);
 
         Recipe recipe = new Recipe();
         recipe.setName(recipeDto.getName());
         recipe.setDescription(recipeDto.getDescription());
-        recipe.setInstructions(recipeDto.getInstructions());
         recipe.setIngredients(recipeDto.getIngredients());
+        recipe.setInstructions(recipeDto.getInstructions());
         recipe.setPreparationTime(recipeDto.getPreparationTime());
         recipe.setUser(user);
 
-
-        Recipe newRecipe = recipeService.addRecipe(recipe);
-        return ResponseEntity.ok(newRecipe);
+        return recipe;
     }
+
 
     @DeleteMapping("/recipes/{id}")
     public ResponseEntity<String> deleteRecipe(@PathVariable long id) throws RecipeNotFoundException{
@@ -116,6 +132,16 @@ public class RecipeController {
        logger.error(e.getMessage(), e);
         ErrorMessage errorMessage = new ErrorMessage(500, "Internal Server Error");
         return new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<String> handleUserNotFound(UserNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
+
+    @ExceptionHandler(NonUniqueResultException.class)
+    public ResponseEntity<String> handleNonUniqueResult(NonUniqueResultException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
     }
 
 }

@@ -27,5 +27,5 @@ public interface UserService {
 
     Optional<User> loginRequest(String username, String password);
 
-
+    List<User> findByName(String name) throws UserNotFoundException;
 }
