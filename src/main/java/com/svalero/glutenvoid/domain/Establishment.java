@@ -1,7 +1,5 @@
 package com.svalero.glutenvoid.domain;
 
-import com.svalero.glutenvoid.domain.heritages.EstablishmentFavourite;
-import com.svalero.glutenvoid.domain.heritages.UserFavourite;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -9,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
 
 
 @Data
@@ -30,7 +27,6 @@ public class Establishment {
     @Column
     private String description;
 
-
     @Column
     @PositiveOrZero
     private int phoneNumber;
@@ -41,7 +37,6 @@ public class Establishment {
     @Column
     private String city;
 
-
     @Column
     private double latitude;
 
@@ -49,11 +44,5 @@ public class Establishment {
     private double longitude;
 
     @Column
-    private double rating;
-
-    @Column
     private boolean glutenFreeOption;
-
-    @OneToMany(mappedBy = "establishment")
-    private Set<EstablishmentFavourite> favouredBy;
 }
