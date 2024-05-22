@@ -1,6 +1,7 @@
 package com.svalero.glutenvoid.repository;
 
 import com.svalero.glutenvoid.domain.Recipe;
+import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,8 +12,8 @@ public interface RecipeRepository extends CrudRepository<Recipe, Long> {
 
     List<Recipe> findAll();
 
-    List<Recipe> findByName(String name);
+    List<Recipe> findByName(String name) throws RecipeNotFoundException;
 
-    List<Recipe> findByPreparationTime(int time);
+    List<Recipe> findByPreparationTime(int time) throws RecipeNotFoundException;
 
 }

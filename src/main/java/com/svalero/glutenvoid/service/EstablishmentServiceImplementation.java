@@ -1,6 +1,7 @@
 package com.svalero.glutenvoid.service;
 
 import com.svalero.glutenvoid.domain.Establishment;
+import com.svalero.glutenvoid.exception.EstablishmentNotFoundException;
 import com.svalero.glutenvoid.repository.EstablishmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,17 +21,17 @@ public class EstablishmentServiceImplementation implements EstablishmentService 
     }
 
     @Override
-    public Establishment findById(long id) {
-        return establishmentRepository.findById(id).orElseThrow();
+    public Establishment findById(long id) throws EstablishmentNotFoundException {
+        return establishmentRepository.findById(id).orElseThrow(EstablishmentNotFoundException::new);
     }
 
     @Override
-    public List<Establishment> filterByGlutenFree(boolean glutenFree) {
+    public List<Establishment> filterByGlutenFree(boolean glutenFree) throws EstablishmentNotFoundException {
         return establishmentRepository.findByGlutenFreeOption(glutenFree);
     }
 
     @Override
-    public List<Establishment> filterByCity(String city) {
+    public List<Establishment> filterByCity(String city) throws EstablishmentNotFoundException {
         return establishmentRepository.findByCity(city);
     }
 
@@ -40,13 +41,15 @@ public class EstablishmentServiceImplementation implements EstablishmentService 
     }
 
     @Override
-    public void deleteEstablishment(long id) {
-        Establishment deleteEstablishment = establishmentRepository.findById(id).orElseThrow();
+    public void deleteEstablishment(long id) throws EstablishmentNotFoundException{
+        Establishment deleteEstablishment = establishmentRepository.findById(id)
+                .orElseThrow(EstablishmentNotFoundException::new);
         establishmentRepository.delete(deleteEstablishment);
     }
 
     @Override
-    public Establishment updateEstablishmentByField(long id, Map<String, Object> updates) {
+    public Establishment updateEstablishmentByField(long id, Map<String, Object> updates)
+            throws EstablishmentNotFoundException {
         Establishment newUpdate = findById(id);
 
         updates.forEach((key, value) -> {

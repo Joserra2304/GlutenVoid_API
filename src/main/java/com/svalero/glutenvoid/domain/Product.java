@@ -21,6 +21,9 @@ public class Product {
     @NotBlank
     private String name;
 
+    @Column(unique = true)
+    private String barcode;
+
     @Column
     private String company;
 
@@ -28,10 +31,18 @@ public class Product {
     private String description;
 
     @Column
+    private String nutritionalInfo;
+
+    @Column
     @NotNull
     private boolean hasGluten;
 
     @Column
+    private String imageUrl;
+
+    @Column
     private double rating;
+
+
 
 }
