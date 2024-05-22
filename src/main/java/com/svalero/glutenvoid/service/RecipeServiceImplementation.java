@@ -1,6 +1,7 @@
 package com.svalero.glutenvoid.service;
 
 import com.svalero.glutenvoid.domain.Recipe;
+import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 import com.svalero.glutenvoid.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,17 +22,17 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-    public Recipe findById(long id) {
-        return recipeRepository.findById(id).orElseThrow();
+    public Recipe findById(long id) throws RecipeNotFoundException {
+        return recipeRepository.findById(id).orElseThrow(RecipeNotFoundException::new);
     }
 
     @Override
-    public List<Recipe> filterByName(String name) {
+    public List<Recipe> filterByName(String name) throws RecipeNotFoundException {
         return recipeRepository.findByName(name);
     }
 
     @Override
-    public List<Recipe> filterByPreparationTime(int time) {
+    public List<Recipe> filterByPreparationTime(int time) throws RecipeNotFoundException {
         return recipeRepository.findByPreparationTime(time);
     }
 
@@ -41,13 +42,13 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-    public void deleteRecipe(long id) {
-        Recipe deleteRecipe = recipeRepository.findById(id).orElseThrow();
+    public void deleteRecipe(long id) throws RecipeNotFoundException {
+        Recipe deleteRecipe = recipeRepository.findById(id).orElseThrow(RecipeNotFoundException::new);
         recipeRepository.delete(deleteRecipe);
     }
 
     @Override
-    public Recipe updateRecipeByField(long id, Map<String, Object> updates) {
+    public Recipe updateRecipeByField(long id, Map<String, Object> updates) throws RecipeNotFoundException {
         Recipe newUpdate = findById(id);
 
         updates.forEach((key, value) -> {

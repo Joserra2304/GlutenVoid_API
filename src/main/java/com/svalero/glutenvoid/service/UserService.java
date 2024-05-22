@@ -2,27 +2,30 @@ package com.svalero.glutenvoid.service;
 
 import com.svalero.glutenvoid.domain.GlutenCondition;
 import com.svalero.glutenvoid.domain.User;
+import com.svalero.glutenvoid.exception.UserNotFoundException;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public interface UserService {
 
 
     List<User> findAll();
 
-    User findById(long id);
+    User findById(long id) throws UserNotFoundException;
 
-    List<User> filterByAdmin(boolean isAdmin);
-    List<User> filterByGlutenCondition(GlutenCondition glutenCondition);
+    List<User> filterByAdmin(boolean isAdmin) throws UserNotFoundException;
+    List<User> filterByGlutenCondition(GlutenCondition glutenCondition) throws UserNotFoundException;
 
     User addUser(User user);
+    void deleteUser(long id)throws UserNotFoundException;
 
-    void deleteUser(long id);
+    User updateUser(long id, User updateUser) throws UserNotFoundException;
 
-    User updateUser(long id, User updateUser);
+    User updateUserByField(long id, Map<String, Object> updates) throws UserNotFoundException;
 
-    User updateUserByField(long id, Map<String, Object> updates);
+    Optional<User> loginRequest(String username, String password);
 
 
 }

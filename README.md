@@ -1,3 +1,5 @@
+_LOS FAVORITOS PASARAN A SER CAMBIOS FUTUROS_
+
 **<h2>API GLUTEN VOID</h2>** 
 
 Se ha creado una API, posteriormente comunicada con una APP Android, 
@@ -36,3 +38,4 @@ USER - ESTABLISHMENT - RECIPE - PRODUCT
 USER / RECIPE
 USER / ESTABLISHMENT
 ¿RECIPE / PRODUCT?
+

@@ -2,12 +2,15 @@ package com.svalero.glutenvoid.service;
 
 import com.svalero.glutenvoid.domain.GlutenCondition;
 import com.svalero.glutenvoid.domain.User;
+import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+
 
 @Service
 public class UserServiceImplementation implements UserService {
@@ -21,18 +24,18 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public User findById(long id) {
-        return userRepository.findById(id).orElseThrow();
+    public User findById(long id) throws UserNotFoundException {
+        return userRepository.findById(id).orElseThrow(UserNotFoundException::new);
     }
 
 
     @Override
-    public List<User> filterByAdmin(boolean isAdmin) {
+    public List<User> filterByAdmin(boolean isAdmin) throws UserNotFoundException {
         return userRepository.findByAdmin(isAdmin);
     }
 
     @Override
-    public List<User> filterByGlutenCondition(GlutenCondition glutenCondition) {
+    public List<User> filterByGlutenCondition(GlutenCondition glutenCondition) throws UserNotFoundException {
         return userRepository.findByGlutenCondition(glutenCondition);
     }
 
@@ -42,15 +45,15 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public void deleteUser(long id) {
-        User deleteUser = userRepository.findById(id).orElseThrow();
+    public void deleteUser(long id) throws UserNotFoundException {
+        User deleteUser = userRepository.findById(id).orElseThrow(UserNotFoundException::new);
         userRepository.delete(deleteUser);
     }
 
     @Override
-    public User updateUser(long id, User updateUser) {
+    public User updateUser(long id, User updateUser) throws UserNotFoundException {
 
-        User updatedUser = userRepository.findById(id).orElseThrow();
+        User updatedUser = userRepository.findById(id).orElseThrow(UserNotFoundException::new);
 
             updatedUser.setName(updateUser.getName());
             updatedUser.setSurname(updateUser.getSurname());
@@ -64,7 +67,7 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public User updateUserByField(long id, Map<String, Object> updates) {
+    public User updateUserByField(long id, Map<String, Object> updates) throws UserNotFoundException {
 
         User newUpdate = findById(id);
 
@@ -93,6 +96,11 @@ public class UserServiceImplementation implements UserService {
         });
 
         return userRepository.save(newUpdate);
+    }
+
+    @Override
+    public Optional<User> loginRequest(String username, String password) {
+        return userRepository.findByUsernameAndPassword(username, password);
     }
 
 

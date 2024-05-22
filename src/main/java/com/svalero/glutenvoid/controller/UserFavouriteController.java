@@ -63,7 +63,7 @@ public class UserFavouriteController {
 
     @GetMapping("/userFavourites/{id}")
     public ResponseEntity<?> getUserFavourites(
-            @RequestParam(name = "id", required = true) Long userId,
+            @RequestParam(name = "id") Long userId,
             @RequestParam(name = "favouriteType", required = false) String type) {
 
       if ("establishment".equalsIgnoreCase(type)) {
@@ -74,6 +74,8 @@ public class UserFavouriteController {
 
         return ResponseEntity.ok(userFavouriteService.filterByUser(userId));
     }
+
+
 
     @PostMapping("/userFavourites")
     public ResponseEntity<UserFavouriteResponseDto> addUserFavourite(@RequestBody UserFavouriteDto userFavouriteDto) {
