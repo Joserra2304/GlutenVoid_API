@@ -54,7 +54,7 @@ public class RecipeController {
     }
 
     @PostMapping("/recipes")
-    public ResponseEntity<Recipe> addRecipe(@Valid @RequestBody RecipeDto recipeDto) throws UserNotFoundException {
+    public ResponseEntity<RecipeDto> addRecipe(@Valid @RequestBody RecipeDto recipeDto) throws UserNotFoundException {
 
         User user = userService.findById(recipeDto.getUserId());
         if(user == null){
@@ -71,7 +71,9 @@ public class RecipeController {
 
 
         Recipe newRecipe = recipeService.addRecipe(recipe);
-        return ResponseEntity.ok(newRecipe);
+        RecipeDto responseDto = new RecipeDto(newRecipe);
+
+        return ResponseEntity.ok(responseDto);
     }
 
     @DeleteMapping("/recipes/{id}")
@@ -107,14 +109,14 @@ public class RecipeController {
         });
 
         logger.error(manve.getMessage(), manve);
-        ErrorMessage badRequest = new ErrorMessage(400, "Bad Request", errors);
+        ErrorMessage badRequest = new ErrorMessage(400, "Petición incorrecta", errors);
         return new ResponseEntity<>(badRequest, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorMessage> handleException(Exception e) {
         logger.error(e.getMessage(), e);
-        ErrorMessage errorMessage = new ErrorMessage(500, "Internal Server Error");
+        ErrorMessage errorMessage = new ErrorMessage(500, "Error interno del servidor");
         return new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
