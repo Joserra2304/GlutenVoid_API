@@ -1,6 +1,6 @@
 package com.svalero.glutenvoid.repository;
 
-import com.svalero.glutenvoid.domain.Recipe;
+import com.svalero.glutenvoid.domain.entity.Recipe;
 import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

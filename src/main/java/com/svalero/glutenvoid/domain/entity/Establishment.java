@@ -1,4 +1,4 @@
-package com.svalero.glutenvoid.domain;
+package com.svalero.glutenvoid.domain.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;

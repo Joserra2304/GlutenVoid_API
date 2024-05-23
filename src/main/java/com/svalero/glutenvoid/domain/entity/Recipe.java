@@ -1,4 +1,4 @@
-package com.svalero.glutenvoid.domain;
+package com.svalero.glutenvoid.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;

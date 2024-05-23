@@ -1,9 +1,7 @@
 package com.svalero.glutenvoid.controller;
 
-import com.svalero.glutenvoid.domain.Recipe;
-import com.svalero.glutenvoid.domain.User;
+import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.domain.dto.RecipeDto;
-import com.svalero.glutenvoid.domain.dto.UserDto;
 import com.svalero.glutenvoid.exception.ErrorMessage;
 import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
@@ -15,16 +13,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @RestController
 public class RecipeController {

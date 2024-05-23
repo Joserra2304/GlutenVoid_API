@@ -1,6 +1,6 @@
 package com.svalero.glutenvoid.domain.dto;
 
-import com.svalero.glutenvoid.domain.Recipe;
+import com.svalero.glutenvoid.domain.entity.Recipe;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

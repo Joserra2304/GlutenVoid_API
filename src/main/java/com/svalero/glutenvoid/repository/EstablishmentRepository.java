@@ -1,8 +1,7 @@
 package com.svalero.glutenvoid.repository;
 
-import com.svalero.glutenvoid.domain.Establishment;
+import com.svalero.glutenvoid.domain.entity.Establishment;
 import com.svalero.glutenvoid.exception.EstablishmentNotFoundException;
-import com.svalero.glutenvoid.exception.UserNotFoundException;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

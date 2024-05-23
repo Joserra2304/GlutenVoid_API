@@ -389,17 +389,17 @@ com.svalero.glutenvoid.exception.RecipeNotFoundException: Recipe not found
 2024-05-23 00:27:39,065 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
 2024-05-23 00:27:39,080 INFO o.s.b.StartupInfoLogger [main] Started GlutenVoidApiApplication in 2.576 seconds (process running for 2.856)
 2024-05-23 00:27:43,420 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-05-23 00:27:52,503 ERROR c.s.g.c.UserController [http-nio-8080-exec-6] Validation failed for classes [com.svalero.glutenvoid.domain.User] during persist time for groups [jakarta.validation.groups.Default, ]
+2024-05-23 00:27:52,503 ERROR c.s.g.c.UserController [http-nio-8080-exec-6] Validation failed for classes [com.svalero.glutenvoid.domain.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
 List of constraint violations:[
-	ConstraintViolationImpl{interpolatedMessage='no debe estar vacío', propertyPath=password, rootBeanClass=class com.svalero.glutenvoid.domain.User, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
-	ConstraintViolationImpl{interpolatedMessage='no debe estar vacío', propertyPath=email, rootBeanClass=class com.svalero.glutenvoid.domain.User, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
-	ConstraintViolationImpl{interpolatedMessage='no debe ser nulo', propertyPath=email, rootBeanClass=class com.svalero.glutenvoid.domain.User, messageTemplate='{jakarta.validation.constraints.NotNull.message}'}
+	ConstraintViolationImpl{interpolatedMessage='no debe estar vacï¿½o', propertyPath=password, rootBeanClass=class com.svalero.glutenvoid.domain.entity.User, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
+	ConstraintViolationImpl{interpolatedMessage='no debe estar vacï¿½o', propertyPath=email, rootBeanClass=class com.svalero.glutenvoid.domain.entity.User, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
+	ConstraintViolationImpl{interpolatedMessage='no debe ser nulo', propertyPath=email, rootBeanClass=class com.svalero.glutenvoid.domain.entity.User, messageTemplate='{jakarta.validation.constraints.NotNull.message}'}
 ]
-jakarta.validation.ConstraintViolationException: Validation failed for classes [com.svalero.glutenvoid.domain.User] during persist time for groups [jakarta.validation.groups.Default, ]
+jakarta.validation.ConstraintViolationException: Validation failed for classes [com.svalero.glutenvoid.domain.entity.User] during persist time for groups [jakarta.validation.groups.Default, ]
 List of constraint violations:[
-	ConstraintViolationImpl{interpolatedMessage='no debe estar vacío', propertyPath=password, rootBeanClass=class com.svalero.glutenvoid.domain.User, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
-	ConstraintViolationImpl{interpolatedMessage='no debe estar vacío', propertyPath=email, rootBeanClass=class com.svalero.glutenvoid.domain.User, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
-	ConstraintViolationImpl{interpolatedMessage='no debe ser nulo', propertyPath=email, rootBeanClass=class com.svalero.glutenvoid.domain.User, messageTemplate='{jakarta.validation.constraints.NotNull.message}'}
+	ConstraintViolationImpl{interpolatedMessage='no debe estar vacï¿½o', propertyPath=password, rootBeanClass=class com.svalero.glutenvoid.domain.entity.User, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
+	ConstraintViolationImpl{interpolatedMessage='no debe estar vacï¿½o', propertyPath=email, rootBeanClass=class com.svalero.glutenvoid.domain.entity.User, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
+	ConstraintViolationImpl{interpolatedMessage='no debe ser nulo', propertyPath=email, rootBeanClass=class com.svalero.glutenvoid.domain.entity.User, messageTemplate='{jakarta.validation.constraints.NotNull.message}'}
 ]
 	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:151)
 	at org.hibernate.boot.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:81)
@@ -967,8 +967,8 @@ com.svalero.glutenvoid.controller.RecipeController#addRecipe(RecipeDto) mapped.
 2024-05-23 00:37:24,844 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
 2024-05-23 00:37:24,858 INFO o.s.b.StartupInfoLogger [main] Started GlutenVoidApiApplication in 2.498 seconds (process running for 2.806)
 2024-05-23 00:37:50,352 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-05-23 00:37:50,397 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-2] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.Recipe>`
-2024-05-23 00:37:50,399 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-2] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.Recipe>`
+2024-05-23 00:37:50,397 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-2] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.entity.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.entity.Recipe>`
+2024-05-23 00:37:50,399 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-2] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.entity.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.entity.Recipe>`
 2024-05-23 00:37:50,401 ERROR c.s.g.c.UserController [http-nio-8080-exec-2] Content-Type 'application/json;charset=UTF-8' is not supported
 org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'application/json;charset=UTF-8' is not supported
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:213)
@@ -1023,8 +1023,8 @@ org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'applic
 	at java.base/java.lang.Thread.run(Thread.java:833)
 2024-05-23 00:37:53,820 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
 2024-05-23 00:37:53,821 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
-2024-05-23 00:38:18,565 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-4] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.Recipe>`
-2024-05-23 00:38:18,566 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-4] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.Recipe>`
+2024-05-23 00:38:18,565 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-4] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.entity.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.entity.Recipe>`
+2024-05-23 00:38:18,566 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-4] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.entity.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.entity.Recipe>`
 2024-05-23 00:38:18,566 ERROR c.s.g.c.UserController [http-nio-8080-exec-4] Content-Type 'application/json;charset=UTF-8' is not supported
 org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'application/json;charset=UTF-8' is not supported
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:213)
@@ -1377,8 +1377,8 @@ org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'applic
 2024-05-23 00:40:22,893 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
 2024-05-23 00:40:22,910 INFO o.s.b.StartupInfoLogger [main] Started GlutenVoidApiApplication in 2.691 seconds (process running for 2.969)
 2024-05-23 00:40:28,724 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-05-23 00:40:28,768 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-1] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.Recipe>`
-2024-05-23 00:40:28,769 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-1] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.Recipe>`
+2024-05-23 00:40:28,768 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-1] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.entity.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.entity.Recipe>`
+2024-05-23 00:40:28,769 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-1] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.entity.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.entity.Recipe>`
 2024-05-23 00:40:28,775 ERROR c.s.g.c.UserController [http-nio-8080-exec-1] Content-Type 'application/json;charset=UTF-8' is not supported
 org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'application/json;charset=UTF-8' is not supported
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:213)
@@ -1641,8 +1641,8 @@ com.svalero.glutenvoid.exception.UserNotFoundException: User not found
 2024-05-23 00:44:53,171 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
 2024-05-23 00:44:53,185 INFO o.s.b.StartupInfoLogger [main] Started GlutenVoidApiApplication in 2.552 seconds (process running for 2.879)
 2024-05-23 00:45:04,350 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-05-23 00:45:04,397 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-1] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.Recipe>`
-2024-05-23 00:45:04,398 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-1] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.Recipe>`
+2024-05-23 00:45:04,397 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-1] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.entity.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.entity.Recipe>`
+2024-05-23 00:45:04,398 WARN o.s.c.l.CompositeLog [http-nio-8080-exec-1] Failed to evaluate Jackson deserialization for type [[simple type, class com.svalero.glutenvoid.domain.entity.User]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot handle managed/back reference 'defaultReference': no back reference property found from type `java.util.Set<com.svalero.glutenvoid.domain.entity.Recipe>`
 2024-05-23 00:45:04,400 ERROR c.s.g.c.UserController [http-nio-8080-exec-1] Content-Type 'application/json;charset=UTF-8' is not supported
 org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'application/json;charset=UTF-8' is not supported
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:213)
@@ -2136,8 +2136,8 @@ com.svalero.glutenvoid.exception.UserNotFoundException: User not found
 2024-05-23 17:41:48,491 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
 2024-05-23 17:41:48,503 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2edc1360
 2024-05-23 17:41:48,532 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ef3ec2f
-2024-05-23 17:41:48,536 ERROR o.s.o.j.AbstractEntityManagerFactoryBean [main] Failed to initialize JPA EntityManagerFactory: Association 'com.svalero.glutenvoid.domain.User.recipes' is 'mappedBy' another entity and may not specify the '@JoinColumn'
-2024-05-23 17:41:48,536 WARN o.s.c.s.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Association 'com.svalero.glutenvoid.domain.User.recipes' is 'mappedBy' another entity and may not specify the '@JoinColumn'
+2024-05-23 17:41:48,536 ERROR o.s.o.j.AbstractEntityManagerFactoryBean [main] Failed to initialize JPA EntityManagerFactory: Association 'com.svalero.glutenvoid.domain.entity.User.recipes' is 'mappedBy' another entity and may not specify the '@JoinColumn'
+2024-05-23 17:41:48,536 WARN o.s.c.s.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Association 'com.svalero.glutenvoid.domain.entity.User.recipes' is 'mappedBy' another entity and may not specify the '@JoinColumn'
 2024-05-23 17:41:48,536 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
 2024-05-23 17:41:48,536 DEBUG c.z.h.p.HikariPool [main] HikariPool-1 - Before shutdown stats (total=3, active=0, idle=3, waiting=0)
 2024-05-23 17:41:48,537 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2830315f: (connection evicted)
@@ -2148,7 +2148,7 @@ com.svalero.glutenvoid.exception.UserNotFoundException: User not found
 2024-05-23 17:41:48,554 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Shutdown completed.
 2024-05-23 17:41:48,556 INFO o.a.j.l.DirectJDKLog [main] Stopping service [Tomcat]
 2024-05-23 17:41:48,574 ERROR o.s.b.SpringApplication [main] Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Association 'com.svalero.glutenvoid.domain.User.recipes' is 'mappedBy' another entity and may not specify the '@JoinColumn'
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Association 'com.svalero.glutenvoid.domain.entity.User.recipes' is 'mappedBy' another entity and may not specify the '@JoinColumn'
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
@@ -2166,7 +2166,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.svalero.glutenvoid.GlutenVoidApiApplication.main(GlutenVoidApiApplication.java:10)
-Caused by: org.hibernate.AnnotationException: Association 'com.svalero.glutenvoid.domain.User.recipes' is 'mappedBy' another entity and may not specify the '@JoinColumn'
+Caused by: org.hibernate.AnnotationException: Association 'com.svalero.glutenvoid.domain.entity.User.recipes' is 'mappedBy' another entity and may not specify the '@JoinColumn'
 	at org.hibernate.boot.model.internal.CollectionBinder.detectMappedByProblem(CollectionBinder.java:1274)
 	at org.hibernate.boot.model.internal.CollectionBinder.bind(CollectionBinder.java:1189)
 	at org.hibernate.boot.model.internal.CollectionBinder.bindCollection(CollectionBinder.java:364)
@@ -2441,7 +2441,7 @@ org.springframework.http.converter.HttpMessageConversionException: Type definiti
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: java.util.ArrayList[0]->com.svalero.glutenvoid.domain.Recipe["user"]->com.svalero.glutenvoid.domain.User$HibernateProxy$zXMOR2ee["hibernateLazyInitializer"])
+Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: java.util.ArrayList[0]->com.svalero.glutenvoid.domain.entity.Recipe["user"]->com.svalero.glutenvoid.domain.entity.User$HibernateProxy$zXMOR2ee["hibernateLazyInitializer"])
 	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
 	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1308)
 	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:414)
@@ -2578,7 +2578,7 @@ org.springframework.http.converter.HttpMessageConversionException: Type definiti
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.svalero.glutenvoid.domain.Recipe["user"]->com.svalero.glutenvoid.domain.User$HibernateProxy$zXMOR2ee["hibernateLazyInitializer"])
+Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.svalero.glutenvoid.domain.entity.Recipe["user"]->com.svalero.glutenvoid.domain.entity.User$HibernateProxy$zXMOR2ee["hibernateLazyInitializer"])
 	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
 	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1308)
 	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:414)
@@ -2651,7 +2651,7 @@ org.springframework.http.converter.HttpMessageConversionException: Type definiti
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.svalero.glutenvoid.domain.Recipe["user"]->com.svalero.glutenvoid.domain.User$HibernateProxy$zXMOR2ee["hibernateLazyInitializer"])
+Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.svalero.glutenvoid.domain.entity.Recipe["user"]->com.svalero.glutenvoid.domain.entity.User$HibernateProxy$zXMOR2ee["hibernateLazyInitializer"])
 	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
 	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1308)
 	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:414)
@@ -2724,7 +2724,7 @@ org.springframework.http.converter.HttpMessageConversionException: Type definiti
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: java.util.ArrayList[0]->com.svalero.glutenvoid.domain.Recipe["user"]->com.svalero.glutenvoid.domain.User$HibernateProxy$zXMOR2ee["hibernateLazyInitializer"])
+Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: java.util.ArrayList[0]->com.svalero.glutenvoid.domain.entity.Recipe["user"]->com.svalero.glutenvoid.domain.entity.User$HibernateProxy$zXMOR2ee["hibernateLazyInitializer"])
 	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
 	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1308)
 	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:414)
@@ -2800,7 +2800,7 @@ org.springframework.http.converter.HttpMessageConversionException: Type definiti
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: java.util.ArrayList[0]->com.svalero.glutenvoid.domain.Recipe["user"]->com.svalero.glutenvoid.domain.User$HibernateProxy$zXMOR2ee["hibernateLazyInitializer"])
+Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: java.util.ArrayList[0]->com.svalero.glutenvoid.domain.entity.Recipe["user"]->com.svalero.glutenvoid.domain.entity.User$HibernateProxy$zXMOR2ee["hibernateLazyInitializer"])
 	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
 	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1308)
 	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:414)
@@ -7000,3 +7000,146 @@ com.svalero.glutenvoid.exception.UserNotFoundException: User not found
 	at java.base/java.lang.Thread.run(Thread.java:833)
 2024-05-23 22:59:12,555 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
 2024-05-23 22:59:12,557 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-05-23 23:09:52,318 DEBUG o.j.l.LoggerProviders [background-preinit] Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2024-05-23 23:09:52,345 INFO o.s.b.StartupInfoLogger [main] Starting GlutenVoidApiApplication using Java 17.0.4.1 with PID 10016 (C:\Users\Aussar\Documents\MisCursos\DAM\3.Proyecto\PFC\GlutenVoid_API\target\classes started by Aussar in C:\Users\Aussar\Documents\MisCursos\DAM\3.Proyecto\PFC\GlutenVoid_API)
+2024-05-23 23:09:52,346 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-23 23:09:52,346 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-05-23 23:09:53,050 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-23 23:09:53,052 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2024-05-23 23:09:53,052 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-23 23:09:53,088 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-05-23 23:09:53,122 DEBUG c.z.h.HikariConfig [main] Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93
+2024-05-23 23:09:53,358 DEBUG c.z.h.HikariConfig [main] HikariPool-1 - configuration:
+2024-05-23 23:09:53,360 DEBUG c.z.h.HikariConfig [main] allowPoolSuspension.............false
+2024-05-23 23:09:53,361 DEBUG c.z.h.HikariConfig [main] autoCommit......................true
+2024-05-23 23:09:53,361 DEBUG c.z.h.HikariConfig [main] catalog.........................none
+2024-05-23 23:09:53,361 DEBUG c.z.h.HikariConfig [main] connectionInitSql...............none
+2024-05-23 23:09:53,361 DEBUG c.z.h.HikariConfig [main] connectionTestQuery.............none
+2024-05-23 23:09:53,361 DEBUG c.z.h.HikariConfig [main] connectionTimeout...............30000
+2024-05-23 23:09:53,361 DEBUG c.z.h.HikariConfig [main] dataSource......................none
+2024-05-23 23:09:53,361 DEBUG c.z.h.HikariConfig [main] dataSourceClassName.............none
+2024-05-23 23:09:53,362 DEBUG c.z.h.HikariConfig [main] dataSourceJNDI..................none
+2024-05-23 23:09:53,362 DEBUG c.z.h.HikariConfig [main] dataSourceProperties............{password=<masked>}
+2024-05-23 23:09:53,363 DEBUG c.z.h.HikariConfig [main] driverClassName................."com.mysql.cj.jdbc.Driver"
+2024-05-23 23:09:53,363 DEBUG c.z.h.HikariConfig [main] exceptionOverrideClassName......none
+2024-05-23 23:09:53,363 DEBUG c.z.h.HikariConfig [main] healthCheckProperties...........{}
+2024-05-23 23:09:53,363 DEBUG c.z.h.HikariConfig [main] healthCheckRegistry.............none
+2024-05-23 23:09:53,363 DEBUG c.z.h.HikariConfig [main] idleTimeout.....................600000
+2024-05-23 23:09:53,363 DEBUG c.z.h.HikariConfig [main] initializationFailTimeout.......1
+2024-05-23 23:09:53,363 DEBUG c.z.h.HikariConfig [main] isolateInternalQueries..........false
+2024-05-23 23:09:53,363 DEBUG c.z.h.HikariConfig [main] jdbcUrl.........................jdbc:mysql://localhost:3306/glutenvoid
+2024-05-23 23:09:53,363 DEBUG c.z.h.HikariConfig [main] keepaliveTime...................0
+2024-05-23 23:09:53,363 DEBUG c.z.h.HikariConfig [main] leakDetectionThreshold..........0
+2024-05-23 23:09:53,364 DEBUG c.z.h.HikariConfig [main] maxLifetime.....................1800000
+2024-05-23 23:09:53,364 DEBUG c.z.h.HikariConfig [main] maximumPoolSize.................10
+2024-05-23 23:09:53,364 DEBUG c.z.h.HikariConfig [main] metricRegistry..................none
+2024-05-23 23:09:53,364 DEBUG c.z.h.HikariConfig [main] metricsTrackerFactory...........none
+2024-05-23 23:09:53,364 DEBUG c.z.h.HikariConfig [main] minimumIdle.....................10
+2024-05-23 23:09:53,364 DEBUG c.z.h.HikariConfig [main] password........................<masked>
+2024-05-23 23:09:53,364 DEBUG c.z.h.HikariConfig [main] poolName........................"HikariPool-1"
+2024-05-23 23:09:53,364 DEBUG c.z.h.HikariConfig [main] readOnly........................false
+2024-05-23 23:09:53,364 DEBUG c.z.h.HikariConfig [main] registerMbeans..................false
+2024-05-23 23:09:53,364 DEBUG c.z.h.HikariConfig [main] scheduledExecutor...............none
+2024-05-23 23:09:53,364 DEBUG c.z.h.HikariConfig [main] schema..........................none
+2024-05-23 23:09:53,364 DEBUG c.z.h.HikariConfig [main] threadFactory...................internal
+2024-05-23 23:09:53,365 DEBUG c.z.h.HikariConfig [main] transactionIsolation............default
+2024-05-23 23:09:53,365 DEBUG c.z.h.HikariConfig [main] username........................"glutenvoid_admin"
+2024-05-23 23:09:53,365 DEBUG c.z.h.HikariConfig [main] validationTimeout...............5000
+2024-05-23 23:09:53,365 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2024-05-23 23:09:53,518 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a667f44
+2024-05-23 23:09:53,520 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-05-23 23:09:53,545 WARN o.h.e.j.d.i.DialectFactoryImpl [main] HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-23 23:09:53,545 WARN o.h.e.j.d.i.DialectFactoryImpl [main] HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-23 23:09:53,624 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+2024-05-23 23:09:53,637 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9cffb36
+2024-05-23 23:09:53,666 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69e00479
+2024-05-23 23:09:53,697 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@19ce38b2
+2024-05-23 23:09:53,726 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6dae1930
+2024-05-23 23:09:53,757 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@279136dc
+2024-05-23 23:09:53,787 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1efbc6cc
+2024-05-23 23:09:53,817 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b3ae3cb
+2024-05-23 23:09:53,848 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@217c58ed
+2024-05-23 23:09:53,879 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@40599e6f
+2024-05-23 23:09:53,902 DEBUG c.z.h.p.HikariPool [HikariPool-1 connection adder] HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+2024-05-23 23:09:54,379 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-23 23:09:54,491 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.EstablishmentController:
+	{POST [/establishments]}: addEstablishment(Establishment)
+	{GET [/establishments]}: getEstablishments(String,String)
+	{GET [/establishments/{id}]}: getEstablishmentById(long)
+	{DELETE [/establishments/{id}]}: deleteEstablishment(long)
+	{PATCH [/establishments/{id}]}: updateEstablishmentPartially(long,Map)
+2024-05-23 23:09:54,496 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.RecipeController:
+	{POST [/recipes]}: addRecipe(RecipeDto)
+	{DELETE [/recipes/{id}]}: deleteRecipe(long)
+	{GET [/recipes/{id}]}: getRecipeById(long)
+	{GET [/recipes]}: getRecipes(String,String)
+	{PATCH [/recipes/{id}]}: updateRecipePartially(long,Map)
+2024-05-23 23:09:54,497 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.UserController:
+	{POST [/users]}: addUser(User)
+	{DELETE [/users/{id}]}: deleteUser(long)
+	{POST [/users/login]}: loginRequest(LoginRequest)
+	{GET [/users]}: getUsers(String,String)
+	{GET [/users/{id}]}: getUserById(long)
+	{PATCH [/users/{id}]}: updateUserPartially(long,Map)
+2024-05-23 23:09:54,499 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2024-05-23 23:09:54,503 DEBUG o.s.w.s.h.AbstractDetectingUrlHandlerMapping [main] 'beanNameHandlerMapping' {}
+2024-05-23 23:09:54,547 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]}
+2024-05-23 23:09:54,655 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryController:
+	{OPTIONS [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForRepositories()
+	{HEAD [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForRepositories()
+	{GET [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: listRepositories()
+2024-05-23 23:09:54,658 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryEntityController:
+	{HEAD [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headCollectionResource(RootResourceInformation,DefaultedPageable)
+	{GET [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: getCollectionResource(RootResourceInformation,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{OPTIONS [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForCollectionResource(RootResourceInformation)
+	{GET [/{repository}], produces [application/x-spring-data-compact+json || text/uri-list]}: getCollectionResourceCompact(RootResourceInformation,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{POST [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: postCollectionResource(RootResourceInformation,PersistentEntityResource,PersistentEntityResourceAssembler,String)
+	{HEAD [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForItemResource(RootResourceInformation,Serializable,PersistentEntityResourceAssembler)
+	{OPTIONS [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForItemResource(RootResourceInformation)
+	{GET [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: getItemResource(RootResourceInformation,Serializable,PersistentEntityResourceAssembler,HttpHeaders)
+	{DELETE [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deleteItemResource(RootResourceInformation,Serializable,ETag,PersistentEntityResourceAssembler,String)
+	{PUT [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: putItemResource(RootResourceInformation,PersistentEntityResource,Serializable,PersistentEntityResourceAssembler,ETag,String)
+	{PATCH [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: patchItemResource(RootResourceInformation,PersistentEntityResource,Serializable,PersistentEntityResourceAssembler,ETag,String)
+2024-05-23 23:09:54,662 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryPropertyReferenceController:
+	{[PATCH, PUT, POST] [/{repository}/{id}/{property}], consumes [application/json || application/x-spring-data-compact+json || text/uri-list], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: createPropertyReference(RootResourceInformation,HttpMethod,CollectionModel,Serializable,String)
+	{DELETE [/{repository}/{id}/{property}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deletePropertyReference(RootResourceInformation,Serializable,String)
+	{GET [/{repository}/{id}/{property}/{propertyId}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: followPropertyReference(RootResourceInformation,Serializable,String,String,RepresentationModelAssemblers)
+	{GET [/{repository}/{id}/{property}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: followPropertyReference(RootResourceInformation,Serializable,String,RepresentationModelAssemblers)
+	{GET [/{repository}/{id}/{property}], produces [text/uri-list]}: followPropertyReferenceCompact(RootResourceInformation,Serializable,String,HttpHeaders,RepresentationModelAssemblers)
+	{DELETE [/{repository}/{id}/{property}/{propertyId}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deletePropertyReferenceId(RootResourceInformation,Serializable,String,String)
+2024-05-23 23:09:54,664 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositorySearchController:
+	{GET [/{repository}/search/{search}], produces [application/x-spring-data-compact+json]}: executeSearchCompact(RootResourceInformation,HttpHeaders,MultiValueMap,String,String,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{OPTIONS [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForSearches(RootResourceInformation)
+	{OPTIONS [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForSearch(RootResourceInformation,String)
+	{HEAD [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForSearches(RootResourceInformation)
+	{GET [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: executeSearch(RootResourceInformation,MultiValueMap,String,DefaultedPageable,Sort,HttpHeaders,RepresentationModelAssemblers)
+	{GET [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: listSearches(RootResourceInformation)
+	{HEAD [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForSearch(RootResourceInformation,String)
+2024-05-23 23:09:54,666 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositorySchemaController:
+	{GET [/profile/{repository}], produces [application/schema+json]}: schema(RootResourceInformation)
+2024-05-23 23:09:54,667 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.a.AlpsController:
+	{GET [/profile/{repository}], produces [application/alps+json || */*]}: descriptor(RootResourceInformation)
+	{OPTIONS [/profile/{repository}], produces [application/alps+json]}: alpsOptions()
+2024-05-23 23:09:54,667 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.ProfileController:
+	{GET [/profile]}: listAllFormsOfMetadata()
+	{OPTIONS [/profile]}: profileOptions()
+2024-05-23 23:09:54,688 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2024-05-23 23:09:54,703 INFO o.s.b.StartupInfoLogger [main] Started GlutenVoidApiApplication in 2.585 seconds (process running for 2.956)
+2024-05-23 23:10:05,636 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-23 23:10:23,639 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-05-23 23:10:23,640 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-05-23 23:10:53,649 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2024-05-23 23:10:53,650 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).

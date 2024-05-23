@@ -1,4 +1,4 @@
-package com.svalero.glutenvoid.domain;
+package com.svalero.glutenvoid.domain.enumeration;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;

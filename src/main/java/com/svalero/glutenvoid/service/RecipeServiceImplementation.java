@@ -1,6 +1,6 @@
 package com.svalero.glutenvoid.service;
 
-import com.svalero.glutenvoid.domain.Recipe;
+import com.svalero.glutenvoid.domain.entity.Recipe;
 import com.svalero.glutenvoid.domain.dto.RecipeDto;
 import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 import com.svalero.glutenvoid.repository.RecipeRepository;

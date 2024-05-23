@@ -1,9 +1,6 @@
 package com.svalero.glutenvoid.service;
 
 
-import com.svalero.glutenvoid.domain.GlutenCondition;
-import com.svalero.glutenvoid.domain.Recipe;
-import com.svalero.glutenvoid.domain.User;
 import com.svalero.glutenvoid.domain.dto.RecipeDto;
 import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 

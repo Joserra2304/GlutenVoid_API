@@ -1,7 +1,7 @@
 package com.svalero.glutenvoid.service;
 
-import com.svalero.glutenvoid.domain.GlutenCondition;
-import com.svalero.glutenvoid.domain.User;
+import com.svalero.glutenvoid.domain.enumeration.GlutenCondition;
+import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

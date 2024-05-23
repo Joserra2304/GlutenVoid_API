@@ -1,6 +1,6 @@
 package com.svalero.glutenvoid.service;
 
-import com.svalero.glutenvoid.domain.Establishment;
+import com.svalero.glutenvoid.domain.entity.Establishment;
 import com.svalero.glutenvoid.exception.EstablishmentNotFoundException;
 import com.svalero.glutenvoid.repository.EstablishmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,8 @@
 package com.svalero.glutenvoid.service;
 
-import com.svalero.glutenvoid.domain.GlutenCondition;
-import com.svalero.glutenvoid.domain.User;
+import com.svalero.glutenvoid.domain.enumeration.GlutenCondition;
+import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
-import org.hibernate.Hibernate;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
