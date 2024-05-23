@@ -1,4 +1,4 @@
-package com.svalero.glutenvoid.domain.dto;
+package com.svalero.glutenvoid.domain;
 
 public class LoginRequest {
     private String username;

@@ -1,8 +1,8 @@
 package com.svalero.glutenvoid.controller;
 
 import com.svalero.glutenvoid.domain.GlutenCondition;
+import com.svalero.glutenvoid.domain.LoginRequest;
 import com.svalero.glutenvoid.domain.User;
-import com.svalero.glutenvoid.domain.dto.LoginRequest;
 import com.svalero.glutenvoid.exception.ErrorMessage;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.service.UserService;
@@ -15,8 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
 
 
 import java.util.HashMap;
@@ -109,7 +107,7 @@ public class UserController {
             errors.put(fieldname, message);
         });
 
-       logger.error(manve.getMessage(), manve);
+        logger.error(manve.getMessage(), manve);
         ErrorMessage badRequest = new ErrorMessage(400, "Bad Request", errors);
         return new ResponseEntity<>(badRequest, HttpStatus.BAD_REQUEST);
     }

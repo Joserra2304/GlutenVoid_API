@@ -16,4 +16,5 @@ public interface RecipeRepository extends CrudRepository<Recipe, Long> {
 
     List<Recipe> findByPreparationTime(int time) throws RecipeNotFoundException;
 
+
 }
