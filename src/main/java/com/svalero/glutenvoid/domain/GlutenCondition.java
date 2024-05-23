@@ -16,12 +16,17 @@ public enum GlutenCondition {
             String key = jsonParser.getText().toLowerCase();
             switch (key) {
                 case "sensibilidad":
+                case "sensitivity":
                     return Sensibilidad;
                 case "ninguna":
+                case "none":
                     return Ninguna;
                 case "celiaquia":
+                case "coeliac":
+                case "celiac":
                     return Celiaquia;
                 case "alergia":
+                case "alergy":
                     return Alergia;
                 default:
                     throw new IllegalArgumentException("Unknown value: " + key);

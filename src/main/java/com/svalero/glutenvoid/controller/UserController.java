@@ -37,10 +37,13 @@ public class UserController {
             throws UserNotFoundException{
 
         if(!glutenCondition.isEmpty()){
+            logger.info("Usuarios filtrados por tipo de condición");
             return ResponseEntity.ok(userService.filterByGlutenCondition(GlutenCondition.valueOf(glutenCondition.toUpperCase())));
         } else if (!isAdmin.isEmpty()) {
+            logger.info("Usuarios filtrados por privilegio");
             return ResponseEntity.ok(userService.filterByAdmin(Boolean.parseBoolean(isAdmin)));
         } else{
+            logger.info("Listado de Usuarios");
             return ResponseEntity.ok(userService.findAll());
         }
     }
@@ -53,31 +56,28 @@ public class UserController {
 
     @PostMapping("/users")
     public  ResponseEntity<User> addUser(@Valid @RequestBody User user){
-
         User newUser = userService.addUser(user);
-        return ResponseEntity.ok(newUser);
+        logger.info(newUser.getName() + ", con ID:" + newUser.getId() + ", ha sido registrado");
+        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 
     @PostMapping("/users/login")
     public ResponseEntity<?> loginRequest(@RequestBody LoginRequest loginRequest) {
         Optional<User> userOpt = userService.loginRequest(loginRequest.getUsername(), loginRequest.getPassword());
         if (userOpt.isPresent()) {
+            logger.info(loginRequest.getUsername() + " se ha logueado");
             return ResponseEntity.ok(userOpt.get());
         } else {
+            logger.info("Credenciales incorrectas");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas");
         }
     }
 
-
-
-
-
-
     @DeleteMapping("/users/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable long id) throws UserNotFoundException{
         userService.deleteUser(id);
-
         String deleteMessage = "User deleted successfully";
+        logger.info("Usuario borrado exitosamenete");
         return  ResponseEntity.ok(deleteMessage);
 
     }
@@ -86,6 +86,8 @@ public class UserController {
     public ResponseEntity<User> updateUserPartially(@PathVariable long id, @RequestBody Map<String, Object> updates)
             throws UserNotFoundException{
         User updateUser = userService.updateUserByField(id, updates);
+
+        logger.info("Datos de "+updateUser.getName()+" actualizados");
         return  ResponseEntity.ok(updateUser);
     }
 

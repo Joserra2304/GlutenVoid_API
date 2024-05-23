@@ -40,16 +40,20 @@ public class RecipeController {
             throws RecipeNotFoundException {
 
         if (!name.isEmpty()) {
+            logger.info("Recetas filtradas por nombre de receta");
             return ResponseEntity.ok(recipeService.filterByName(name));
         } else if (!time.isEmpty()) {
+            logger.info("Recetas filtradas por tiempo de preparación");
             return ResponseEntity.ok(recipeService.filterByPreparationTime(Integer.parseInt(time)));
         } else {
+            logger.info("Listado de Recetas");
             return ResponseEntity.ok(recipeService.findAll());
         }
     }
 
     @GetMapping("/recipes/{id}")
     public ResponseEntity<Recipe> getRecipeById(@PathVariable long id) throws RecipeNotFoundException{
+        logger.info("Receta mostrada con el id: "+id);
         return ResponseEntity.ok(recipeService.findById(id));
     }
 
@@ -71,6 +75,8 @@ public class RecipeController {
 
 
         Recipe newRecipe = recipeService.addRecipe(recipe);
+        logger.info(recipe.getName() + ", con ID:" + recipe.getId()
+                + ", perteneciente a: " + user.getUsername() + ", ha sido registrada");
         return ResponseEntity.ok(newRecipe);
     }
 
@@ -79,6 +85,8 @@ public class RecipeController {
         recipeService.deleteRecipe(id);
 
         String deleteMessage = "Recipe deleted successfully";
+
+        logger.info("Receta borrada exitosamente");
         return  ResponseEntity.ok(deleteMessage);
 
     }
@@ -87,6 +95,7 @@ public class RecipeController {
     public ResponseEntity<Recipe> updateRecipePartially(
             @PathVariable long id, @RequestBody Map<String, Object> updates) throws RecipeNotFoundException{
         Recipe updateRecipe = recipeService.updateRecipeByField(id, updates);
+        logger.info("Datos de "+updateRecipe.getName()+" actualizados");
         return  ResponseEntity.ok(updateRecipe);
     }
 
