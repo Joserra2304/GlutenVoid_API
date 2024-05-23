@@ -1,5 +1,4 @@
 package com.svalero.glutenvoid.controller;
-
 import com.svalero.glutenvoid.domain.GlutenCondition;
 import com.svalero.glutenvoid.domain.LoginRequest;
 import com.svalero.glutenvoid.domain.User;
@@ -67,11 +66,6 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas");
         }
     }
-
-
-
-
-
 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable long id) throws UserNotFoundException{
