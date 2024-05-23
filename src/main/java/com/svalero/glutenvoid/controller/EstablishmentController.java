@@ -33,22 +33,27 @@ public class EstablishmentController {
             throws EstablishmentNotFoundException {
 
         if(!city.isEmpty()){
+            logger.info("Establecimientos filtrados por ciudad");
             return ResponseEntity.ok(establishmentService.filterByCity(city));
         } else if (!glutenFree.isEmpty()) {
+            logger.info("Establecimientos filtrados por opción sin gluten");
             return ResponseEntity.ok(establishmentService.filterByGlutenFree(Boolean.parseBoolean(glutenFree)));
         } else{
+            logger.info("Listado de Establecimientps");
             return ResponseEntity.ok(establishmentService.findAll());
         }
     }
 
     @GetMapping("/establishments/{id}")
     public ResponseEntity<Establishment> getEstablishmentById(@PathVariable long id) throws EstablishmentNotFoundException{
+        logger.info("Establecimiento mostrado con el id: "+id);
         return ResponseEntity.ok(establishmentService.findById(id));
     }
 
     @PostMapping("/establishments")
     public ResponseEntity<Establishment> addEstablishment(@Valid @RequestBody Establishment establishment){
         Establishment newEstablishment = establishmentService.addEstablishment(establishment);
+        logger.info(newEstablishment.getName() + ", con ID:" + newEstablishment.getId() + ", ha sido registrado");
         return ResponseEntity.ok(newEstablishment);
     }
 
@@ -57,6 +62,7 @@ public class EstablishmentController {
         establishmentService.deleteEstablishment(id);
 
         String deleteMessage = "Establishment deleted successfully";
+        logger.info("Establecimiento borrado exitosamente");
         return  ResponseEntity.ok(deleteMessage);
 
     }
@@ -66,6 +72,7 @@ public class EstablishmentController {
                     @PathVariable long id, @RequestBody Map<String, Object> updates)
             throws EstablishmentNotFoundException{
        Establishment updateEstablishment = establishmentService.updateEstablishmentByField(id, updates);
+        logger.info("Datos de " + updateEstablishment.getName() + " actualizados");
         return ResponseEntity.ok(updateEstablishment);
     }
 
