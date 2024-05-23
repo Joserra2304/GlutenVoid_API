@@ -1,6 +1,6 @@
 package com.svalero.glutenvoid.controller;
 
-import com.svalero.glutenvoid.domain.Establishment;
+import com.svalero.glutenvoid.domain.entity.Establishment;
 import com.svalero.glutenvoid.exception.ErrorMessage;
 import com.svalero.glutenvoid.exception.EstablishmentNotFoundException;
 import com.svalero.glutenvoid.service.EstablishmentService;

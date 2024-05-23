@@ -1,7 +1,7 @@
 package com.svalero.glutenvoid.service;
 
-import com.svalero.glutenvoid.domain.GlutenCondition;
-import com.svalero.glutenvoid.domain.User;
+import com.svalero.glutenvoid.domain.enumeration.GlutenCondition;
+import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
 
 import java.util.List;
@@ -27,5 +27,5 @@ public interface UserService {
 
     Optional<User> loginRequest(String username, String password);
 
-
+    List<User> findByName(String name) throws UserNotFoundException;
 }

@@ -1,7 +1,7 @@
 package com.svalero.glutenvoid.service;
 
-import com.svalero.glutenvoid.domain.GlutenCondition;
-import com.svalero.glutenvoid.domain.User;
+import com.svalero.glutenvoid.domain.enumeration.GlutenCondition;
+import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +35,8 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public List<User> filterByGlutenCondition(GlutenCondition glutenCondition) throws UserNotFoundException {
-        return userRepository.findByGlutenCondition(glutenCondition);
+    public List<User> filterByGlutenCondition(GlutenCondition gluten_condition) throws UserNotFoundException {
+        return userRepository.findByGlutenCondition(gluten_condition);
     }
 
     @Override
@@ -55,14 +55,14 @@ public class UserServiceImplementation implements UserService {
 
         User updatedUser = userRepository.findById(id).orElseThrow(UserNotFoundException::new);
 
-            updatedUser.setName(updateUser.getName());
-            updatedUser.setSurname(updateUser.getSurname());
-            updatedUser.setUsername(updateUser.getUsername());
-            updatedUser.setEmail(updateUser.getEmail());
-            updatedUser.setProfileBio(updateUser.getProfileBio());
-            updatedUser.setGlutenCondition(updateUser.getGlutenCondition());
+        updatedUser.setName(updateUser.getName());
+        updatedUser.setSurname(updateUser.getSurname());
+        updatedUser.setUsername(updateUser.getUsername());
+        updatedUser.setEmail(updateUser.getEmail());
+        updatedUser.setProfileBio(updateUser.getProfileBio());
+        updatedUser.setGlutenCondition(updateUser.getGlutenCondition());
 
-            return userRepository.save(updatedUser);
+        return userRepository.save(updatedUser);
 
     }
 
@@ -82,13 +82,13 @@ public class UserServiceImplementation implements UserService {
                 case"email":
                     newUpdate.setEmail((String) value);
                     break;
-                case"profileBio":
+                case"profile_bio":
                     newUpdate.setProfileBio((String) value);
                     break;
                 case"admin":
                     newUpdate.setAdmin(Boolean.parseBoolean(value.toString()));
                     break;
-                case"glutenCondition":
+                case"gluten_condition":
                     GlutenCondition glutenCondition = GlutenCondition.valueOf((String) value);
                     newUpdate.setGlutenCondition(glutenCondition);
                     break;
@@ -101,6 +101,15 @@ public class UserServiceImplementation implements UserService {
     @Override
     public Optional<User> loginRequest(String username, String password) {
         return userRepository.findByUsernameAndPassword(username, password);
+    }
+
+    @Override
+    public List<User> findByName(String name) throws UserNotFoundException {
+        List<User> users = userRepository.findByName(name);
+        if (users.isEmpty()) {
+            throw new UserNotFoundException("User not found");
+        }
+        return users;
     }
 
 

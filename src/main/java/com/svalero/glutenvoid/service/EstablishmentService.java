@@ -1,6 +1,6 @@
 package com.svalero.glutenvoid.service;
 
-import com.svalero.glutenvoid.domain.Establishment;
+import com.svalero.glutenvoid.domain.entity.Establishment;
 import com.svalero.glutenvoid.exception.EstablishmentNotFoundException;
 
 import java.util.List;

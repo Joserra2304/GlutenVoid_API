@@ -1,12 +1,15 @@
-package com.svalero.glutenvoid.domain;
+package com.svalero.glutenvoid.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.svalero.glutenvoid.domain.enumeration.GlutenCondition;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.List;
+
 
 @Data
 @AllArgsConstructor
@@ -39,16 +42,17 @@ public class User {
     @NotBlank
     private String password;
 
-    @Column
+    @Column(name="profile_bio")
     private String profileBio;
 
-    @Column
+    @Column(name = "gluten_condition")
     @Enumerated(EnumType.STRING)
     private GlutenCondition glutenCondition;
 
     @Column
     private boolean admin;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Recipe> recipes;
+
 }
-
-

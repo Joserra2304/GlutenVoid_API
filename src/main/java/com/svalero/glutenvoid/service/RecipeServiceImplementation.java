@@ -1,13 +1,16 @@
 package com.svalero.glutenvoid.service;
 
-import com.svalero.glutenvoid.domain.Recipe;
+import com.svalero.glutenvoid.domain.entity.Recipe;
+import com.svalero.glutenvoid.domain.dto.RecipeDto;
 import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 import com.svalero.glutenvoid.repository.RecipeRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class RecipeServiceImplementation implements RecipeService {
@@ -15,59 +18,82 @@ public class RecipeServiceImplementation implements RecipeService {
     @Autowired
     RecipeRepository recipeRepository;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
 
     @Override
-    public List<Recipe> findAll() {
-        return recipeRepository.findAll();
+    public List<RecipeDto> findAll() {
+        List<Recipe> recipes = recipeRepository.findAll();
+        return recipes.stream()
+                .map(recipe -> modelMapper.map(recipe, RecipeDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Recipe findById(long id) throws RecipeNotFoundException {
-        return recipeRepository.findById(id).orElseThrow(RecipeNotFoundException::new);
+    public RecipeDto findById(long id) throws RecipeNotFoundException {
+        Recipe recipe = recipeRepository.findById(id)
+                .orElseThrow(() -> new RecipeNotFoundException("Recipe not found with id: " + id));
+        return modelMapper.map(recipe, RecipeDto.class);
     }
 
     @Override
-    public List<Recipe> filterByName(String name) throws RecipeNotFoundException {
-        return recipeRepository.findByName(name);
+    public List<RecipeDto> filterByName(String name) throws RecipeNotFoundException {
+        List<Recipe> recipes = recipeRepository.findByName(name);
+        return recipes.stream()
+                .map(recipe -> modelMapper.map(recipe, RecipeDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<Recipe> filterByPreparationTime(int time) throws RecipeNotFoundException {
-        return recipeRepository.findByPreparationTime(time);
+    public List<RecipeDto> filterByPreparationTime(int time) throws RecipeNotFoundException {
+        List<Recipe> recipes = recipeRepository.findByPreparationTime(time);
+        return recipes.stream()
+                .map(recipe -> modelMapper.map(recipe, RecipeDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Recipe addRecipe(Recipe recipe) {
-        return recipeRepository.save(recipe);
+    public RecipeDto addRecipe(RecipeDto recipeDto) {
+        Recipe recipe = modelMapper.map(recipeDto, Recipe.class);
+        Recipe savedRecipe = recipeRepository.save(recipe);
+        return modelMapper.map(savedRecipe, RecipeDto.class);
     }
 
     @Override
     public void deleteRecipe(long id) throws RecipeNotFoundException {
-        Recipe deleteRecipe = recipeRepository.findById(id).orElseThrow(RecipeNotFoundException::new);
-        recipeRepository.delete(deleteRecipe);
+        Recipe recipe = recipeRepository.findById(id)
+                .orElseThrow(() -> new RecipeNotFoundException("Recipe not found with id: " + id));
+        recipeRepository.delete(recipe);
     }
 
     @Override
-    public Recipe updateRecipeByField(long id, Map<String, Object> updates) throws RecipeNotFoundException {
-        Recipe newUpdate = findById(id);
+    public RecipeDto updateRecipeByField(long id, Map<String, Object> updates) throws RecipeNotFoundException {
+        Recipe existingRecipe = recipeRepository.findById(id)
+                .orElseThrow(() -> new RecipeNotFoundException("Recipe not found with id: " + id));
 
         updates.forEach((key, value) -> {
             switch (key) {
                 case "name":
-                    newUpdate.setName((String) value);
+                    existingRecipe.setName((String) value);
                     break;
                 case "description":
-                    newUpdate.setDescription((String) value);
+                    existingRecipe.setDescription((String) value);
                     break;
                 case "ingredients":
-                    newUpdate.setIngredients((String) value);
+                    existingRecipe.setIngredients((String) value);
+                    break;
+                case "instructions":
+                    existingRecipe.setInstructions((String) value);
                     break;
                 case "preparationTime":
-                    newUpdate.setPreparationTime(Integer.parseInt(value.toString()));
+                    existingRecipe.setPreparationTime(Integer.parseInt(value.toString()));
                     break;
             }
         });
 
-        return recipeRepository.save(newUpdate);
+        Recipe updatedRecipe = recipeRepository.save(existingRecipe);
+        return modelMapper.map(updatedRecipe, RecipeDto.class);
     }
+
 }
