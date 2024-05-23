@@ -9,8 +9,6 @@ import java.util.Map;
 import java.util.Optional;
 
 public interface UserService {
-
-
     List<User> findAll();
 
     User findById(long id) throws UserNotFoundException;
