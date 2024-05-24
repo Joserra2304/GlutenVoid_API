@@ -23,4 +23,6 @@ public interface UserService {
     String loginRequest(String username, String password);
 
     List<User> findByName(String name) throws UserNotFoundException;
+
+    Optional<User> findByUsername(String username) throws UserNotFoundException;
 }

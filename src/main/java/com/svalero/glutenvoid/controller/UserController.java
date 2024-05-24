@@ -3,15 +3,20 @@ package com.svalero.glutenvoid.controller;
 import com.svalero.glutenvoid.domain.enumeration.GlutenCondition;
 import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.controller.request.LoginRequest;
+
 import com.svalero.glutenvoid.exception.ErrorMessage;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.service.UserService;
+import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
@@ -60,10 +65,12 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public  ResponseEntity<User> addUser(@Valid @RequestBody User user){
-        User newUser = userService.addUser(user);
-        logger.info(newUser.getName() + ", con ID:" + newUser.getId() + ", ha sido registrado");
-        return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
+    public ResponseEntity<?> addUser(@Valid @RequestBody User user) {
+
+            User newUser = userService.addUser(user);
+            logger.info(newUser.getName() + ", con ID:" + newUser.getId() + ", ha sido registrado");
+            return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
+
     }
 
     @PostMapping("/users/login")
@@ -80,6 +87,15 @@ public class UserController {
 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable long id) throws UserNotFoundException{
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
+        User deleteUser = userService.findById(id);
+
+        if (deleteUser.getId() != currentUser.getId() && !currentUser.isAdmin()) {
+            logger.error("Usuario no autorizado para eliminar esta cuenta");
+            throw new AccessDeniedException("Usuario no autorizado para eliminar esta cuenta");
+        }
+
         userService.deleteUser(id);
         String deleteMessage = "User deleted successfully";
         logger.info("Usuario borrado exitosamenete");
@@ -90,20 +106,21 @@ public class UserController {
     @PatchMapping("/users/{id}")
     public ResponseEntity<User> updateUserPartially(@PathVariable long id, @RequestBody Map<String, Object> updates)
             throws UserNotFoundException{
-        User updateUser = userService.updateUserByField(id, updates);
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
+        User updateUser = userService.findById(id);
+
+        if (updateUser.getId() != currentUser.getId() && !currentUser.isAdmin()) {
+            throw new AccessDeniedException("Usuario no autorizado para actualizar esta cuenta");
+        }
+
+        User updatedUser = userService.updateUserByField(id, updates);
 
         logger.info("Datos de "+updateUser.getName()+" actualizados");
-        return  ResponseEntity.status(HttpStatus.OK).body(updateUser);
+        return  ResponseEntity.status(HttpStatus.OK).body(updatedUser);
     }
 
     //EXCEPTION HANDLER
-
-    @ExceptionHandler(UserNotFoundException.class)
-    public  ResponseEntity<ErrorMessage> userNotFoundException(UserNotFoundException unfe){
-        logger.error(unfe.getMessage(), unfe);
-        ErrorMessage notFound = new ErrorMessage(404, unfe.getMessage());
-        return new ResponseEntity<>(notFound, HttpStatus.NOT_FOUND);
-    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorMessage> badRequest(MethodArgumentNotValidException manve){
@@ -118,6 +135,35 @@ public class UserController {
         ErrorMessage badRequest = new ErrorMessage(400, "Petición incorrecta", errors);
         return new ResponseEntity<>(badRequest, HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<ErrorMessage> handleDataIntegrityViolationException(DataIntegrityViolationException dive) {
+        logger.error(dive.getMessage(), dive);
+        ErrorMessage errorMessage = new ErrorMessage(400, "Username already exists");
+        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ErrorMessage> handleConstraintViolationException(ConstraintViolationException cve) {
+        logger.error(cve.getMessage(), cve);
+        ErrorMessage errorMessage = new ErrorMessage(
+                400, "Constraint violation: " + cve.getMessage());
+        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ErrorMessage> handleAccessDeniedException(AccessDeniedException ade) {
+        logger.error(ade.getMessage(), ade);
+        ErrorMessage errorMessage = new ErrorMessage(403, ade.getMessage());
+        return new ResponseEntity<>(errorMessage, HttpStatus.FORBIDDEN);
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public  ResponseEntity<ErrorMessage> userNotFoundException(UserNotFoundException unfe){
+        logger.error(unfe.getMessage(), unfe);
+        ErrorMessage notFound = new ErrorMessage(404, unfe.getMessage());
+        return new ResponseEntity<>(notFound, HttpStatus.NOT_FOUND);
+    }
+
+
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorMessage> handleException(Exception e) {

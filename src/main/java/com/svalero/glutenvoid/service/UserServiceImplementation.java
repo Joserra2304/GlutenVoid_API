@@ -5,7 +5,9 @@ import com.svalero.glutenvoid.domain.enumeration.GlutenCondition;
 import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.repository.UserRepository;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -111,5 +113,10 @@ public class UserServiceImplementation implements UserService {
             throw new UserNotFoundException("User not found");
         }
         return users;
+    }
+
+    @Override
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 }
