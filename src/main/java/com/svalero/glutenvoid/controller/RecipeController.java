@@ -2,13 +2,13 @@ package com.svalero.glutenvoid.controller;
 
 import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.domain.dto.RecipeDto;
+import com.svalero.glutenvoid.domain.enumeration.GlutenCondition;
 import com.svalero.glutenvoid.exception.ErrorMessage;
 import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.service.RecipeService;
 import com.svalero.glutenvoid.service.UserService;
 import jakarta.validation.Valid;
-import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +27,6 @@ public class RecipeController {
     private final Logger logger = LoggerFactory.getLogger(RecipeController.class);
     @Autowired
     RecipeService recipeService;
-
-    @Autowired
-    private ModelMapper modelMapper;
-
     @Autowired
     UserService userService;
 
@@ -40,45 +36,40 @@ public class RecipeController {
             @RequestParam(name="preparationTime", required = false, defaultValue = "") String preparationTime)
             throws RecipeNotFoundException {
 
-        List<RecipeDto> recipes;
         if (!name.isEmpty()) {
+            List<RecipeDto> recipes = recipeService.filterByName(name);
             logger.info("Recetas filtradas por nombre de receta");
-            recipes = recipeService.filterByName(name);
+            return ResponseEntity.status(HttpStatus.OK).body(recipes);
         } else if (!preparationTime.isEmpty()) {
+            List<RecipeDto> recipes = recipeService.filterByPreparationTime(Integer.parseInt(preparationTime));
             logger.info("Recetas filtradas por tiempo de preparación");
-            recipes = recipeService.filterByPreparationTime(Integer.parseInt(preparationTime));
+            return ResponseEntity.status(HttpStatus.OK).body(recipes);
         } else {
+            List<RecipeDto> recipes = recipeService.findAll();
             logger.info("Listado de Recetas");
-            recipes = recipeService.findAll();
+            return ResponseEntity.status(HttpStatus.OK).body(recipes);
         }
-
-        return ResponseEntity.ok(recipes);
     }
 
     @GetMapping("/recipes/{id}")
     public ResponseEntity<RecipeDto> getRecipeById(@PathVariable long id) throws RecipeNotFoundException {
         RecipeDto recipeDto = recipeService.findById(id);
         logger.info("Receta mostrada con el id: "+id);
-        return ResponseEntity.ok(recipeDto);
+        return ResponseEntity.status(HttpStatus.OK).body(recipeDto);
     }
 
     @PostMapping("/recipes")
     public ResponseEntity<RecipeDto> addRecipe(@Valid @RequestBody RecipeDto recipeDto) throws UserNotFoundException {
-        // Buscar el usuario por ID desde RecipeDto
         User user = userService.findById(recipeDto.getUserId());
         if (user == null) {
+            logger.info("Usuario no encontrado con ID: " + recipeDto.getUserId());
             throw new UserNotFoundException("User not found with id: " + recipeDto.getUserId());
         }
-
-        // Asignar el usuario al RecipeDto
-        recipeDto.setUserId(user.getId());
-
-        // Guardar la receta usando el servicio
         RecipeDto newRecipeDto = recipeService.addRecipe(recipeDto);
-        logger.info(recipeDto.getName() + ", con ID:" + recipeDto.getId()
-                + ", perteneciente a: " + user.getUsername() + ", ha sido registrada");
-        return ResponseEntity.ok(newRecipeDto);
+        logger.info(recipeDto.getName() + " ha sido registrada");
+        return ResponseEntity.status(HttpStatus.CREATED).body(newRecipeDto);
     }
+
     @DeleteMapping("/recipes/{id}")
     public ResponseEntity<String> deleteRecipe(@PathVariable long id) throws RecipeNotFoundException{
         recipeService.deleteRecipe(id);
@@ -86,7 +77,7 @@ public class RecipeController {
         String deleteMessage = "Recipe deleted successfully";
 
         logger.info("Receta borrada exitosamente");
-        return  ResponseEntity.ok(deleteMessage);
+        return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
     }
 
@@ -95,7 +86,7 @@ public class RecipeController {
             @PathVariable long id, @RequestBody Map<String, Object> updates) throws RecipeNotFoundException {
         RecipeDto updatedRecipeDto = recipeService.updateRecipeByField(id, updates);
         logger.info("Datos de "+updatedRecipeDto.getName()+" actualizados");
-        return ResponseEntity.ok(updatedRecipeDto);
+        return ResponseEntity.status(HttpStatus.OK).body(updatedRecipeDto);
     }
 
     @ExceptionHandler(RecipeNotFoundException.class)

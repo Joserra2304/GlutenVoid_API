@@ -33,28 +33,34 @@ public class EstablishmentController {
             throws EstablishmentNotFoundException {
 
         if(!city.isEmpty()){
+            List<Establishment> establishments = establishmentService.filterByCity(city);
             logger.info("Establecimientos filtrados por ciudad");
-            return ResponseEntity.ok(establishmentService.filterByCity(city));
+            return ResponseEntity.status(HttpStatus.OK).body(establishments);
         } else if (!glutenFree.isEmpty()) {
+            List<Establishment> establishments = establishmentService
+                    .filterByGlutenFree(Boolean.parseBoolean(glutenFree));
             logger.info("Establecimientos filtrados por opción sin gluten");
-            return ResponseEntity.ok(establishmentService.filterByGlutenFree(Boolean.parseBoolean(glutenFree)));
+            return ResponseEntity.status(HttpStatus.OK).body(establishments);
         } else{
+            List<Establishment> establishments = establishmentService.findAll();
             logger.info("Listado de Establecimientps");
-            return ResponseEntity.ok(establishmentService.findAll());
+            return ResponseEntity.status(HttpStatus.OK).body(establishments);
         }
     }
 
     @GetMapping("/establishments/{id}")
-    public ResponseEntity<Establishment> getEstablishmentById(@PathVariable long id) throws EstablishmentNotFoundException{
+    public ResponseEntity<Establishment> getEstablishmentById(@PathVariable long id)
+            throws EstablishmentNotFoundException{
+        Establishment establishment = establishmentService.findById(id);
         logger.info("Establecimiento mostrado con el id: "+id);
-        return ResponseEntity.ok(establishmentService.findById(id));
+        return ResponseEntity.status(HttpStatus.OK).body(establishment);
     }
 
     @PostMapping("/establishments")
     public ResponseEntity<Establishment> addEstablishment(@Valid @RequestBody Establishment establishment){
         Establishment newEstablishment = establishmentService.addEstablishment(establishment);
         logger.info(newEstablishment.getName() + ", con ID:" + newEstablishment.getId() + ", ha sido registrado");
-        return ResponseEntity.ok(newEstablishment);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newEstablishment);
     }
 
     @DeleteMapping("/establishments/{id}")
@@ -63,7 +69,7 @@ public class EstablishmentController {
 
         String deleteMessage = "Establishment deleted successfully";
         logger.info("Establecimiento borrado exitosamente");
-        return  ResponseEntity.ok(deleteMessage);
+        return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
     }
 
@@ -73,7 +79,7 @@ public class EstablishmentController {
             throws EstablishmentNotFoundException{
        Establishment updateEstablishment = establishmentService.updateEstablishmentByField(id, updates);
         logger.info("Datos de " + updateEstablishment.getName() + " actualizados");
-        return ResponseEntity.ok(updateEstablishment);
+        return ResponseEntity.status(HttpStatus.OK).body(updateEstablishment);
     }
 
     @ExceptionHandler(EstablishmentNotFoundException.class)
