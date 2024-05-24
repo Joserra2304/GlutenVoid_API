@@ -67,11 +67,11 @@ public class UserController {
     }
 
     @PostMapping("/users/login")
-    public ResponseEntity<?> loginRequest(@RequestBody LoginRequest loginRequest) {
-        Optional<User> userOpt = userService.loginRequest(loginRequest.getUsername(), loginRequest.getPassword());
-        if (userOpt.isPresent()) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        String token = userService.loginRequest(loginRequest.getUsername(), loginRequest.getPassword());
+        if (token != null) {
             logger.info(loginRequest.getUsername() + " se ha logueado");
-            return ResponseEntity.ok(userOpt.get());
+            return ResponseEntity.ok(Map.of("jwt", token));
         } else {
             logger.info("Credenciales incorrectas");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas");

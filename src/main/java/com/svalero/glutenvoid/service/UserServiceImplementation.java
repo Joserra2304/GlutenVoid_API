@@ -1,5 +1,6 @@
 package com.svalero.glutenvoid.service;
 
+import com.svalero.glutenvoid.config.JwtTokenProvider;
 import com.svalero.glutenvoid.domain.enumeration.GlutenCondition;
 import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
@@ -21,6 +22,10 @@ public class UserServiceImplementation implements UserService {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;
+
 
     @Override
     public List<User> findAll() {
@@ -89,9 +94,15 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public Optional<User> loginRequest(String username, String password) {
-        return userRepository.findByUsernameAndPassword(username, password);
+    public String loginRequest(String username, String password) {
+        Optional<User> userOpt = userRepository.findByUsername(username);
+        if (userOpt.isPresent() && passwordEncoder.matches(password, userOpt.get().getPassword())) {
+            User user = userOpt.get();
+            return jwtTokenProvider.createToken(username, user.isAdmin());
+        }
+        return null;
     }
+
 
     @Override
     public List<User> findByName(String name) throws UserNotFoundException {
