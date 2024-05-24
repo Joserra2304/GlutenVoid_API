@@ -13,23 +13,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable() // Disable CSRF as we are using JWT
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Make the session stateless
-                .and()
-                .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/api/public/**").permitAll() // Allow public access to certain endpoints
-                        .anyRequest().authenticated() // All other requests need to be authenticated
-                )
-
-        http.apply(new JwtTokenFilterConfigurer(jwtTokenProvider()));
-
-        return http.build();
-    }
-
-    @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
