@@ -37,28 +37,33 @@ public class UserController {
             throws UserNotFoundException{
 
         if(!glutenCondition.isEmpty()){
+            List<User> users = userService.filterByGlutenCondition(GlutenCondition.valueOf(
+                    glutenCondition.toUpperCase()));
             logger.info("Usuarios filtrados por tipo de condición");
-            return ResponseEntity.ok(userService.filterByGlutenCondition(GlutenCondition.valueOf(glutenCondition.toUpperCase())));
+            return ResponseEntity.status(HttpStatus.OK).body(users);
         } else if (!isAdmin.isEmpty()) {
             logger.info("Usuarios filtrados por privilegio");
-            return ResponseEntity.ok(userService.filterByAdmin(Boolean.parseBoolean(isAdmin)));
+            List<User> users = userService.filterByAdmin(Boolean.parseBoolean(isAdmin));
+            return ResponseEntity.status(HttpStatus.OK).body(users);
         } else{
             logger.info("Listado de Usuarios");
-            return ResponseEntity.ok(userService.findAll());
+            List<User> users = userService.findAll();
+            return ResponseEntity.status(HttpStatus.OK).body(users);
         }
     }
 
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUserById(@PathVariable long id) throws UserNotFoundException {
+        User user = userService.findById(id);
         logger.info("Usuario mostrado con el id: "+id);
-        return ResponseEntity.ok(userService.findById(id));
+        return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 
     @PostMapping("/users")
     public  ResponseEntity<User> addUser(@Valid @RequestBody User user){
         User newUser = userService.addUser(user);
         logger.info(newUser.getName() + ", con ID:" + newUser.getId() + ", ha sido registrado");
-        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
     }
 
     @PostMapping("/users/login")
@@ -78,7 +83,7 @@ public class UserController {
         userService.deleteUser(id);
         String deleteMessage = "User deleted successfully";
         logger.info("Usuario borrado exitosamenete");
-        return  ResponseEntity.ok(deleteMessage);
+        return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
     }
 
@@ -88,7 +93,7 @@ public class UserController {
         User updateUser = userService.updateUserByField(id, updates);
 
         logger.info("Datos de "+updateUser.getName()+" actualizados");
-        return  ResponseEntity.ok(updateUser);
+        return  ResponseEntity.status(HttpStatus.OK).body(updateUser);
     }
 
     //EXCEPTION HANDLER

@@ -18,9 +18,6 @@ public interface UserService {
 
     User addUser(User user);
     void deleteUser(long id)throws UserNotFoundException;
-
-    User updateUser(long id, User updateUser) throws UserNotFoundException;
-
     User updateUserByField(long id, Map<String, Object> updates) throws UserNotFoundException;
 
     Optional<User> loginRequest(String username, String password);

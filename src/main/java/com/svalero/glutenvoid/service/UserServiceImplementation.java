@@ -51,22 +51,6 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public User updateUser(long id, User updateUser) throws UserNotFoundException {
-
-        User updatedUser = userRepository.findById(id).orElseThrow(UserNotFoundException::new);
-
-        updatedUser.setName(updateUser.getName());
-        updatedUser.setSurname(updateUser.getSurname());
-        updatedUser.setUsername(updateUser.getUsername());
-        updatedUser.setEmail(updateUser.getEmail());
-        updatedUser.setProfileBio(updateUser.getProfileBio());
-        updatedUser.setGlutenCondition(updateUser.getGlutenCondition());
-
-        return userRepository.save(updatedUser);
-
-    }
-
-    @Override
     public User updateUserByField(long id, Map<String, Object> updates) throws UserNotFoundException {
 
         User newUpdate = findById(id);
