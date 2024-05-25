@@ -128,25 +128,40 @@ public class UserController {
 
 
     @PatchMapping("/users/{id}")
-    public ResponseEntity<User> updateUserPartially(@PathVariable long id, @RequestBody Map<String, Object> updates)
-            throws UserNotFoundException{
-        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User currentUser = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found: " + username));
-        User updateUser = userService.findById(id);
+    public ResponseEntity<User> updateUserPartially(@PathVariable long id, @RequestBody Map<String, Object> updates) {
+        try {
+            // Obtener el nombre de usuario del contexto de seguridad
+            String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        if (updateUser == null) {
-            throw new UserNotFoundException("User not found with id: " + id);
+            // Buscar el usuario actual por su nombre de usuario
+            User currentUser = userService.findByUsername(username)
+                    .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
+
+            // Buscar el usuario que se desea actualizar por su ID
+            User updateUser = userService.findById(id);
+
+            // Verificar si el usuario actual tiene permiso para actualizar la cuenta
+            if (updateUser.getId() != currentUser.getId() && !currentUser.isAdmin()) {
+                logger.error("Usuario no autorizado para actualizar esta cuenta: " + username);
+                throw new AccessDeniedException("Usuario no autorizado para actualizar esta cuenta");
+            }
+
+            // Actualizar el usuario
+            User updatedUser = userService.updateUserByField(id, updates);
+            logger.info("Datos de " + updatedUser.getName() + " actualizados");
+            return ResponseEntity.status(HttpStatus.OK).body(updatedUser);
+        } catch (UserNotFoundException e) {
+            logger.error("Error al intentar actualizar el usuario", e);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } catch (AccessDeniedException e) {
+            logger.error("Acceso denegado al intentar actualizar el usuario", e);
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
+        } catch (Exception e) {
+            logger.error("Error inesperado al intentar actualizar el usuario", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
-
-        if (updateUser.getId() != currentUser.getId() && !currentUser.isAdmin()) {
-            throw new AccessDeniedException("Usuario no autorizado para actualizar esta cuenta");
-        }
-
-        User updatedUser = userService.updateUserByField(id, updates);
-
-        logger.info("Datos de "+updateUser.getName()+" actualizados");
-        return  ResponseEntity.status(HttpStatus.OK).body(updatedUser);
     }
+
 
     //EXCEPTION HANDLER
 
