@@ -91,35 +91,12 @@ public class UserController {
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable long id) {
-        try {
-            String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            User currentUser = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found: " + username));
+    public ResponseEntity<String> deleteUser(@PathVariable long id) throws UserNotFoundException{
+        userService.deleteUser(id);
+        String deleteMessage = "User deleted successfully";
+        logger.info("Usuario borrado exitosamenete");
+        return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
-            User deleteUser = userService.findById(id);
-            if (deleteUser == null) {
-                throw new UserNotFoundException("User not found with id: " + id);
-            }
-
-            if (deleteUser.getId() != currentUser.getId() && !currentUser.isAdmin()) {
-                logger.error("Usuario no autorizado para eliminar esta cuenta: " + username);
-                throw new AccessDeniedException("Usuario no autorizado para eliminar esta cuenta");
-            }
-
-            userService.deleteUser(id);
-            String deleteMessage = "User deleted successfully";
-            logger.info("Usuario borrado exitosamente: " + deleteUser.getUsername());
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(deleteMessage);
-        } catch (UserNotFoundException e) {
-            logger.error("Error al intentar eliminar el usuario", e);
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        } catch (AccessDeniedException e) {
-            logger.error("Acceso denegado al intentar eliminar el usuario", e);
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
-        } catch (Exception e) {
-            logger.error("Error inesperado al intentar eliminar el usuario", e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error interno del servidor");
-        }
     }
 
     @PatchMapping("/users/{id}")
