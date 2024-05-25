@@ -26,7 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
 @RestController
 public class UserController {
 
@@ -66,11 +65,17 @@ public class UserController {
 
     @PostMapping("/users")
     public ResponseEntity<?> addUser(@Valid @RequestBody User user) {
-
+        try {
             User newUser = userService.addUser(user);
             logger.info(newUser.getName() + ", con ID:" + newUser.getId() + ", ha sido registrado");
             return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
-
+        } catch (ConstraintViolationException e) {
+            ErrorMessage errorMessage = new ErrorMessage(400, e.getMessage());
+            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+        } catch (DataIntegrityViolationException e) {
+            ErrorMessage errorMessage = new ErrorMessage(400, "Username already exists");
+            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PostMapping("/users/login")
@@ -86,12 +91,16 @@ public class UserController {
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable long id) {
+    public ResponseEntity<?> deleteUser(@PathVariable long id) {
         try {
             String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            User currentUser = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
+            User currentUser = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found: " + username));
 
             User deleteUser = userService.findById(id);
+            if (deleteUser == null) {
+                throw new UserNotFoundException("User not found with id: " + id);
+            }
+
             if (deleteUser.getId() != currentUser.getId() && !currentUser.isAdmin()) {
                 logger.error("Usuario no autorizado para eliminar esta cuenta: " + username);
                 throw new AccessDeniedException("Usuario no autorizado para eliminar esta cuenta");
@@ -113,13 +122,16 @@ public class UserController {
         }
     }
 
-
     @PatchMapping("/users/{id}")
     public ResponseEntity<User> updateUserPartially(@PathVariable long id, @RequestBody Map<String, Object> updates)
             throws UserNotFoundException{
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User currentUser = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
+        User currentUser = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found: " + username));
         User updateUser = userService.findById(id);
+
+        if (updateUser == null) {
+            throw new UserNotFoundException("User not found with id: " + id);
+        }
 
         if (updateUser.getId() != currentUser.getId() && !currentUser.isAdmin()) {
             throw new AccessDeniedException("Usuario no autorizado para actualizar esta cuenta");
@@ -146,6 +158,7 @@ public class UserController {
         ErrorMessage badRequest = new ErrorMessage(400, "Petición incorrecta", errors);
         return new ResponseEntity<>(badRequest, HttpStatus.BAD_REQUEST);
     }
+
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<ErrorMessage> handleDataIntegrityViolationException(DataIntegrityViolationException dive) {
         logger.error(dive.getMessage(), dive);
@@ -160,6 +173,7 @@ public class UserController {
                 400, "Constraint violation: " + cve.getMessage());
         return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
     }
+
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ErrorMessage> handleAccessDeniedException(AccessDeniedException ade) {
         logger.error(ade.getMessage(), ade);
@@ -173,8 +187,6 @@ public class UserController {
         ErrorMessage notFound = new ErrorMessage(404, unfe.getMessage());
         return new ResponseEntity<>(notFound, HttpStatus.NOT_FOUND);
     }
-
-
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorMessage> handleException(Exception e) {
