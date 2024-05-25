@@ -65,7 +65,6 @@ public class RecipeController {
         if (user == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }
-        // Si el usuario no es nulo, proceder normalmente
         RecipeDto newRecipeDto = recipeService.addRecipe(recipeDto, user);
         return ResponseEntity.status(HttpStatus.CREATED).body(newRecipeDto);
     }

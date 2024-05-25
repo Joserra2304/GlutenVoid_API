@@ -5,6 +5,7 @@ import com.svalero.glutenvoid.domain.dto.RecipeDto;
 import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 import com.svalero.glutenvoid.repository.RecipeRepository;
+import com.svalero.glutenvoid.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ public class RecipeServiceImplementation implements RecipeService {
 
     @Autowired
     RecipeRepository recipeRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -57,14 +61,15 @@ public class RecipeServiceImplementation implements RecipeService {
     @Override
     public RecipeDto addRecipe(RecipeDto recipeDto, User user) {
         Recipe recipe = modelMapper.map(recipeDto, Recipe.class);
-
         if (user.isAdmin()) {
             recipe.setApprovedRecipe(true);
+        } else {
+            recipe.setApprovedRecipe(false);
         }
-
         Recipe savedRecipe = recipeRepository.save(recipe);
         return modelMapper.map(savedRecipe, RecipeDto.class);
     }
+
 
 
     @Override
