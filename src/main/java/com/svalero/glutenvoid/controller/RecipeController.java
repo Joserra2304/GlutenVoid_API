@@ -2,7 +2,6 @@ package com.svalero.glutenvoid.controller;
 
 import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.domain.dto.RecipeDto;
-import com.svalero.glutenvoid.domain.enumeration.GlutenCondition;
 import com.svalero.glutenvoid.exception.ErrorMessage;
 import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
@@ -14,6 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
@@ -71,11 +72,17 @@ public class RecipeController {
     }
 
     @DeleteMapping("/recipes/{id}")
-    public ResponseEntity<String> deleteRecipe(@PathVariable long id) throws RecipeNotFoundException{
+    public ResponseEntity<String> deleteRecipe(@PathVariable long id) throws RecipeNotFoundException, UserNotFoundException {
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
+        RecipeDto recipe = recipeService.findById(id);
+
+        if (recipe.getUserId() != user.getId() && !user.isAdmin()) {
+            logger.info("Usuario no autorizado para borrar esta receta");
+            throw new AccessDeniedException("Usuario no autorizado para eliminar recetas");
+        }
         recipeService.deleteRecipe(id);
-
         String deleteMessage = "Recipe deleted successfully";
-
         logger.info("Receta borrada exitosamente");
         return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
@@ -83,11 +90,29 @@ public class RecipeController {
 
     @PatchMapping("/recipes/{id}")
     public ResponseEntity<RecipeDto> updateRecipePartially(
-            @PathVariable long id, @RequestBody Map<String, Object> updates) throws RecipeNotFoundException {
+            @PathVariable long id, @RequestBody Map<String, Object> updates)
+            throws RecipeNotFoundException, UserNotFoundException {
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
+        RecipeDto recipe = recipeService.findById(id);
+
+        if (recipe.getUserId() != user.getId() && !user.isAdmin()) {
+            logger.info("Usuario no autorizado para actualizar esta receta");
+            throw new AccessDeniedException("Usuario no autorizado para actualizar recetas");
+        }
+
         RecipeDto updatedRecipeDto = recipeService.updateRecipeByField(id, updates);
         logger.info("Datos de "+updatedRecipeDto.getName()+" actualizados");
         return ResponseEntity.status(HttpStatus.OK).body(updatedRecipeDto);
     }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ErrorMessage> handleAccessDeniedException(AccessDeniedException ade) {
+        logger.error(ade.getMessage(), ade);
+        ErrorMessage errorMessage = new ErrorMessage(403, ade.getMessage());
+        return new ResponseEntity<>(errorMessage, HttpStatus.FORBIDDEN);
+    }
+
 
     @ExceptionHandler(RecipeNotFoundException.class)
     public  ResponseEntity<ErrorMessage> recipeNotFoundException(RecipeNotFoundException rnfe){

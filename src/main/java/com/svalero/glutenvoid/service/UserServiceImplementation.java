@@ -1,10 +1,14 @@
 package com.svalero.glutenvoid.service;
 
+import com.svalero.glutenvoid.config.JwtTokenProvider;
 import com.svalero.glutenvoid.domain.enumeration.GlutenCondition;
 import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.repository.UserRepository;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +21,13 @@ public class UserServiceImplementation implements UserService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;
+
 
     @Override
     public List<User> findAll() {
@@ -41,6 +52,8 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public User addUser(User user) {
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
         return userRepository.save(user);
     }
 
@@ -83,9 +96,15 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public Optional<User> loginRequest(String username, String password) {
-        return userRepository.findByUsernameAndPassword(username, password);
+    public String loginRequest(String username, String password) {
+        Optional<User> userOpt = userRepository.findByUsername(username);
+        if (userOpt.isPresent() && passwordEncoder.matches(password, userOpt.get().getPassword())) {
+            User user = userOpt.get();
+            return jwtTokenProvider.createToken(username, user.isAdmin());
+        }
+        return null;
     }
+
 
     @Override
     public List<User> findByName(String name) throws UserNotFoundException {
@@ -94,5 +113,10 @@ public class UserServiceImplementation implements UserService {
             throw new UserNotFoundException("User not found");
         }
         return users;
+    }
+
+    @Override
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 }

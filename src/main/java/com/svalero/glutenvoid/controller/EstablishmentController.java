@@ -1,15 +1,20 @@
 package com.svalero.glutenvoid.controller;
 
 import com.svalero.glutenvoid.domain.entity.Establishment;
+import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.exception.ErrorMessage;
 import com.svalero.glutenvoid.exception.EstablishmentNotFoundException;
+import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.service.EstablishmentService;
+import com.svalero.glutenvoid.service.UserService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +30,9 @@ public class EstablishmentController {
 
     @Autowired
     EstablishmentService establishmentService;
+
+    @Autowired
+    UserService userService;
 
     @GetMapping("/establishments")
     public ResponseEntity<List<Establishment>> getEstablishments(
@@ -57,16 +65,33 @@ public class EstablishmentController {
     }
 
     @PostMapping("/establishments")
-    public ResponseEntity<Establishment> addEstablishment(@Valid @RequestBody Establishment establishment){
+    public ResponseEntity<Establishment> addEstablishment(@Valid @RequestBody Establishment establishment)
+            throws UserNotFoundException {
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
+
+        if (!user.isAdmin()) {
+            logger.info("Usuario no autorizado para agregar establecimientos");
+            throw new AccessDeniedException("Usuario no autorizado para agregar establecimientos");
+        }
+
         Establishment newEstablishment = establishmentService.addEstablishment(establishment);
         logger.info(newEstablishment.getName() + ", con ID:" + newEstablishment.getId() + ", ha sido registrado");
         return ResponseEntity.status(HttpStatus.CREATED).body(newEstablishment);
     }
 
     @DeleteMapping("/establishments/{id}")
-    public ResponseEntity<String> deleteEstablishment(@PathVariable long id) throws EstablishmentNotFoundException{
-        establishmentService.deleteEstablishment(id);
+    public ResponseEntity<String> deleteEstablishment(@PathVariable long id) throws EstablishmentNotFoundException, UserNotFoundException {
 
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
+
+        if (!user.isAdmin()) {
+            logger.info("Usuario no autorizado para eliminar establecimientos");
+            throw new AccessDeniedException("Usuario no autorizado para eliminar establecimientos");
+        }
+
+        establishmentService.deleteEstablishment(id);
         String deleteMessage = "Establishment deleted successfully";
         logger.info("Establecimiento borrado exitosamente");
         return  ResponseEntity.status(HttpStatus.NO_CONTENT).build();
@@ -76,11 +101,27 @@ public class EstablishmentController {
     @PatchMapping("/establishments/{id}")
             public ResponseEntity<Establishment> updateEstablishmentPartially(
                     @PathVariable long id, @RequestBody Map<String, Object> updates)
-            throws EstablishmentNotFoundException{
+            throws EstablishmentNotFoundException, UserNotFoundException {
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
+
+        if (!user.isAdmin()) {
+            logger.info("Usuario no autorizado para actualizar establecimientos");
+            throw new AccessDeniedException("Usuario no autorizado para actualizar establecimientos");
+        }
+
        Establishment updateEstablishment = establishmentService.updateEstablishmentByField(id, updates);
         logger.info("Datos de " + updateEstablishment.getName() + " actualizados");
         return ResponseEntity.status(HttpStatus.OK).body(updateEstablishment);
     }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ErrorMessage> handleAccessDeniedException(AccessDeniedException ade) {
+        logger.error(ade.getMessage(), ade);
+        ErrorMessage errorMessage = new ErrorMessage(403, ade.getMessage());
+        return new ResponseEntity<>(errorMessage, HttpStatus.FORBIDDEN);
+    }
+
 
     @ExceptionHandler(EstablishmentNotFoundException.class)
     public  ResponseEntity<ErrorMessage> establishmentNotFoundException(EstablishmentNotFoundException enfe){
