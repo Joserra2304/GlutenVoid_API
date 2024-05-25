@@ -1736,3 +1736,584 @@ Correct the classpath of your application so that it contains compatible version
 2024-05-25 10:45:29,901 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
 2024-05-25 10:45:59,906 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
 2024-05-25 10:45:59,906 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2024-05-25 11:02:55,372 DEBUG o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [GlutenVoidApiApplicationTests]: using SpringBootContextLoader
+2024-05-25 11:02:55,375 DEBUG o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.svalero.glutenvoid.GlutenVoidApiApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-05-25 11:02:55,375 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.svalero.glutenvoid.GlutenVoidApiApplicationTests]: GlutenVoidApiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-25 11:02:55,383 DEBUG o.s.t.c.s.AbstractTestContextBootstrapper [main] Using ContextCustomizerFactory implementations for test class [GlutenVoidApiApplicationTests]: [ImportsContextCustomizerFactory, ExcludeFilterContextCustomizerFactory, HttpGraphQlTesterContextCustomizerFactory, DuplicateJsonObjectContextCustomizerFactory, MockitoContextCustomizerFactory, TestRestTemplateContextCustomizerFactory, WebTestClientContextCustomizerFactory, OverrideAutoConfigurationContextCustomizerFactory, ObservabilityContextCustomizerFactory, TypeExcludeFiltersContextCustomizerFactory, PropertyMappingContextCustomizerFactory, WebDriverContextCustomizerFactory, MockServerContainerContextCustomizerFactory, DynamicPropertiesContextCustomizerFactory]
+2024-05-25 11:02:55,394 DEBUG o.s.t.c.s.AbstractTestContextBootstrapper [main] Using ContextCustomizers for test class [GlutenVoidApiApplicationTests]: [ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer, DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, WebDriverContextCustomizer]
+2024-05-25 11:02:55,450 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\Aussar\Documents\MisCursos\DAM\3.Proyecto\PFC\GlutenVoid_API\target\classes\com\svalero\glutenvoid\GlutenVoidApiApplication.class]
+2024-05-25 11:02:55,451 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.svalero.glutenvoid.GlutenVoidApiApplication for test class com.svalero.glutenvoid.GlutenVoidApiApplicationTests
+2024-05-25 11:02:55,522 DEBUG o.s.t.c.u.TestContextFailureHandler [main] Skipping candidate TestExecutionListener [org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: io.micrometer.context.ThreadLocalAccessor. MicrometerObservationRegistryTestExecutionListener requires io.micrometer:micrometer-observation:1.10.8 or higher and io.micrometer:context-propagation:1.0.3 or higher.
+2024-05-25 11:02:55,528 DEBUG o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners for test class [GlutenVoidApiApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, ResetMocksTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener]
+2024-05-25 11:02:55,530 DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener [main] Before test class: class [GlutenVoidApiApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+2024-05-25 11:02:55,708 DEBUG o.j.l.LoggerProviders [background-preinit] Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2024-05-25 11:02:55,728 INFO o.s.b.StartupInfoLogger [main] Starting GlutenVoidApiApplicationTests using Java 17.0.4.1 with PID 24912 (started by Aussar in C:\Users\Aussar\Documents\MisCursos\DAM\3.Proyecto\PFC\GlutenVoid_API)
+2024-05-25 11:02:55,729 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-25 11:02:55,730 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-05-25 11:02:56,640 DEBUG c.z.h.HikariConfig [main] Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93
+2024-05-25 11:02:57,055 DEBUG c.z.h.HikariConfig [main] HikariPool-1 - configuration:
+2024-05-25 11:02:57,058 DEBUG c.z.h.HikariConfig [main] allowPoolSuspension.............false
+2024-05-25 11:02:57,059 DEBUG c.z.h.HikariConfig [main] autoCommit......................true
+2024-05-25 11:02:57,059 DEBUG c.z.h.HikariConfig [main] catalog.........................none
+2024-05-25 11:02:57,059 DEBUG c.z.h.HikariConfig [main] connectionInitSql...............none
+2024-05-25 11:02:57,060 DEBUG c.z.h.HikariConfig [main] connectionTestQuery.............none
+2024-05-25 11:02:57,060 DEBUG c.z.h.HikariConfig [main] connectionTimeout...............30000
+2024-05-25 11:02:57,060 DEBUG c.z.h.HikariConfig [main] dataSource......................none
+2024-05-25 11:02:57,060 DEBUG c.z.h.HikariConfig [main] dataSourceClassName.............none
+2024-05-25 11:02:57,060 DEBUG c.z.h.HikariConfig [main] dataSourceJNDI..................none
+2024-05-25 11:02:57,061 DEBUG c.z.h.HikariConfig [main] dataSourceProperties............{password=<masked>}
+2024-05-25 11:02:57,061 DEBUG c.z.h.HikariConfig [main] driverClassName................."com.mysql.cj.jdbc.Driver"
+2024-05-25 11:02:57,061 DEBUG c.z.h.HikariConfig [main] exceptionOverrideClassName......none
+2024-05-25 11:02:57,061 DEBUG c.z.h.HikariConfig [main] healthCheckProperties...........{}
+2024-05-25 11:02:57,061 DEBUG c.z.h.HikariConfig [main] healthCheckRegistry.............none
+2024-05-25 11:02:57,062 DEBUG c.z.h.HikariConfig [main] idleTimeout.....................600000
+2024-05-25 11:02:57,062 DEBUG c.z.h.HikariConfig [main] initializationFailTimeout.......1
+2024-05-25 11:02:57,062 DEBUG c.z.h.HikariConfig [main] isolateInternalQueries..........false
+2024-05-25 11:02:57,062 DEBUG c.z.h.HikariConfig [main] jdbcUrl.........................jdbc:mysql://u5zmqwe461i4phpx:zx6bdwvmx7vjcazp@ryfqldzbliwmq6g5.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/og4lym2g9vtpmgb8
+2024-05-25 11:02:57,062 DEBUG c.z.h.HikariConfig [main] keepaliveTime...................0
+2024-05-25 11:02:57,063 DEBUG c.z.h.HikariConfig [main] leakDetectionThreshold..........0
+2024-05-25 11:02:57,063 DEBUG c.z.h.HikariConfig [main] maxLifetime.....................1800000
+2024-05-25 11:02:57,063 DEBUG c.z.h.HikariConfig [main] maximumPoolSize.................10
+2024-05-25 11:02:57,064 DEBUG c.z.h.HikariConfig [main] metricRegistry..................none
+2024-05-25 11:02:57,064 DEBUG c.z.h.HikariConfig [main] metricsTrackerFactory...........none
+2024-05-25 11:02:57,064 DEBUG c.z.h.HikariConfig [main] minimumIdle.....................10
+2024-05-25 11:02:57,064 DEBUG c.z.h.HikariConfig [main] password........................<masked>
+2024-05-25 11:02:57,065 DEBUG c.z.h.HikariConfig [main] poolName........................"HikariPool-1"
+2024-05-25 11:02:57,065 DEBUG c.z.h.HikariConfig [main] readOnly........................false
+2024-05-25 11:02:57,065 DEBUG c.z.h.HikariConfig [main] registerMbeans..................false
+2024-05-25 11:02:57,065 DEBUG c.z.h.HikariConfig [main] scheduledExecutor...............none
+2024-05-25 11:02:57,065 DEBUG c.z.h.HikariConfig [main] schema..........................none
+2024-05-25 11:02:57,066 DEBUG c.z.h.HikariConfig [main] threadFactory...................internal
+2024-05-25 11:02:57,066 DEBUG c.z.h.HikariConfig [main] transactionIsolation............default
+2024-05-25 11:02:57,066 DEBUG c.z.h.HikariConfig [main] username........................"u5zmqwe461i4phpx"
+2024-05-25 11:02:57,066 DEBUG c.z.h.HikariConfig [main] validationTimeout...............5000
+2024-05-25 11:02:57,066 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2024-05-25 11:02:57,958 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4fd37449
+2024-05-25 11:02:57,960 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-05-25 11:02:58,047 WARN o.h.e.j.d.i.DialectFactoryImpl [main] HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-25 11:02:58,048 WARN o.h.e.j.d.i.DialectFactoryImpl [main] HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-25 11:02:58,074 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+2024-05-25 11:02:58,701 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@484498af
+2024-05-25 11:02:59,371 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@79c6736b
+2024-05-25 11:03:00,244 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2b018764
+2024-05-25 11:03:00,349 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-25 11:03:00,654 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.EstablishmentController:
+	{GET [/establishments]}: getEstablishments(String,String)
+	{GET [/establishments/{id}]}: getEstablishmentById(long)
+	{PATCH [/establishments/{id}]}: updateEstablishmentPartially(long,Map)
+	{DELETE [/establishments/{id}]}: deleteEstablishment(long)
+	{POST [/establishments]}: addEstablishment(Establishment)
+2024-05-25 11:03:00,661 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.RecipeController:
+	{GET [/recipes/{id}]}: getRecipeById(long)
+	{DELETE [/recipes/{id}]}: deleteRecipe(long)
+	{GET [/recipes]}: getRecipes(String,String)
+	{POST [/recipes]}: addRecipe(RecipeDto)
+	{PATCH [/recipes/{id}]}: updateRecipePartially(long,Map)
+2024-05-25 11:03:00,664 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.UserController:
+	{POST [/users/login]}: login(LoginRequest)
+	{DELETE [/users/{id}]}: deleteUser(long)
+	{GET [/users/{id}]}: getUserById(long)
+	{GET [/users]}: getUsers(String,String)
+	{PATCH [/users/{id}]}: updateUserPartially(long,Map)
+	{POST [/users]}: addUser(User)
+2024-05-25 11:03:00,669 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2024-05-25 11:03:00,686 DEBUG o.s.w.s.h.AbstractDetectingUrlHandlerMapping [main] 'beanNameHandlerMapping' {}
+2024-05-25 11:03:00,814 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]}
+2024-05-25 11:03:00,826 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryController:
+	{OPTIONS [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForRepositories()
+	{HEAD [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForRepositories()
+	{GET [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: listRepositories()
+2024-05-25 11:03:00,832 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryEntityController:
+	{OPTIONS [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForCollectionResource(RootResourceInformation)
+	{GET [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: getCollectionResource(RootResourceInformation,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{HEAD [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headCollectionResource(RootResourceInformation,DefaultedPageable)
+	{OPTIONS [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForItemResource(RootResourceInformation)
+	{HEAD [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForItemResource(RootResourceInformation,Serializable,PersistentEntityResourceAssembler)
+	{GET [/{repository}], produces [application/x-spring-data-compact+json || text/uri-list]}: getCollectionResourceCompact(RootResourceInformation,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{POST [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: postCollectionResource(RootResourceInformation,PersistentEntityResource,PersistentEntityResourceAssembler,String)
+	{GET [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: getItemResource(RootResourceInformation,Serializable,PersistentEntityResourceAssembler,HttpHeaders)
+	{PUT [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: putItemResource(RootResourceInformation,PersistentEntityResource,Serializable,PersistentEntityResourceAssembler,ETag,String)
+	{DELETE [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deleteItemResource(RootResourceInformation,Serializable,ETag,PersistentEntityResourceAssembler,String)
+	{PATCH [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: patchItemResource(RootResourceInformation,PersistentEntityResource,Serializable,PersistentEntityResourceAssembler,ETag,String)
+2024-05-25 11:03:00,844 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryPropertyReferenceController:
+	{GET [/{repository}/{id}/{property}/{propertyId}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: followPropertyReference(RootResourceInformation,Serializable,String,String,RepresentationModelAssemblers)
+	{GET [/{repository}/{id}/{property}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: followPropertyReference(RootResourceInformation,Serializable,String,RepresentationModelAssemblers)
+	{DELETE [/{repository}/{id}/{property}/{propertyId}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deletePropertyReferenceId(RootResourceInformation,Serializable,String,String)
+	{[PATCH, PUT, POST] [/{repository}/{id}/{property}], consumes [application/json || application/x-spring-data-compact+json || text/uri-list], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: createPropertyReference(RootResourceInformation,HttpMethod,CollectionModel,Serializable,String)
+	{GET [/{repository}/{id}/{property}], produces [text/uri-list]}: followPropertyReferenceCompact(RootResourceInformation,Serializable,String,HttpHeaders,RepresentationModelAssemblers)
+	{DELETE [/{repository}/{id}/{property}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deletePropertyReference(RootResourceInformation,Serializable,String)
+2024-05-25 11:03:00,845 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2c253b2a
+2024-05-25 11:03:00,848 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositorySearchController:
+	{GET [/{repository}/search/{search}], produces [application/x-spring-data-compact+json]}: executeSearchCompact(RootResourceInformation,HttpHeaders,MultiValueMap,String,String,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{OPTIONS [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForSearches(RootResourceInformation)
+	{GET [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: listSearches(RootResourceInformation)
+	{GET [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: executeSearch(RootResourceInformation,MultiValueMap,String,DefaultedPageable,Sort,HttpHeaders,RepresentationModelAssemblers)
+	{HEAD [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForSearches(RootResourceInformation)
+	{HEAD [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForSearch(RootResourceInformation,String)
+	{OPTIONS [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForSearch(RootResourceInformation,String)
+2024-05-25 11:03:00,852 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositorySchemaController:
+	{GET [/profile/{repository}], produces [application/schema+json]}: schema(RootResourceInformation)
+2024-05-25 11:03:00,853 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.a.AlpsController:
+	{GET [/profile/{repository}], produces [application/alps+json || */*]}: descriptor(RootResourceInformation)
+	{OPTIONS [/profile/{repository}], produces [application/alps+json]}: alpsOptions()
+2024-05-25 11:03:00,854 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.ProfileController:
+	{GET [/profile]}: listAllFormsOfMetadata()
+	{OPTIONS [/profile]}: profileOptions()
+2024-05-25 11:03:01,234 INFO o.s.b.StartupInfoLogger [main] Started GlutenVoidApiApplicationTests in 5.671 seconds (process running for 6.473)
+2024-05-25 11:03:01,502 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d108fe7
+2024-05-25 11:03:01,613 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-05-25 11:03:01,614 DEBUG c.z.h.p.HikariPool [SpringApplicationShutdownHook] HikariPool-1 - Before shutdown stats (total=6, active=0, idle=6, waiting=0)
+2024-05-25 11:03:01,614 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@4fd37449: (connection evicted)
+2024-05-25 11:03:01,674 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@484498af: (connection evicted)
+2024-05-25 11:03:01,736 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@79c6736b: (connection evicted)
+2024-05-25 11:03:01,801 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2b018764: (connection evicted)
+2024-05-25 11:03:01,868 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2c253b2a: (connection evicted)
+2024-05-25 11:03:01,923 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@5d108fe7: (connection evicted)
+2024-05-25 11:03:02,126 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@173ee27a
+2024-05-25 11:03:02,143 DEBUG c.z.h.p.HikariPool [HikariPool-1 connection adder] HikariPool-1 - After adding stats (total=1, active=0, idle=1, waiting=0)
+2024-05-25 11:03:02,145 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@173ee27a: (connection evicted)
+2024-05-25 11:03:02,207 DEBUG c.z.h.p.HikariPool [SpringApplicationShutdownHook] HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2024-05-25 11:03:02,209 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-05-25 11:27:45,540 DEBUG o.j.l.LoggerProviders [background-preinit] Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2024-05-25 11:27:45,566 INFO o.s.b.StartupInfoLogger [main] Starting GlutenVoidApiApplication using Java 17.0.4.1 with PID 26032 (C:\Users\Aussar\Documents\MisCursos\DAM\3.Proyecto\PFC\GlutenVoid_API\target\classes started by Aussar in C:\Users\Aussar\Documents\MisCursos\DAM\3.Proyecto\PFC\GlutenVoid_API)
+2024-05-25 11:27:45,566 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-25 11:27:45,567 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-05-25 11:27:46,317 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-25 11:27:46,319 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2024-05-25 11:27:46,319 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-25 11:27:46,354 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-05-25 11:27:46,383 DEBUG o.s.w.f.GenericFilterBean [main] Filter 'jwtTokenFilter' configured for use
+2024-05-25 11:27:46,493 DEBUG c.z.h.HikariConfig [main] Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93
+2024-05-25 11:27:46,733 DEBUG c.z.h.HikariConfig [main] HikariPool-1 - configuration:
+2024-05-25 11:27:46,736 DEBUG c.z.h.HikariConfig [main] allowPoolSuspension.............false
+2024-05-25 11:27:46,736 DEBUG c.z.h.HikariConfig [main] autoCommit......................true
+2024-05-25 11:27:46,736 DEBUG c.z.h.HikariConfig [main] catalog.........................none
+2024-05-25 11:27:46,737 DEBUG c.z.h.HikariConfig [main] connectionInitSql...............none
+2024-05-25 11:27:46,737 DEBUG c.z.h.HikariConfig [main] connectionTestQuery.............none
+2024-05-25 11:27:46,737 DEBUG c.z.h.HikariConfig [main] connectionTimeout...............30000
+2024-05-25 11:27:46,737 DEBUG c.z.h.HikariConfig [main] dataSource......................none
+2024-05-25 11:27:46,737 DEBUG c.z.h.HikariConfig [main] dataSourceClassName.............none
+2024-05-25 11:27:46,738 DEBUG c.z.h.HikariConfig [main] dataSourceJNDI..................none
+2024-05-25 11:27:46,738 DEBUG c.z.h.HikariConfig [main] dataSourceProperties............{password=<masked>}
+2024-05-25 11:27:46,738 DEBUG c.z.h.HikariConfig [main] driverClassName................."com.mysql.cj.jdbc.Driver"
+2024-05-25 11:27:46,738 DEBUG c.z.h.HikariConfig [main] exceptionOverrideClassName......none
+2024-05-25 11:27:46,738 DEBUG c.z.h.HikariConfig [main] healthCheckProperties...........{}
+2024-05-25 11:27:46,738 DEBUG c.z.h.HikariConfig [main] healthCheckRegistry.............none
+2024-05-25 11:27:46,738 DEBUG c.z.h.HikariConfig [main] idleTimeout.....................600000
+2024-05-25 11:27:46,738 DEBUG c.z.h.HikariConfig [main] initializationFailTimeout.......1
+2024-05-25 11:27:46,738 DEBUG c.z.h.HikariConfig [main] isolateInternalQueries..........false
+2024-05-25 11:27:46,739 DEBUG c.z.h.HikariConfig [main] jdbcUrl.........................jdbc:mysql://u5zmqwe461i4phpx:zx6bdwvmx7vjcazp@ryfqldzbliwmq6g5.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/og4lym2g9vtpmgb8
+2024-05-25 11:27:46,739 DEBUG c.z.h.HikariConfig [main] keepaliveTime...................0
+2024-05-25 11:27:46,739 DEBUG c.z.h.HikariConfig [main] leakDetectionThreshold..........0
+2024-05-25 11:27:46,739 DEBUG c.z.h.HikariConfig [main] maxLifetime.....................1800000
+2024-05-25 11:27:46,739 DEBUG c.z.h.HikariConfig [main] maximumPoolSize.................10
+2024-05-25 11:27:46,740 DEBUG c.z.h.HikariConfig [main] metricRegistry..................none
+2024-05-25 11:27:46,740 DEBUG c.z.h.HikariConfig [main] metricsTrackerFactory...........none
+2024-05-25 11:27:46,740 DEBUG c.z.h.HikariConfig [main] minimumIdle.....................10
+2024-05-25 11:27:46,740 DEBUG c.z.h.HikariConfig [main] password........................<masked>
+2024-05-25 11:27:46,740 DEBUG c.z.h.HikariConfig [main] poolName........................"HikariPool-1"
+2024-05-25 11:27:46,740 DEBUG c.z.h.HikariConfig [main] readOnly........................false
+2024-05-25 11:27:46,740 DEBUG c.z.h.HikariConfig [main] registerMbeans..................false
+2024-05-25 11:27:46,740 DEBUG c.z.h.HikariConfig [main] scheduledExecutor...............none
+2024-05-25 11:27:46,740 DEBUG c.z.h.HikariConfig [main] schema..........................none
+2024-05-25 11:27:46,740 DEBUG c.z.h.HikariConfig [main] threadFactory...................internal
+2024-05-25 11:27:46,740 DEBUG c.z.h.HikariConfig [main] transactionIsolation............default
+2024-05-25 11:27:46,741 DEBUG c.z.h.HikariConfig [main] username........................"u5zmqwe461i4phpx"
+2024-05-25 11:27:46,741 DEBUG c.z.h.HikariConfig [main] validationTimeout...............5000
+2024-05-25 11:27:46,741 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2024-05-25 11:27:47,158 DEBUG c.z.h.p.PoolBase [main] HikariPool-1 - Failed to create/setup connection: User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)
+2024-05-25 11:27:47,158 DEBUG c.z.h.p.HikariPool [main] HikariPool-1 - Cannot acquire connection from data source
+java.sql.SQLSyntaxErrorException: User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:113)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:861)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:234)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.svalero.glutenvoid.GlutenVoidApiApplication.main(GlutenVoidApiApplication.java:10)
+2024-05-25 11:27:48,162 ERROR c.z.h.p.HikariPool [main] HikariPool-1 - Exception during pool initialization.
+java.sql.SQLSyntaxErrorException: User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:113)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:861)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:234)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.svalero.glutenvoid.GlutenVoidApiApplication.main(GlutenVoidApiApplication.java:10)
+2024-05-25 11:27:48,166 WARN o.h.e.j.e.i.JdbcEnvironmentInitiator [main] HHH000342: Could not obtain connection to query metadata
+java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.svalero.glutenvoid.GlutenVoidApiApplication.main(GlutenVoidApiApplication.java:10)
+2024-05-25 11:27:48,188 WARN o.h.e.j.d.i.DialectFactoryImpl [main] HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-25 11:27:48,189 WARN o.h.e.j.d.i.DialectFactoryImpl [main] HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-25 11:27:48,765 DEBUG c.z.h.HikariConfig [main] HikariPool-1 - configuration:
+2024-05-25 11:27:48,766 DEBUG c.z.h.HikariConfig [main] allowPoolSuspension.............false
+2024-05-25 11:27:48,766 DEBUG c.z.h.HikariConfig [main] autoCommit......................true
+2024-05-25 11:27:48,767 DEBUG c.z.h.HikariConfig [main] catalog.........................none
+2024-05-25 11:27:48,767 DEBUG c.z.h.HikariConfig [main] connectionInitSql...............none
+2024-05-25 11:27:48,767 DEBUG c.z.h.HikariConfig [main] connectionTestQuery.............none
+2024-05-25 11:27:48,767 DEBUG c.z.h.HikariConfig [main] connectionTimeout...............30000
+2024-05-25 11:27:48,767 DEBUG c.z.h.HikariConfig [main] dataSource......................none
+2024-05-25 11:27:48,767 DEBUG c.z.h.HikariConfig [main] dataSourceClassName.............none
+2024-05-25 11:27:48,767 DEBUG c.z.h.HikariConfig [main] dataSourceJNDI..................none
+2024-05-25 11:27:48,767 DEBUG c.z.h.HikariConfig [main] dataSourceProperties............{password=<masked>}
+2024-05-25 11:27:48,767 DEBUG c.z.h.HikariConfig [main] driverClassName................."com.mysql.cj.jdbc.Driver"
+2024-05-25 11:27:48,768 DEBUG c.z.h.HikariConfig [main] exceptionOverrideClassName......none
+2024-05-25 11:27:48,768 DEBUG c.z.h.HikariConfig [main] healthCheckProperties...........{}
+2024-05-25 11:27:48,768 DEBUG c.z.h.HikariConfig [main] healthCheckRegistry.............none
+2024-05-25 11:27:48,768 DEBUG c.z.h.HikariConfig [main] idleTimeout.....................600000
+2024-05-25 11:27:48,768 DEBUG c.z.h.HikariConfig [main] initializationFailTimeout.......1
+2024-05-25 11:27:48,768 DEBUG c.z.h.HikariConfig [main] isolateInternalQueries..........false
+2024-05-25 11:27:48,768 DEBUG c.z.h.HikariConfig [main] jdbcUrl.........................jdbc:mysql://u5zmqwe461i4phpx:zx6bdwvmx7vjcazp@ryfqldzbliwmq6g5.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/og4lym2g9vtpmgb8
+2024-05-25 11:27:48,768 DEBUG c.z.h.HikariConfig [main] keepaliveTime...................0
+2024-05-25 11:27:48,768 DEBUG c.z.h.HikariConfig [main] leakDetectionThreshold..........0
+2024-05-25 11:27:48,768 DEBUG c.z.h.HikariConfig [main] maxLifetime.....................1800000
+2024-05-25 11:27:48,768 DEBUG c.z.h.HikariConfig [main] maximumPoolSize.................10
+2024-05-25 11:27:48,768 DEBUG c.z.h.HikariConfig [main] metricRegistry..................none
+2024-05-25 11:27:48,769 DEBUG c.z.h.HikariConfig [main] metricsTrackerFactory...........none
+2024-05-25 11:27:48,769 DEBUG c.z.h.HikariConfig [main] minimumIdle.....................10
+2024-05-25 11:27:48,769 DEBUG c.z.h.HikariConfig [main] password........................<masked>
+2024-05-25 11:27:48,769 DEBUG c.z.h.HikariConfig [main] poolName........................"HikariPool-1"
+2024-05-25 11:27:48,769 DEBUG c.z.h.HikariConfig [main] readOnly........................false
+2024-05-25 11:27:48,769 DEBUG c.z.h.HikariConfig [main] registerMbeans..................false
+2024-05-25 11:27:48,769 DEBUG c.z.h.HikariConfig [main] scheduledExecutor...............none
+2024-05-25 11:27:48,769 DEBUG c.z.h.HikariConfig [main] schema..........................none
+2024-05-25 11:27:48,769 DEBUG c.z.h.HikariConfig [main] threadFactory...................internal
+2024-05-25 11:27:48,769 DEBUG c.z.h.HikariConfig [main] transactionIsolation............default
+2024-05-25 11:27:48,769 DEBUG c.z.h.HikariConfig [main] username........................"u5zmqwe461i4phpx"
+2024-05-25 11:27:48,770 DEBUG c.z.h.HikariConfig [main] validationTimeout...............5000
+2024-05-25 11:27:48,770 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2024-05-25 11:27:49,022 DEBUG c.z.h.p.PoolBase [main] HikariPool-1 - Failed to create/setup connection: User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)
+2024-05-25 11:27:49,022 DEBUG c.z.h.p.HikariPool [main] HikariPool-1 - Cannot acquire connection from data source
+java.sql.SQLSyntaxErrorException: User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:113)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:861)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:234)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:570)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.svalero.glutenvoid.GlutenVoidApiApplication.main(GlutenVoidApiApplication.java:10)
+2024-05-25 11:27:50,030 ERROR c.z.h.p.HikariPool [main] HikariPool-1 - Exception during pool initialization.
+java.sql.SQLSyntaxErrorException: User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:113)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:861)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:234)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:570)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.svalero.glutenvoid.GlutenVoidApiApplication.main(GlutenVoidApiApplication.java:10)
+2024-05-25 11:27:50,034 WARN o.h.e.j.s.SqlExceptionHelper [main] SQL Error: 1226, SQLState: 42000
+2024-05-25 11:27:50,035 ERROR o.h.e.j.s.SqlExceptionHelper [main] User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)
+2024-05-25 11:27:50,042 ERROR o.s.o.j.AbstractEntityManagerFactoryBean [main] Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution [User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)] [n/a]
+2024-05-25 11:27:50,042 WARN o.s.c.s.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution [User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)] [n/a]
+2024-05-25 11:27:50,045 INFO o.a.j.l.DirectJDKLog [main] Stopping service [Tomcat]
+2024-05-25 11:27:50,067 ERROR o.s.b.SpringApplication [main] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution [User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)] [n/a]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.svalero.glutenvoid.GlutenVoidApiApplication.main(GlutenVoidApiApplication.java:10)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution [User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)] [n/a]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	... 16 common frames omitted
+Caused by: org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution [User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)] [n/a]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:66)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:570)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:286)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 20 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: User 'u5zmqwe461i4phpx' has exceeded the 'max_user_connections' resource (current value: 10)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:113)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:861)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:234)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	... 41 common frames omitted
