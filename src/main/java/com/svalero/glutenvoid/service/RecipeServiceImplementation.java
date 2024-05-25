@@ -2,6 +2,7 @@ package com.svalero.glutenvoid.service;
 
 import com.svalero.glutenvoid.domain.entity.Recipe;
 import com.svalero.glutenvoid.domain.dto.RecipeDto;
+import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 import com.svalero.glutenvoid.repository.RecipeRepository;
 import org.modelmapper.ModelMapper;
@@ -38,7 +39,7 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-    public List<RecipeDto> filterByApprovedRecipe(Boolean isApproved) throws RecipeNotFoundException {
+    public List<RecipeDto> filterByApprovedRecipe(boolean isApproved) throws RecipeNotFoundException {
         List<Recipe> recipes = recipeRepository.findByApprovedRecipe(isApproved);
         return recipes.stream()
                 .map(recipe -> modelMapper.map(recipe, RecipeDto.class))
@@ -54,11 +55,17 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-    public RecipeDto addRecipe(RecipeDto recipeDto) {
+    public RecipeDto addRecipe(RecipeDto recipeDto, User user) {
         Recipe recipe = modelMapper.map(recipeDto, Recipe.class);
+
+        if (user.isAdmin()) {
+            recipe.setApprovedRecipe(true);
+        }
+
         Recipe savedRecipe = recipeRepository.save(recipe);
         return modelMapper.map(savedRecipe, RecipeDto.class);
     }
+
 
     @Override
     public void deleteRecipe(long id) throws RecipeNotFoundException {

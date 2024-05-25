@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -60,16 +61,13 @@ public class RecipeController {
     }
 
     @PostMapping("/recipes")
-    public ResponseEntity<RecipeDto> addRecipe(@Valid @RequestBody RecipeDto recipeDto) throws UserNotFoundException {
-        User user = userService.findById(recipeDto.getUserId());
-        if (user == null) {
-            logger.info("Usuario no encontrado con ID: " + recipeDto.getUserId());
-            throw new UserNotFoundException("User not found with id: " + recipeDto.getUserId());
-        }
-        RecipeDto newRecipeDto = recipeService.addRecipe(recipeDto);
-        logger.info(recipeDto.getName() + " ha sido registrada");
+    public ResponseEntity<RecipeDto> addRecipe(@AuthenticationPrincipal User user,
+                                               @Valid @RequestBody RecipeDto recipeDto) {
+        RecipeDto newRecipeDto = recipeService.addRecipe(recipeDto, user);
+        logger.info(recipeDto.getName() + " ha sido registrada por " + user.getUsername());
         return ResponseEntity.status(HttpStatus.CREATED).body(newRecipeDto);
     }
+
 
     @DeleteMapping("/recipes/{id}")
     public ResponseEntity<String> deleteRecipe(@PathVariable long id) throws RecipeNotFoundException, UserNotFoundException {

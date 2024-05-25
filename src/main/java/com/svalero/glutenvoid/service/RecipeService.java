@@ -2,6 +2,7 @@ package com.svalero.glutenvoid.service;
 
 
 import com.svalero.glutenvoid.domain.dto.RecipeDto;
+import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.exception.RecipeNotFoundException;
 
 import java.util.List;
@@ -13,10 +14,11 @@ public interface RecipeService {
 
     RecipeDto findById(long id) throws RecipeNotFoundException;
 
-    List<RecipeDto> filterByApprovedRecipe(Boolean isApproved) throws RecipeNotFoundException;
+    List<RecipeDto> filterByApprovedRecipe(boolean isApproved) throws RecipeNotFoundException;
     List<RecipeDto> filterByPreparationTime(int time) throws RecipeNotFoundException;
 
-    RecipeDto addRecipe(RecipeDto recipeDto);
+    // En RecipeService.java
+    RecipeDto addRecipe(RecipeDto recipeDto, User user);
 
     void deleteRecipe(long id) throws RecipeNotFoundException;
 

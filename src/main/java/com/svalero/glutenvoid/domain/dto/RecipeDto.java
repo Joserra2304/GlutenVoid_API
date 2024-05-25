@@ -17,7 +17,7 @@ public class RecipeDto {
     private String instructions;
     private int preparationTime;
 
-    private Boolean approvedRecipe;
+    private boolean approvedRecipe = false;
     private long userId;
 
     public RecipeDto(Recipe recipe) {
@@ -27,7 +27,7 @@ public class RecipeDto {
         this.ingredients = recipe.getIngredients();
         this.instructions = recipe.getInstructions();
         this.preparationTime = recipe.getPreparationTime();
-        this.approvedRecipe = recipe.getApprovedRecipe();
+        this.approvedRecipe = recipe.isApprovedRecipe();
         if (recipe.getUser() != null) {
             this.userId = recipe.getUser().getId();
         }
