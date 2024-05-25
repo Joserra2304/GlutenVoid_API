@@ -63,10 +63,14 @@ public class RecipeController {
     @PostMapping("/recipes")
     public ResponseEntity<RecipeDto> addRecipe(@AuthenticationPrincipal User user,
                                                @Valid @RequestBody RecipeDto recipeDto) {
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
+        // Si el usuario no es nulo, proceder normalmente
         RecipeDto newRecipeDto = recipeService.addRecipe(recipeDto, user);
-        logger.info(recipeDto.getName() + " ha sido registrada por " + user.getUsername());
         return ResponseEntity.status(HttpStatus.CREATED).body(newRecipeDto);
     }
+
 
 
     @DeleteMapping("/recipes/{id}")
