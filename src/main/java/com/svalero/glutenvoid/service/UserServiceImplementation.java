@@ -86,7 +86,7 @@ public class UserServiceImplementation implements UserService {
                 case"admin":
                     newUpdate.setAdmin(Boolean.parseBoolean(value.toString()));
                     break;
-                case"gluten_condition":
+                case"glutenCondition":
                     GlutenCondition glutenCondition = GlutenCondition.valueOf((String) value);
                     newUpdate.setGlutenCondition(glutenCondition);
                     break;
