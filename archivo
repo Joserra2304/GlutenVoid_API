@@ -1,7 +1,12 @@
+spring.datasource.url=jdbc:mysql://ryfqldzbliwmq6g5.chr7pe7iynqr.eu-west-1.rds.amazonaws.com/uo1z5ebw0vevasyu
+spring.datasource.username=jpyj72f20c3bq5xf
+spring.datasource.password=mvab8ygwgcqbt1nq
+
+
 # Configuracion para el acceso a la Base de Datos
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.globally_quoted_identifiers=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
 
 # Configuracion de JWT
 security.jwt.token.secret-key=miClaveSecretaMuyCompleja1234567890!
@@ -11,9 +16,9 @@ security.jwt.token.expire-length=3600000
 server.port=8080
 
 # Datos de conexion con la base de datos MySQL
-spring.datasource.url = postgres://u9l0ccfg0sdhv8:p99dd0d384a86a762a6a3b2e68dd2e344a294d58887b3f9e0e7140a74d2317730@cbofon2qjd2d0o.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/d2asp3d113idb9
-spring.datasource.username=u9l0ccfg0sdhv8
-spring.datasource.password=p99dd0d384a86a762a6a3b2e68dd2e344a294d58887b3f9e0e7140a74d2317730
+spring.datasource.url=jdbc:mysql://localhost:3306/glutenvoid
+spring.datasource.username=glutenvoid_admin
+spring.datasource.password=glutenvoid094032N?
 
 logging.level.org.springframework=WARN
 logging.level.org.hibernate=WARN
