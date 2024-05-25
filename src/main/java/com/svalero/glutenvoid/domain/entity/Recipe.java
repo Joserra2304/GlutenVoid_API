@@ -37,7 +37,7 @@ public class Recipe {
     private int preparationTime;
 
     @Column
-    private boolean approvedRecipe;
+    private Boolean approvedRecipe;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)

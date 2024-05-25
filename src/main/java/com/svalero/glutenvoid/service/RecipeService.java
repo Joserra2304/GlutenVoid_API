@@ -13,7 +13,7 @@ public interface RecipeService {
 
     RecipeDto findById(long id) throws RecipeNotFoundException;
 
-    List<RecipeDto> filterByApprovedRecipe(boolean isApproved) throws RecipeNotFoundException;
+    List<RecipeDto> filterByApprovedRecipe(Boolean isApproved) throws RecipeNotFoundException;
     List<RecipeDto> filterByPreparationTime(int time) throws RecipeNotFoundException;
 
     RecipeDto addRecipe(RecipeDto recipeDto);

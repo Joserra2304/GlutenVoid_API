@@ -17,7 +17,7 @@ public class RecipeDto {
     private String instructions;
     private int preparationTime;
 
-    private boolean approvedRecipe;
+    private Boolean approvedRecipe;
     private long userId;
 
     public RecipeDto(Recipe recipe) {
