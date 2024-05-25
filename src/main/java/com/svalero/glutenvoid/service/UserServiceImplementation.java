@@ -11,6 +11,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -96,11 +97,15 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public String loginRequest(String username, String password) {
+    public Map<String, Object> loginRequest(String username, String password) {
         Optional<User> userOpt = userRepository.findByUsername(username);
         if (userOpt.isPresent() && passwordEncoder.matches(password, userOpt.get().getPassword())) {
             User user = userOpt.get();
-            return jwtTokenProvider.createToken(username, user.isAdmin());
+            String token = jwtTokenProvider.createToken(username, user.isAdmin());
+            Map<String, Object> response = new HashMap<>();
+            response.put("jwt", token);
+            response.put("user", user); // Devolver el objeto User
+            return response;
         }
         return null;
     }

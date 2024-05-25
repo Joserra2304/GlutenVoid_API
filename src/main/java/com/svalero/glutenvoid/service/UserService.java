@@ -20,7 +20,7 @@ public interface UserService {
     void deleteUser(long id)throws UserNotFoundException;
     User updateUserByField(long id, Map<String, Object> updates) throws UserNotFoundException;
 
-    String loginRequest(String username, String password);
+    Map<String, Object> loginRequest(String username, String password);
 
     List<User> findByName(String name) throws UserNotFoundException;
 
