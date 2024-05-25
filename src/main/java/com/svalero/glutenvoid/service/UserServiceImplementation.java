@@ -80,7 +80,7 @@ public class UserServiceImplementation implements UserService {
                 case"email":
                     newUpdate.setEmail((String) value);
                     break;
-                case"profile_bio":
+                case"profileBio":
                     newUpdate.setProfileBio((String) value);
                     break;
                 case"admin":
