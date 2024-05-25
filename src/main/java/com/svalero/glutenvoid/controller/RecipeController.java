@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -61,20 +60,27 @@ public class RecipeController {
     }
 
     @PostMapping("/recipes")
-    public ResponseEntity<RecipeDto> addRecipe(@AuthenticationPrincipal User user,
-                                               @Valid @RequestBody RecipeDto recipeDto) {
-        if (user == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
-        // Asegurar que la receta sea aprobada si el usuario es administrador
-        if (user.isAdmin()) {
-            recipeDto.setApprovedRecipe(true);
-        } else {
-            recipeDto.setApprovedRecipe(false);
-        }
+    public ResponseEntity<RecipeDto> addRecipe(@Valid @RequestBody RecipeDto recipeDto)
+            throws UserNotFoundException {
+
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
+
+        recipeDto.setApprovedRecipe(user.isAdmin());
+
+        // Añadir la receta a través del servicio de recetas
         RecipeDto createdRecipe = recipeService.addRecipe(recipeDto, user);
+        if (user.isAdmin()) {
+            logger.info("Receta '" + createdRecipe.getName() + "', con ID: " + createdRecipe.getId()
+                    + ", ha sido registrada y aprobada automáticamente.");
+        } else {
+            logger.info("Receta '" + createdRecipe.getName() + "', con ID: " + createdRecipe.getId()
+                    + ", ha sido registrada y está pendiente de aprobación.");
+        }
+
         return ResponseEntity.status(HttpStatus.CREATED).body(createdRecipe);
     }
+
 
 
 
