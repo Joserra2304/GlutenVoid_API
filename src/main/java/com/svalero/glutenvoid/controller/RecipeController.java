@@ -63,11 +63,13 @@ public class RecipeController {
     public ResponseEntity<RecipeDto> addRecipe(User user,
                                                @Valid @RequestBody RecipeDto recipeDto) {
         if (user == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
+
         RecipeDto newRecipeDto = recipeService.addRecipe(recipeDto, user);
         return ResponseEntity.status(HttpStatus.CREATED).body(newRecipeDto);
     }
+
 
 
 

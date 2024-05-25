@@ -61,14 +61,13 @@ public class RecipeServiceImplementation implements RecipeService {
     @Override
     public RecipeDto addRecipe(RecipeDto recipeDto, User user) {
         Recipe recipe = modelMapper.map(recipeDto, Recipe.class);
-        if (user.isAdmin()) {
-            recipe.setApprovedRecipe(true);
-        } else {
-            recipe.setApprovedRecipe(false);
-        }
+
+        recipe.setApprovedRecipe(user.isAdmin());
+
         Recipe savedRecipe = recipeRepository.save(recipe);
         return modelMapper.map(savedRecipe, RecipeDto.class);
     }
+
 
 
 
