@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -60,14 +61,19 @@ public class RecipeController {
     }
 
     @PostMapping("/recipes")
-    public ResponseEntity<RecipeDto> addRecipe(User user,
+    public ResponseEntity<RecipeDto> addRecipe(@AuthenticationPrincipal User user,
                                                @Valid @RequestBody RecipeDto recipeDto) {
         if (user == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-
-        RecipeDto newRecipeDto = recipeService.addRecipe(recipeDto, user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newRecipeDto);
+        // Asegurar que la receta sea aprobada si el usuario es administrador
+        if (user.isAdmin()) {
+            recipeDto.setApprovedRecipe(true);
+        } else {
+            recipeDto.setApprovedRecipe(false);
+        }
+        RecipeDto createdRecipe = recipeService.addRecipe(recipeDto, user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdRecipe);
     }
 
 
