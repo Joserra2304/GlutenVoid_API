@@ -79,16 +79,36 @@ public class UserController {
     }
 
     @PostMapping("/users/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) throws UserNotFoundException {
         String token = userService.loginRequest(loginRequest.getUsername(), loginRequest.getPassword());
         if (token != null) {
-            logger.info(loginRequest.getUsername() + " se ha logueado");
-            return ResponseEntity.ok(Map.of("jwt", token));
+            User user = userService.findByUsername(loginRequest.getUsername()).orElse(null);
+            if (user != null) {
+                logger.info(loginRequest.getUsername() + " se ha logueado");
+                Map<String, Object> response = new HashMap<>();
+                response.put("jwt", token);
+                response.put("user", Map.of(
+                        "id", user.getId(),
+                        "name", user.getName(),
+                        "surname", user.getSurname(),
+                        "email", user.getEmail(),
+                        "username", user.getUsername(),
+                        "profileBio", user.getProfileBio(),
+                        "glutenCondition", user.getGlutenCondition().toString(),
+                        "isAdmin", user.isAdmin()
+                ));
+                return ResponseEntity.ok(response);
+            } else {
+                logger.error("Error al recuperar los detalles del usuario después de la autenticación.");
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al recuperar detalles del usuario");
+            }
         } else {
             logger.info("Credenciales incorrectas");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas");
         }
     }
+
+
 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable long id) {
