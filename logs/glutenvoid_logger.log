@@ -5383,3 +5383,303 @@ Caused by: java.net.UnknownHostException: u9l0ccfg0sdhv8:p99dd0d384a86a762a6a3b2
 	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:98)
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
 	... 132 common frames omitted
+2024-05-25 12:32:37,373 DEBUG o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [GlutenVoidApiApplicationTests]: using SpringBootContextLoader
+2024-05-25 12:32:37,376 DEBUG o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.svalero.glutenvoid.GlutenVoidApiApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-05-25 12:32:37,377 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.svalero.glutenvoid.GlutenVoidApiApplicationTests]: GlutenVoidApiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-25 12:32:37,383 DEBUG o.s.t.c.s.AbstractTestContextBootstrapper [main] Using ContextCustomizerFactory implementations for test class [GlutenVoidApiApplicationTests]: [ImportsContextCustomizerFactory, ExcludeFilterContextCustomizerFactory, HttpGraphQlTesterContextCustomizerFactory, DuplicateJsonObjectContextCustomizerFactory, MockitoContextCustomizerFactory, TestRestTemplateContextCustomizerFactory, WebTestClientContextCustomizerFactory, OverrideAutoConfigurationContextCustomizerFactory, ObservabilityContextCustomizerFactory, TypeExcludeFiltersContextCustomizerFactory, PropertyMappingContextCustomizerFactory, WebDriverContextCustomizerFactory, MockServerContainerContextCustomizerFactory, DynamicPropertiesContextCustomizerFactory]
+2024-05-25 12:32:37,395 DEBUG o.s.t.c.s.AbstractTestContextBootstrapper [main] Using ContextCustomizers for test class [GlutenVoidApiApplicationTests]: [ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer, DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, WebDriverContextCustomizer]
+2024-05-25 12:32:37,453 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\Aussar\Documents\MisCursos\DAM\3.Proyecto\PFC\GlutenVoid_API\target\classes\com\svalero\glutenvoid\GlutenVoidApiApplication.class]
+2024-05-25 12:32:37,455 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.svalero.glutenvoid.GlutenVoidApiApplication for test class com.svalero.glutenvoid.GlutenVoidApiApplicationTests
+2024-05-25 12:32:37,521 DEBUG o.s.t.c.u.TestContextFailureHandler [main] Skipping candidate TestExecutionListener [org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: io.micrometer.context.ThreadLocalAccessor. MicrometerObservationRegistryTestExecutionListener requires io.micrometer:micrometer-observation:1.10.8 or higher and io.micrometer:context-propagation:1.0.3 or higher.
+2024-05-25 12:32:37,526 DEBUG o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners for test class [GlutenVoidApiApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, ResetMocksTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener]
+2024-05-25 12:32:37,528 DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener [main] Before test class: class [GlutenVoidApiApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+2024-05-25 12:32:37,691 DEBUG o.j.l.LoggerProviders [background-preinit] Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2024-05-25 12:32:37,713 INFO o.s.b.StartupInfoLogger [main] Starting GlutenVoidApiApplicationTests using Java 17.0.4.1 with PID 18776 (started by Aussar in C:\Users\Aussar\Documents\MisCursos\DAM\3.Proyecto\PFC\GlutenVoid_API)
+2024-05-25 12:32:37,714 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-25 12:32:37,714 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-05-25 12:32:38,615 DEBUG c.z.h.HikariConfig [main] Driver class org.postgresql.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93
+2024-05-25 12:32:39,038 DEBUG c.z.h.HikariConfig [main] HikariPool-1 - configuration:
+2024-05-25 12:32:39,041 DEBUG c.z.h.HikariConfig [main] allowPoolSuspension.............false
+2024-05-25 12:32:39,041 DEBUG c.z.h.HikariConfig [main] autoCommit......................true
+2024-05-25 12:32:39,042 DEBUG c.z.h.HikariConfig [main] catalog.........................none
+2024-05-25 12:32:39,042 DEBUG c.z.h.HikariConfig [main] connectionInitSql...............none
+2024-05-25 12:32:39,042 DEBUG c.z.h.HikariConfig [main] connectionTestQuery.............none
+2024-05-25 12:32:39,042 DEBUG c.z.h.HikariConfig [main] connectionTimeout...............30000
+2024-05-25 12:32:39,043 DEBUG c.z.h.HikariConfig [main] dataSource......................none
+2024-05-25 12:32:39,043 DEBUG c.z.h.HikariConfig [main] dataSourceClassName.............none
+2024-05-25 12:32:39,043 DEBUG c.z.h.HikariConfig [main] dataSourceJNDI..................none
+2024-05-25 12:32:39,043 DEBUG c.z.h.HikariConfig [main] dataSourceProperties............{password=<masked>}
+2024-05-25 12:32:39,043 DEBUG c.z.h.HikariConfig [main] driverClassName................."org.postgresql.Driver"
+2024-05-25 12:32:39,044 DEBUG c.z.h.HikariConfig [main] exceptionOverrideClassName......none
+2024-05-25 12:32:39,044 DEBUG c.z.h.HikariConfig [main] healthCheckProperties...........{}
+2024-05-25 12:32:39,045 DEBUG c.z.h.HikariConfig [main] healthCheckRegistry.............none
+2024-05-25 12:32:39,045 DEBUG c.z.h.HikariConfig [main] idleTimeout.....................600000
+2024-05-25 12:32:39,045 DEBUG c.z.h.HikariConfig [main] initializationFailTimeout.......1
+2024-05-25 12:32:39,046 DEBUG c.z.h.HikariConfig [main] isolateInternalQueries..........false
+2024-05-25 12:32:39,046 DEBUG c.z.h.HikariConfig [main] jdbcUrl.........................jdbc:postgresql://ccaml3dimis7eh.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/dcrn7evmt2m9ke
+2024-05-25 12:32:39,047 DEBUG c.z.h.HikariConfig [main] keepaliveTime...................0
+2024-05-25 12:32:39,047 DEBUG c.z.h.HikariConfig [main] leakDetectionThreshold..........0
+2024-05-25 12:32:39,047 DEBUG c.z.h.HikariConfig [main] maxLifetime.....................1800000
+2024-05-25 12:32:39,048 DEBUG c.z.h.HikariConfig [main] maximumPoolSize.................10
+2024-05-25 12:32:39,048 DEBUG c.z.h.HikariConfig [main] metricRegistry..................none
+2024-05-25 12:32:39,048 DEBUG c.z.h.HikariConfig [main] metricsTrackerFactory...........none
+2024-05-25 12:32:39,049 DEBUG c.z.h.HikariConfig [main] minimumIdle.....................10
+2024-05-25 12:32:39,049 DEBUG c.z.h.HikariConfig [main] password........................<masked>
+2024-05-25 12:32:39,049 DEBUG c.z.h.HikariConfig [main] poolName........................"HikariPool-1"
+2024-05-25 12:32:39,049 DEBUG c.z.h.HikariConfig [main] readOnly........................false
+2024-05-25 12:32:39,049 DEBUG c.z.h.HikariConfig [main] registerMbeans..................false
+2024-05-25 12:32:39,050 DEBUG c.z.h.HikariConfig [main] scheduledExecutor...............none
+2024-05-25 12:32:39,050 DEBUG c.z.h.HikariConfig [main] schema..........................none
+2024-05-25 12:32:39,050 DEBUG c.z.h.HikariConfig [main] threadFactory...................internal
+2024-05-25 12:32:39,050 DEBUG c.z.h.HikariConfig [main] transactionIsolation............default
+2024-05-25 12:32:39,050 DEBUG c.z.h.HikariConfig [main] username........................"u9l0ccfg0sdhv8"
+2024-05-25 12:32:39,050 DEBUG c.z.h.HikariConfig [main] validationTimeout...............5000
+2024-05-25 12:32:39,051 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2024-05-25 12:32:39,985 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@71a2df1
+2024-05-25 12:32:39,988 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-05-25 12:32:40,081 WARN o.h.e.j.d.i.DialectFactoryImpl [main] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-25 12:32:40,097 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+2024-05-25 12:32:40,553 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1ed1e36c
+2024-05-25 12:32:41,072 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@407b9d86
+2024-05-25 12:32:41,624 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@346f8f
+2024-05-25 12:32:41,963 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-25 12:32:42,281 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.EstablishmentController:
+	{POST [/establishments]}: addEstablishment(Establishment)
+	{GET [/establishments]}: getEstablishments(String,String)
+	{PATCH [/establishments/{id}]}: updateEstablishmentPartially(long,Map)
+	{DELETE [/establishments/{id}]}: deleteEstablishment(long)
+	{GET [/establishments/{id}]}: getEstablishmentById(long)
+2024-05-25 12:32:42,286 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.RecipeController:
+	{POST [/recipes]}: addRecipe(RecipeDto)
+	{DELETE [/recipes/{id}]}: deleteRecipe(long)
+	{GET [/recipes/{id}]}: getRecipeById(long)
+	{GET [/recipes]}: getRecipes(String,String)
+	{PATCH [/recipes/{id}]}: updateRecipePartially(long,Map)
+2024-05-25 12:32:42,288 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.UserController:
+	{POST [/users/login]}: login(LoginRequest)
+	{POST [/users]}: addUser(User)
+	{DELETE [/users/{id}]}: deleteUser(long)
+	{GET [/users]}: getUsers(String,String)
+	{GET [/users/{id}]}: getUserById(long)
+	{PATCH [/users/{id}]}: updateUserPartially(long,Map)
+2024-05-25 12:32:42,293 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2024-05-25 12:32:42,301 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1cbf55a2
+2024-05-25 12:32:42,302 DEBUG o.s.w.s.h.AbstractDetectingUrlHandlerMapping [main] 'beanNameHandlerMapping' {}
+2024-05-25 12:32:42,406 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]}
+2024-05-25 12:32:42,416 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryController:
+	{OPTIONS [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForRepositories()
+	{HEAD [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForRepositories()
+	{GET [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: listRepositories()
+2024-05-25 12:32:42,422 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryEntityController:
+	{HEAD [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForItemResource(RootResourceInformation,Serializable,PersistentEntityResourceAssembler)
+	{GET [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: getCollectionResource(RootResourceInformation,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{OPTIONS [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForCollectionResource(RootResourceInformation)
+	{POST [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: postCollectionResource(RootResourceInformation,PersistentEntityResource,PersistentEntityResourceAssembler,String)
+	{OPTIONS [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForItemResource(RootResourceInformation)
+	{GET [/{repository}], produces [application/x-spring-data-compact+json || text/uri-list]}: getCollectionResourceCompact(RootResourceInformation,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{HEAD [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headCollectionResource(RootResourceInformation,DefaultedPageable)
+	{GET [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: getItemResource(RootResourceInformation,Serializable,PersistentEntityResourceAssembler,HttpHeaders)
+	{PUT [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: putItemResource(RootResourceInformation,PersistentEntityResource,Serializable,PersistentEntityResourceAssembler,ETag,String)
+	{PATCH [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: patchItemResource(RootResourceInformation,PersistentEntityResource,Serializable,PersistentEntityResourceAssembler,ETag,String)
+	{DELETE [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deleteItemResource(RootResourceInformation,Serializable,ETag,PersistentEntityResourceAssembler,String)
+2024-05-25 12:32:42,431 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryPropertyReferenceController:
+	{GET [/{repository}/{id}/{property}], produces [text/uri-list]}: followPropertyReferenceCompact(RootResourceInformation,Serializable,String,HttpHeaders,RepresentationModelAssemblers)
+	{DELETE [/{repository}/{id}/{property}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deletePropertyReference(RootResourceInformation,Serializable,String)
+	{GET [/{repository}/{id}/{property}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: followPropertyReference(RootResourceInformation,Serializable,String,RepresentationModelAssemblers)
+	{GET [/{repository}/{id}/{property}/{propertyId}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: followPropertyReference(RootResourceInformation,Serializable,String,String,RepresentationModelAssemblers)
+	{[PATCH, PUT, POST] [/{repository}/{id}/{property}], consumes [application/json || application/x-spring-data-compact+json || text/uri-list], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: createPropertyReference(RootResourceInformation,HttpMethod,CollectionModel,Serializable,String)
+	{DELETE [/{repository}/{id}/{property}/{propertyId}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deletePropertyReferenceId(RootResourceInformation,Serializable,String,String)
+2024-05-25 12:32:42,435 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositorySearchController:
+	{GET [/{repository}/search/{search}], produces [application/x-spring-data-compact+json]}: executeSearchCompact(RootResourceInformation,HttpHeaders,MultiValueMap,String,String,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{OPTIONS [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForSearch(RootResourceInformation,String)
+	{GET [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: listSearches(RootResourceInformation)
+	{OPTIONS [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForSearches(RootResourceInformation)
+	{HEAD [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForSearches(RootResourceInformation)
+	{HEAD [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForSearch(RootResourceInformation,String)
+	{GET [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: executeSearch(RootResourceInformation,MultiValueMap,String,DefaultedPageable,Sort,HttpHeaders,RepresentationModelAssemblers)
+2024-05-25 12:32:42,438 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositorySchemaController:
+	{GET [/profile/{repository}], produces [application/schema+json]}: schema(RootResourceInformation)
+2024-05-25 12:32:42,439 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.a.AlpsController:
+	{GET [/profile/{repository}], produces [application/alps+json || */*]}: descriptor(RootResourceInformation)
+	{OPTIONS [/profile/{repository}], produces [application/alps+json]}: alpsOptions()
+2024-05-25 12:32:42,440 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.ProfileController:
+	{GET [/profile]}: listAllFormsOfMetadata()
+	{OPTIONS [/profile]}: profileOptions()
+2024-05-25 12:32:42,768 INFO o.s.b.StartupInfoLogger [main] Started GlutenVoidApiApplicationTests in 5.209 seconds (process running for 5.926)
+2024-05-25 12:32:42,824 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7d04472a
+2024-05-25 12:32:43,108 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-05-25 12:32:43,109 DEBUG c.z.h.p.HikariPool [SpringApplicationShutdownHook] HikariPool-1 - Before shutdown stats (total=6, active=0, idle=6, waiting=0)
+2024-05-25 12:32:43,110 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@71a2df1: (connection evicted)
+2024-05-25 12:32:43,174 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@1ed1e36c: (connection evicted)
+2024-05-25 12:32:43,229 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@407b9d86: (connection evicted)
+2024-05-25 12:32:43,293 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@346f8f: (connection evicted)
+2024-05-25 12:32:43,322 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1521c99b
+2024-05-25 12:32:43,335 DEBUG c.z.h.p.HikariPool [HikariPool-1 connection adder] HikariPool-1 - After adding stats (total=1, active=0, idle=1, waiting=0)
+2024-05-25 12:32:43,351 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@1cbf55a2: (connection evicted)
+2024-05-25 12:32:43,413 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@7d04472a: (connection evicted)
+2024-05-25 12:32:43,477 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@1521c99b: (connection evicted)
+2024-05-25 12:32:43,535 DEBUG c.z.h.p.HikariPool [SpringApplicationShutdownHook] HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2024-05-25 12:32:43,535 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-05-25 12:37:42,482 DEBUG o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [GlutenVoidApiApplicationTests]: using SpringBootContextLoader
+2024-05-25 12:37:42,484 DEBUG o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.svalero.glutenvoid.GlutenVoidApiApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-05-25 12:37:42,485 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.svalero.glutenvoid.GlutenVoidApiApplicationTests]: GlutenVoidApiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-25 12:37:42,494 DEBUG o.s.t.c.s.AbstractTestContextBootstrapper [main] Using ContextCustomizerFactory implementations for test class [GlutenVoidApiApplicationTests]: [ImportsContextCustomizerFactory, ExcludeFilterContextCustomizerFactory, HttpGraphQlTesterContextCustomizerFactory, DuplicateJsonObjectContextCustomizerFactory, MockitoContextCustomizerFactory, TestRestTemplateContextCustomizerFactory, WebTestClientContextCustomizerFactory, OverrideAutoConfigurationContextCustomizerFactory, ObservabilityContextCustomizerFactory, TypeExcludeFiltersContextCustomizerFactory, PropertyMappingContextCustomizerFactory, WebDriverContextCustomizerFactory, MockServerContainerContextCustomizerFactory, DynamicPropertiesContextCustomizerFactory]
+2024-05-25 12:37:42,504 DEBUG o.s.t.c.s.AbstractTestContextBootstrapper [main] Using ContextCustomizers for test class [GlutenVoidApiApplicationTests]: [ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer, DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, WebDriverContextCustomizer]
+2024-05-25 12:37:42,555 DEBUG o.s.c.a.ClassPathScanningCandidateComponentProvider [main] Identified candidate component class: file [C:\Users\Aussar\Documents\MisCursos\DAM\3.Proyecto\PFC\GlutenVoid_API\target\classes\com\svalero\glutenvoid\GlutenVoidApiApplication.class]
+2024-05-25 12:37:42,556 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.svalero.glutenvoid.GlutenVoidApiApplication for test class com.svalero.glutenvoid.GlutenVoidApiApplicationTests
+2024-05-25 12:37:42,626 DEBUG o.s.t.c.u.TestContextFailureHandler [main] Skipping candidate TestExecutionListener [org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: io.micrometer.context.ThreadLocalAccessor. MicrometerObservationRegistryTestExecutionListener requires io.micrometer:micrometer-observation:1.10.8 or higher and io.micrometer:context-propagation:1.0.3 or higher.
+2024-05-25 12:37:42,632 DEBUG o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners for test class [GlutenVoidApiApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, ResetMocksTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener]
+2024-05-25 12:37:42,634 DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener [main] Before test class: class [GlutenVoidApiApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+2024-05-25 12:37:42,793 DEBUG o.j.l.LoggerProviders [background-preinit] Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2024-05-25 12:37:42,814 INFO o.s.b.StartupInfoLogger [main] Starting GlutenVoidApiApplicationTests using Java 17.0.4.1 with PID 8216 (started by Aussar in C:\Users\Aussar\Documents\MisCursos\DAM\3.Proyecto\PFC\GlutenVoid_API)
+2024-05-25 12:37:42,814 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v3.2.5, Spring v6.1.6
+2024-05-25 12:37:42,815 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-05-25 12:37:43,682 DEBUG c.z.h.HikariConfig [main] Driver class org.postgresql.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93
+2024-05-25 12:37:44,073 DEBUG c.z.h.HikariConfig [main] HikariPool-1 - configuration:
+2024-05-25 12:37:44,075 DEBUG c.z.h.HikariConfig [main] allowPoolSuspension.............false
+2024-05-25 12:37:44,076 DEBUG c.z.h.HikariConfig [main] autoCommit......................true
+2024-05-25 12:37:44,076 DEBUG c.z.h.HikariConfig [main] catalog.........................none
+2024-05-25 12:37:44,077 DEBUG c.z.h.HikariConfig [main] connectionInitSql...............none
+2024-05-25 12:37:44,077 DEBUG c.z.h.HikariConfig [main] connectionTestQuery.............none
+2024-05-25 12:37:44,077 DEBUG c.z.h.HikariConfig [main] connectionTimeout...............30000
+2024-05-25 12:37:44,077 DEBUG c.z.h.HikariConfig [main] dataSource......................none
+2024-05-25 12:37:44,077 DEBUG c.z.h.HikariConfig [main] dataSourceClassName.............none
+2024-05-25 12:37:44,077 DEBUG c.z.h.HikariConfig [main] dataSourceJNDI..................none
+2024-05-25 12:37:44,078 DEBUG c.z.h.HikariConfig [main] dataSourceProperties............{password=<masked>}
+2024-05-25 12:37:44,078 DEBUG c.z.h.HikariConfig [main] driverClassName................."org.postgresql.Driver"
+2024-05-25 12:37:44,078 DEBUG c.z.h.HikariConfig [main] exceptionOverrideClassName......none
+2024-05-25 12:37:44,078 DEBUG c.z.h.HikariConfig [main] healthCheckProperties...........{}
+2024-05-25 12:37:44,078 DEBUG c.z.h.HikariConfig [main] healthCheckRegistry.............none
+2024-05-25 12:37:44,078 DEBUG c.z.h.HikariConfig [main] idleTimeout.....................600000
+2024-05-25 12:37:44,079 DEBUG c.z.h.HikariConfig [main] initializationFailTimeout.......1
+2024-05-25 12:37:44,079 DEBUG c.z.h.HikariConfig [main] isolateInternalQueries..........false
+2024-05-25 12:37:44,079 DEBUG c.z.h.HikariConfig [main] jdbcUrl.........................jdbc:postgresql://ccaml3dimis7eh.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/dcrn7evmt2m9ke
+2024-05-25 12:37:44,079 DEBUG c.z.h.HikariConfig [main] keepaliveTime...................0
+2024-05-25 12:37:44,079 DEBUG c.z.h.HikariConfig [main] leakDetectionThreshold..........0
+2024-05-25 12:37:44,079 DEBUG c.z.h.HikariConfig [main] maxLifetime.....................1800000
+2024-05-25 12:37:44,080 DEBUG c.z.h.HikariConfig [main] maximumPoolSize.................10
+2024-05-25 12:37:44,080 DEBUG c.z.h.HikariConfig [main] metricRegistry..................none
+2024-05-25 12:37:44,080 DEBUG c.z.h.HikariConfig [main] metricsTrackerFactory...........none
+2024-05-25 12:37:44,081 DEBUG c.z.h.HikariConfig [main] minimumIdle.....................10
+2024-05-25 12:37:44,081 DEBUG c.z.h.HikariConfig [main] password........................<masked>
+2024-05-25 12:37:44,081 DEBUG c.z.h.HikariConfig [main] poolName........................"HikariPool-1"
+2024-05-25 12:37:44,081 DEBUG c.z.h.HikariConfig [main] readOnly........................false
+2024-05-25 12:37:44,082 DEBUG c.z.h.HikariConfig [main] registerMbeans..................false
+2024-05-25 12:37:44,082 DEBUG c.z.h.HikariConfig [main] scheduledExecutor...............none
+2024-05-25 12:37:44,082 DEBUG c.z.h.HikariConfig [main] schema..........................none
+2024-05-25 12:37:44,083 DEBUG c.z.h.HikariConfig [main] threadFactory...................internal
+2024-05-25 12:37:44,083 DEBUG c.z.h.HikariConfig [main] transactionIsolation............default
+2024-05-25 12:37:44,083 DEBUG c.z.h.HikariConfig [main] username........................"u9l0ccfg0sdhv8"
+2024-05-25 12:37:44,083 DEBUG c.z.h.HikariConfig [main] validationTimeout...............5000
+2024-05-25 12:37:44,084 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2024-05-25 12:37:45,020 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@16e907b6
+2024-05-25 12:37:45,023 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-05-25 12:37:45,108 WARN o.h.e.j.d.i.DialectFactoryImpl [main] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-25 12:37:45,137 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+2024-05-25 12:37:45,832 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@cbeb7a4
+2024-05-25 12:37:46,349 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7bc26b6e
+2024-05-25 12:37:46,884 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5397ea81
+2024-05-25 12:37:46,983 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-25 12:37:47,255 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.EstablishmentController:
+	{GET [/establishments]}: getEstablishments(String,String)
+	{POST [/establishments]}: addEstablishment(Establishment)
+	{GET [/establishments/{id}]}: getEstablishmentById(long)
+	{DELETE [/establishments/{id}]}: deleteEstablishment(long)
+	{PATCH [/establishments/{id}]}: updateEstablishmentPartially(long,Map)
+2024-05-25 12:37:47,261 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.RecipeController:
+	{POST [/recipes]}: addRecipe(RecipeDto)
+	{DELETE [/recipes/{id}]}: deleteRecipe(long)
+	{GET [/recipes/{id}]}: getRecipeById(long)
+	{GET [/recipes]}: getRecipes(String,String)
+	{PATCH [/recipes/{id}]}: updateRecipePartially(long,Map)
+2024-05-25 12:37:47,264 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.s.g.c.UserController:
+	{POST [/users]}: addUser(User)
+	{POST [/users/login]}: login(LoginRequest)
+	{GET [/users]}: getUsers(String,String)
+	{DELETE [/users/{id}]}: deleteUser(long)
+	{GET [/users/{id}]}: getUserById(long)
+	{PATCH [/users/{id}]}: updateUserPartially(long,Map)
+2024-05-25 12:37:47,269 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2024-05-25 12:37:47,279 DEBUG o.s.w.s.h.AbstractDetectingUrlHandlerMapping [main] 'beanNameHandlerMapping' {}
+2024-05-25 12:37:47,385 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]}
+2024-05-25 12:37:47,399 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3b667286
+2024-05-25 12:37:47,399 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryController:
+	{GET [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: listRepositories()
+	{HEAD [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForRepositories()
+	{OPTIONS [/ || ], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForRepositories()
+2024-05-25 12:37:47,405 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryEntityController:
+	{GET [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: getItemResource(RootResourceInformation,Serializable,PersistentEntityResourceAssembler,HttpHeaders)
+	{PATCH [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: patchItemResource(RootResourceInformation,PersistentEntityResource,Serializable,PersistentEntityResourceAssembler,ETag,String)
+	{DELETE [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deleteItemResource(RootResourceInformation,Serializable,ETag,PersistentEntityResourceAssembler,String)
+	{PUT [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: putItemResource(RootResourceInformation,PersistentEntityResource,Serializable,PersistentEntityResourceAssembler,ETag,String)
+	{GET [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: getCollectionResource(RootResourceInformation,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{GET [/{repository}], produces [application/x-spring-data-compact+json || text/uri-list]}: getCollectionResourceCompact(RootResourceInformation,DefaultedPageable,Sort,RepresentationModelAssemblers)
+	{HEAD [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForItemResource(RootResourceInformation,Serializable,PersistentEntityResourceAssembler)
+	{POST [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: postCollectionResource(RootResourceInformation,PersistentEntityResource,PersistentEntityResourceAssembler,String)
+	{OPTIONS [/{repository}/{id}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForItemResource(RootResourceInformation)
+	{OPTIONS [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForCollectionResource(RootResourceInformation)
+	{HEAD [/{repository}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headCollectionResource(RootResourceInformation,DefaultedPageable)
+2024-05-25 12:37:47,417 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositoryPropertyReferenceController:
+	{GET [/{repository}/{id}/{property}], produces [text/uri-list]}: followPropertyReferenceCompact(RootResourceInformation,Serializable,String,HttpHeaders,RepresentationModelAssemblers)
+	{[PATCH, PUT, POST] [/{repository}/{id}/{property}], consumes [application/json || application/x-spring-data-compact+json || text/uri-list], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: createPropertyReference(RootResourceInformation,HttpMethod,CollectionModel,Serializable,String)
+	{DELETE [/{repository}/{id}/{property}/{propertyId}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deletePropertyReferenceId(RootResourceInformation,Serializable,String,String)
+	{DELETE [/{repository}/{id}/{property}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: deletePropertyReference(RootResourceInformation,Serializable,String)
+	{GET [/{repository}/{id}/{property}/{propertyId}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: followPropertyReference(RootResourceInformation,Serializable,String,String,RepresentationModelAssemblers)
+	{GET [/{repository}/{id}/{property}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: followPropertyReference(RootResourceInformation,Serializable,String,RepresentationModelAssemblers)
+2024-05-25 12:37:47,423 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositorySearchController:
+	{GET [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: listSearches(RootResourceInformation)
+	{HEAD [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForSearch(RootResourceInformation,String)
+	{OPTIONS [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForSearch(RootResourceInformation,String)
+	{OPTIONS [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: optionsForSearches(RootResourceInformation)
+	{GET [/{repository}/search/{search}], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: executeSearch(RootResourceInformation,MultiValueMap,String,DefaultedPageable,Sort,HttpHeaders,RepresentationModelAssemblers)
+	{HEAD [/{repository}/search], produces [application/hal+json || application/json || application/prs.hal-forms+json]}: headForSearches(RootResourceInformation)
+	{GET [/{repository}/search/{search}], produces [application/x-spring-data-compact+json]}: executeSearchCompact(RootResourceInformation,HttpHeaders,MultiValueMap,String,String,DefaultedPageable,Sort,RepresentationModelAssemblers)
+2024-05-25 12:37:47,426 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.RepositorySchemaController:
+	{GET [/profile/{repository}], produces [application/schema+json]}: schema(RootResourceInformation)
+2024-05-25 12:37:47,427 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.a.AlpsController:
+	{GET [/profile/{repository}], produces [application/alps+json || */*]}: descriptor(RootResourceInformation)
+	{OPTIONS [/profile/{repository}], produces [application/alps+json]}: alpsOptions()
+2024-05-25 12:37:47,428 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.d.r.w.ProfileController:
+	{OPTIONS [/profile]}: profileOptions()
+	{GET [/profile]}: listAllFormsOfMetadata()
+2024-05-25 12:37:47,770 INFO o.s.b.StartupInfoLogger [main] Started GlutenVoidApiApplicationTests in 5.107 seconds (process running for 5.852)
+2024-05-25 12:37:47,879 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6fd009b5
+2024-05-25 12:37:48,098 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-05-25 12:37:48,098 DEBUG c.z.h.p.HikariPool [SpringApplicationShutdownHook] HikariPool-1 - Before shutdown stats (total=6, active=0, idle=6, waiting=0)
+2024-05-25 12:37:48,099 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@16e907b6: (connection evicted)
+2024-05-25 12:37:48,155 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@cbeb7a4: (connection evicted)
+2024-05-25 12:37:48,216 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@7bc26b6e: (connection evicted)
+2024-05-25 12:37:48,279 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@5397ea81: (connection evicted)
+2024-05-25 12:37:48,339 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2e232533
+2024-05-25 12:37:48,343 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@3b667286: (connection evicted)
+2024-05-25 12:37:48,353 DEBUG c.z.h.p.HikariPool [HikariPool-1 connection adder] HikariPool-1 - After adding stats (total=1, active=0, idle=1, waiting=0)
+2024-05-25 12:37:48,402 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@6fd009b5: (connection evicted)
+2024-05-25 12:37:48,462 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@2e232533: (connection evicted)
+2024-05-25 12:37:48,517 DEBUG c.z.h.p.HikariPool [SpringApplicationShutdownHook] HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2024-05-25 12:37:48,518 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
