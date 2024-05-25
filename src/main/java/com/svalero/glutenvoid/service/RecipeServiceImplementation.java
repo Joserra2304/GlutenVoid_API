@@ -38,8 +38,8 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-    public List<RecipeDto> filterByName(String name) throws RecipeNotFoundException {
-        List<Recipe> recipes = recipeRepository.findByName(name);
+    public List<RecipeDto> filterByApprovedRecipe(boolean isApproved) throws RecipeNotFoundException {
+        List<Recipe> recipes = recipeRepository.findByApprovedRecipe(isApproved);
         return recipes.stream()
                 .map(recipe -> modelMapper.map(recipe, RecipeDto.class))
                 .collect(Collectors.toList());
@@ -88,6 +88,9 @@ public class RecipeServiceImplementation implements RecipeService {
                     break;
                 case "preparationTime":
                     existingRecipe.setPreparationTime(Integer.parseInt(value.toString()));
+                    break;
+                case "approvedRecipe":
+                    existingRecipe.setApprovedRecipe(Boolean.parseBoolean(value.toString()));
                     break;
             }
         });

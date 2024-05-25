@@ -33,12 +33,12 @@ public class RecipeController {
 
     @GetMapping("/recipes")
     public ResponseEntity<List<RecipeDto>> getRecipes(
-            @RequestParam(name="name", required = false, defaultValue = "") String name,
+            @RequestParam(name="approved", required = false, defaultValue = "") String isApproved,
             @RequestParam(name="preparationTime", required = false, defaultValue = "") String preparationTime)
             throws RecipeNotFoundException {
 
-        if (!name.isEmpty()) {
-            List<RecipeDto> recipes = recipeService.filterByName(name);
+        if (!isApproved.isEmpty()) {
+            List<RecipeDto> recipes = recipeService.filterByApprovedRecipe(Boolean.parseBoolean(isApproved));
             logger.info("Recetas filtradas por nombre de receta");
             return ResponseEntity.status(HttpStatus.OK).body(recipes);
         } else if (!preparationTime.isEmpty()) {

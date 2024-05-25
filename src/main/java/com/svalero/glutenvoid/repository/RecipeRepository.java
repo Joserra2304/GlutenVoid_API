@@ -12,7 +12,7 @@ public interface RecipeRepository extends CrudRepository<Recipe, Long> {
 
     List<Recipe> findAll();
 
-    List<Recipe> findByName(String name) throws RecipeNotFoundException;
+    List<Recipe> findByApprovedRecipe(boolean isApproved) throws RecipeNotFoundException;
 
     List<Recipe> findByPreparationTime(int time) throws RecipeNotFoundException;
 
