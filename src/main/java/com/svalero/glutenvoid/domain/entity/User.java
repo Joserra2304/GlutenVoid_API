@@ -45,7 +45,7 @@ public class User {
     @Column(name="profile_bio")
     private String profileBio;
 
-    @Column(name = "gluten_condition")
+    @Column(name = "glutenCondition")
     @Enumerated(EnumType.STRING)
     private GlutenCondition glutenCondition;
 
