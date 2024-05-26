@@ -67,7 +67,6 @@ public class RecipeController {
         User user = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
 
         recipeDto.setUserId(user.getId());
-        recipeDto.setUsername(user.getUsername());
         recipeDto.setApprovedRecipe(user.isAdmin());
 
         // Añadir la receta a través del servicio de recetas
