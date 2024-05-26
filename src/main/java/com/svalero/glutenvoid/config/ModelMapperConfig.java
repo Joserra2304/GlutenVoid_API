@@ -1,3 +1,5 @@
+package com.svalero.glutenvoid.config;
+
 import com.svalero.glutenvoid.domain.dto.RecipeDto;
 import com.svalero.glutenvoid.domain.entity.Recipe;
 import org.modelmapper.ModelMapper;
