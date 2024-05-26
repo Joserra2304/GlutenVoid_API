@@ -47,8 +47,8 @@ public class RecipeServiceImplementation implements RecipeService {
     }
 
     @Override
-    public List<RecipeDto> filterByPreparationTime(int time) throws RecipeNotFoundException {
-        List<Recipe> recipes = recipeRepository.findByPreparationTime(time);
+    public List<RecipeDto> filterByUserId(long userId) throws RecipeNotFoundException {
+        List<Recipe> recipes = recipeRepository.findByUserId(userId);
         return recipes.stream()
                 .map(recipe -> modelMapper.map(recipe, RecipeDto.class))
                 .collect(Collectors.toList());

@@ -15,7 +15,7 @@ public interface RecipeService {
     RecipeDto findById(long id) throws RecipeNotFoundException;
 
     List<RecipeDto> filterByApprovedRecipe(Boolean isApproved) throws RecipeNotFoundException;
-    List<RecipeDto> filterByPreparationTime(int time) throws RecipeNotFoundException;
+    List<RecipeDto> filterByUserId(long userId) throws RecipeNotFoundException;
 
     // En RecipeService.java
     RecipeDto addRecipe(RecipeDto recipeDto, User user);

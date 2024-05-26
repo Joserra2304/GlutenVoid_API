@@ -14,6 +14,6 @@ public interface RecipeRepository extends CrudRepository<Recipe, Long> {
 
     List<Recipe> findByApprovedRecipe(Boolean isApproved) throws RecipeNotFoundException;
 
-    List<Recipe> findByPreparationTime(int time) throws RecipeNotFoundException;
+    List<Recipe> findByUserId(long userId) throws RecipeNotFoundException;
 
 }

@@ -34,16 +34,16 @@ public class RecipeController {
     @GetMapping("/recipes")
     public ResponseEntity<List<RecipeDto>> getRecipes(
             @RequestParam(name="approved", required = false, defaultValue = "") String isApproved,
-            @RequestParam(name="preparationTime", required = false, defaultValue = "") String preparationTime)
+            @RequestParam(name="userId", required = false, defaultValue = "") Long userId)
             throws RecipeNotFoundException {
 
         if (!isApproved.isEmpty()) {
             List<RecipeDto> recipes = recipeService.filterByApprovedRecipe(Boolean.parseBoolean(isApproved));
             logger.info("Recetas filtradas por nombre de receta");
             return ResponseEntity.status(HttpStatus.OK).body(recipes);
-        } else if (!preparationTime.isEmpty()) {
-            List<RecipeDto> recipes = recipeService.filterByPreparationTime(Integer.parseInt(preparationTime));
-            logger.info("Recetas filtradas por tiempo de preparación");
+        } else if (userId != null) {
+            List<RecipeDto> recipes = recipeService.filterByUserId(userId);
+            logger.info("Recetas filtradas por ID de usuario");
             return ResponseEntity.status(HttpStatus.OK).body(recipes);
         } else {
             List<RecipeDto> recipes = recipeService.findAll();
