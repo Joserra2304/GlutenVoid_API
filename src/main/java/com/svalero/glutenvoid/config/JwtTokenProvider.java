@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class JwtTokenProvider {
@@ -31,20 +33,26 @@ public class JwtTokenProvider {
         return Keys.hmacShaKeyFor(secretKey.getBytes());
     }
 
-    public String createToken(String username, boolean isAdmin) {
+    public Map<String, Object> createToken(String username, boolean isAdmin) {
         Claims claims = Jwts.claims().setSubject(username);
         claims.put("admin", isAdmin);
 
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMilliseconds);
 
-        return Jwts.builder()
+        String token = Jwts.builder()
                 .setClaims(claims)
                 .setIssuedAt(now)
                 .setExpiration(validity)
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
+
+        Map<String, Object> tokenData = new HashMap<>();
+        tokenData.put("token", token);
+        tokenData.put("expiresAt", validity.getTime());
+        return tokenData;
     }
+
 
 
     public boolean validateToken(String token) {

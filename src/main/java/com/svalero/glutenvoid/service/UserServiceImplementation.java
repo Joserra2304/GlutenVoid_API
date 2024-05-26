@@ -101,14 +101,20 @@ public class UserServiceImplementation implements UserService {
         Optional<User> userOpt = userRepository.findByUsername(username);
         if (userOpt.isPresent() && passwordEncoder.matches(password, userOpt.get().getPassword())) {
             User user = userOpt.get();
-            String token = jwtTokenProvider.createToken(username, user.isAdmin());
+            Map<String, Object> tokenData = jwtTokenProvider.createToken(username, user.isAdmin());
+            String token = (String) tokenData.get("token");
+            long expiresAt = (long) tokenData.get("expiresAt");
+
             Map<String, Object> response = new HashMap<>();
             response.put("jwt", token);
+            response.put("expiresAt", expiresAt); // Añadir el tiempo de expiración
             response.put("user", user); // Devolver el objeto User
             return response;
         }
         return null;
     }
+
+
 
 
     @Override

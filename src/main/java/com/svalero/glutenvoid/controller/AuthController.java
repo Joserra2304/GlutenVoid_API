@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -25,8 +27,8 @@ public class AuthController {
                 String username = jwtTokenProvider.getUsername(token);
                 User user = userService.findByUsername(username)
                         .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
-                String newToken = jwtTokenProvider.createToken(username, user.isAdmin());
-                return ResponseEntity.ok(newToken);
+                Map<String, Object> newTokenData = jwtTokenProvider.createToken(username, user.isAdmin());
+                return ResponseEntity.ok(newTokenData);
             } else {
                 return ResponseEntity.status(401).body("Invalid or expired token");
             }
