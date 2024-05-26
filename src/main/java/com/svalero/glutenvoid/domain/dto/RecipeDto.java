@@ -19,6 +19,7 @@ public class RecipeDto {
 
     private Boolean approvedRecipe;
     private long userId;
+    private String username;
 
     public RecipeDto(Recipe recipe) {
         this.id = recipe.getId();
@@ -30,6 +31,7 @@ public class RecipeDto {
         this.approvedRecipe = recipe.getApprovedRecipe();
         if (recipe.getUser() != null) {
             this.userId = recipe.getUser().getId();
+            this.username = recipe.getUser().getUsername();
         }
     }
 }
