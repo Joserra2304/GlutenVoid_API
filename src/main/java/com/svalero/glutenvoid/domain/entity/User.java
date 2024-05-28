@@ -52,7 +52,7 @@ public class User {
     @Column
     private boolean admin;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Recipe> recipes;
 }
 
