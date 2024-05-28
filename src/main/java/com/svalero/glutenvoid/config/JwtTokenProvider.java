@@ -17,7 +17,7 @@ public class JwtTokenProvider {
     @Value("${security.jwt.token.secret-key:secret-key}")
     private String secretKey;
 
-    @Value("${security.jwt.token.expire-length:3600000}") // 1 hour
+    @Value("${security.jwt.token.expire-length:2629800000}") // 1 month
     private long validityInMilliseconds;
 
     public boolean getAdminClaim(String token) {
