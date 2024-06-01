@@ -45,8 +45,4 @@ public class Establishment {
 
     @Column
     private boolean glutenFreeOption;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = true)
-    private User user;
 }

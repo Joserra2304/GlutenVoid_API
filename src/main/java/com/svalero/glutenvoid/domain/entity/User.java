@@ -54,8 +54,5 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Recipe> recipes;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Establishment> establishments;
 }
 
