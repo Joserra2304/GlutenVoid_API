@@ -48,5 +48,5 @@ public class Establishment {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)
-    private User user;
+    private User userId;
 }
