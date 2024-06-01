@@ -1,5 +1,6 @@
 package com.svalero.glutenvoid.controller;
 
+import com.svalero.glutenvoid.domain.dto.EstablishmentDto;
 import com.svalero.glutenvoid.domain.entity.Establishment;
 import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.exception.ErrorMessage;
@@ -34,49 +35,47 @@ public class EstablishmentController {
     UserService userService;
 
     @GetMapping("/establishments")
-    public ResponseEntity<List<Establishment>> getEstablishments(
+    public ResponseEntity<List<EstablishmentDto>> getEstablishments(
             @RequestParam(name="city", required = false, defaultValue = "") String city,
             @RequestParam(name="glutenFree", required = false, defaultValue = "") String glutenFree)
             throws EstablishmentNotFoundException {
 
         if(!city.isEmpty()){
-            List<Establishment> establishments = establishmentService.filterByCity(city);
+            List<EstablishmentDto> establishments = establishmentService.filterByCity(city);
             logger.info("Establecimientos filtrados por ciudad");
             return ResponseEntity.status(HttpStatus.OK).body(establishments);
         } else if (!glutenFree.isEmpty()) {
-            List<Establishment> establishments = establishmentService
+            List<EstablishmentDto> establishments = establishmentService
                     .filterByGlutenFree(Boolean.parseBoolean(glutenFree));
             logger.info("Establecimientos filtrados por opción sin gluten");
             return ResponseEntity.status(HttpStatus.OK).body(establishments);
         } else{
-            List<Establishment> establishments = establishmentService.findAll();
+            List<EstablishmentDto> establishments = establishmentService.findAll();
             logger.info("Listado de Establecimientps");
             return ResponseEntity.status(HttpStatus.OK).body(establishments);
         }
     }
 
     @GetMapping("/establishments/{id}")
-    public ResponseEntity<Establishment> getEstablishmentById(@PathVariable long id)
+    public ResponseEntity<EstablishmentDto> getEstablishmentById(@PathVariable long id)
             throws EstablishmentNotFoundException{
-        Establishment establishment = establishmentService.findById(id);
+        EstablishmentDto establishment = establishmentService.findById(id);
         logger.info("Establecimiento mostrado con el id: "+id);
         return ResponseEntity.status(HttpStatus.OK).body(establishment);
     }
 
     @PostMapping("/establishments")
-    public ResponseEntity<Establishment> addEstablishment(@Valid @RequestBody Establishment establishment)
+    public ResponseEntity<EstablishmentDto> addEstablishment(@Valid @RequestBody Establishment establishment)
             throws UserNotFoundException {
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
-
-        establishment.setUser(user);
 
         if (!user.isAdmin()) {
             logger.info("Usuario no autorizado para agregar establecimientos");
             throw new AccessDeniedException("Usuario no autorizado para agregar establecimientos");
         }
 
-        Establishment newEstablishment = establishmentService.addEstablishment(establishment);
+        EstablishmentDto newEstablishment = establishmentService.addEstablishment(establishment);
         logger.info(newEstablishment.getName() + ", con ID:" + newEstablishment.getId() + ", ha sido registrado");
         return ResponseEntity.status(HttpStatus.CREATED).body(newEstablishment);
     }
@@ -100,7 +99,7 @@ public class EstablishmentController {
     }
 
     @PatchMapping("/establishments/{id}")
-            public ResponseEntity<Establishment> updateEstablishmentPartially(
+            public ResponseEntity<EstablishmentDto> updateEstablishmentPartially(
                     @PathVariable long id, @RequestBody Map<String, Object> updates)
             throws EstablishmentNotFoundException, UserNotFoundException {
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -111,7 +110,7 @@ public class EstablishmentController {
             throw new AccessDeniedException("Usuario no autorizado para actualizar establecimientos");
         }
 
-       Establishment updateEstablishment = establishmentService.updateEstablishmentByField(id, updates);
+       EstablishmentDto updateEstablishment = establishmentService.updateEstablishmentByField(id, updates);
         logger.info("Datos de " + updateEstablishment.getName() + " actualizados");
         return ResponseEntity.status(HttpStatus.OK).body(updateEstablishment);
     }
