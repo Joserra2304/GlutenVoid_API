@@ -30,7 +30,6 @@ public class EstablishmentController {
 
     @Autowired
     EstablishmentService establishmentService;
-
     @Autowired
     UserService userService;
 
@@ -69,6 +68,8 @@ public class EstablishmentController {
             throws UserNotFoundException {
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
+
+        establishment.setUser(user);
 
         if (!user.isAdmin()) {
             logger.info("Usuario no autorizado para agregar establecimientos");
