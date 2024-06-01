@@ -65,7 +65,7 @@ public class EstablishmentController {
     }
 
     @PostMapping("/establishments")
-    public ResponseEntity<EstablishmentDto> addEstablishment(@Valid @RequestBody Establishment establishment)
+    public ResponseEntity<EstablishmentDto> addEstablishment(@Valid @RequestBody EstablishmentDto establishmentdto)
             throws UserNotFoundException {
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userService.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found"));
@@ -75,7 +75,7 @@ public class EstablishmentController {
             throw new AccessDeniedException("Usuario no autorizado para agregar establecimientos");
         }
 
-        EstablishmentDto newEstablishment = establishmentService.addEstablishment(establishment);
+        EstablishmentDto newEstablishment = establishmentService.addEstablishment(establishmentdto);
         logger.info(newEstablishment.getName() + ", con ID:" + newEstablishment.getId() + ", ha sido registrado");
         return ResponseEntity.status(HttpStatus.CREATED).body(newEstablishment);
     }
