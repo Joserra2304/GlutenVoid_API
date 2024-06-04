@@ -20,10 +20,6 @@ La API de Gluten Void es un componente crítico en la arquitectura de la aplicac
    - Registro y actualización de datos de establecimientos.
    - Geolocalización para identificar establecimientos cercanos sin gluten.
 
-4. **Productos**
-   - Integración con la API externa OpenFoodFacts para obtener detalles de productos.
-   - Funcionalidades de búsqueda y filtrado de productos sin gluten.
-
 ## Tecnologías Utilizadas
 - **Spring Boot**: Framework para la creación de aplicaciones web y microservicios.
 - **Java**: Lenguaje de programación utilizado para el desarrollo del backend.
