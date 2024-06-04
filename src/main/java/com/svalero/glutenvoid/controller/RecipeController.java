@@ -69,7 +69,6 @@ public class RecipeController {
         recipeDto.setUserId(user.getId());
         recipeDto.setApprovedRecipe(user.isAdmin());
 
-        // Añadir la receta a través del servicio de recetas
         RecipeDto createdRecipe = recipeService.addRecipe(recipeDto, user);
         if (user.isAdmin()) {
             logger.info("Receta '" + createdRecipe.getName() + "', con ID: " + createdRecipe.getId()

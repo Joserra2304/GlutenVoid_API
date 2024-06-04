@@ -1,9 +1,7 @@
 package com.svalero.glutenvoid.controller;
-
 import com.svalero.glutenvoid.domain.enumeration.GlutenCondition;
 import com.svalero.glutenvoid.domain.entity.User;
 import com.svalero.glutenvoid.controller.request.LoginRequest;
-
 import com.svalero.glutenvoid.exception.ErrorMessage;
 import com.svalero.glutenvoid.exception.UserNotFoundException;
 import com.svalero.glutenvoid.service.UserService;
@@ -102,23 +100,18 @@ public class UserController {
     @DeleteMapping("/users/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable long id) {
         try {
-            // Obtener el nombre de usuario del contexto de seguridad
             String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-            // Buscar el usuario actual por su nombre de usuario
             User currentUser = userService.findByUsername(username)
                     .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
 
-            // Buscar el usuario que se desea eliminar por su ID
             User deleteUser = userService.findById(id);
 
-            // Verificar si el usuario actual tiene permiso para eliminar la cuenta
             if (deleteUser.getId() != currentUser.getId() && !currentUser.isAdmin()) {
                 logger.error("Usuario no autorizado para eliminar esta cuenta: " + username);
                 throw new AccessDeniedException("Usuario no autorizado para eliminar esta cuenta");
             }
 
-            // Eliminar el usuario
             userService.deleteUser(id);
             String deleteMessage = "User deleted successfully";
             logger.info("Usuario borrado exitosamente: " + deleteUser.getUsername());
@@ -139,23 +132,18 @@ public class UserController {
     @PatchMapping("/users/{id}")
     public ResponseEntity<User> updateUserPartially(@PathVariable long id, @RequestBody Map<String, Object> updates) {
         try {
-            // Obtener el nombre de usuario del contexto de seguridad
             String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-            // Buscar el usuario actual por su nombre de usuario
             User currentUser = userService.findByUsername(username)
                     .orElseThrow(() -> new UserNotFoundException("User not found: " + username));
 
-            // Buscar el usuario que se desea actualizar por su ID
             User updateUser = userService.findById(id);
 
-            // Verificar si el usuario actual tiene permiso para actualizar la cuenta
             if (updateUser.getId() != currentUser.getId() && !currentUser.isAdmin()) {
                 logger.error("Usuario no autorizado para actualizar esta cuenta: " + username);
                 throw new AccessDeniedException("Usuario no autorizado para actualizar esta cuenta");
             }
 
-            // Actualizar el usuario
             User updatedUser = userService.updateUserByField(id, updates);
             logger.info("Datos de " + updatedUser.getName() + " actualizados");
             return ResponseEntity.status(HttpStatus.OK).body(updatedUser);
@@ -170,9 +158,6 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
-
-
-    //EXCEPTION HANDLER
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorMessage> badRequest(MethodArgumentNotValidException manve){
