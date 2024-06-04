@@ -8,17 +8,18 @@ La API de Gluten Void es un componente crítico en la arquitectura de la aplicac
 
 ### Endpoints
 1. **Usuarios**
-    - Autenticación y gestión de sesiones.
-    - Registro y manejo de perfiles de usuario.
-    - Administración de derechos de usuario.
+
+   - Autenticación y gestión de sesiones.
+   - Registro y manejo de perfiles de usuario.
+   - Administración de derechos de usuario.
 
 2. **Recetas**
-    - Creación, actualización y eliminación de recetas.
-    - Validación de contenido para asegurar la ausencia de gluten.
+   - Creación, actualización y eliminación de recetas.
+   - Validación de contenido para asegurar la ausencia de gluten.
 
 3. **Establecimientos**
-    - Registro y actualización de datos de establecimientos.
-    - Geolocalización para identificar establecimientos cercanos sin gluten.
+   - Registro y actualización de datos de establecimientos.
+   - Geolocalización para identificar establecimientos cercanos sin gluten.
 
 ## Tecnologías Utilizadas
 - **Spring Boot**: Framework para la creación de aplicaciones web y microservicios.
