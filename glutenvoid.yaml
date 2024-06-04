@@ -1,0 +1,837 @@
+openapi: 3.0.1
+servers:
+  - url: https://glutenvoid-api-0697772007f6.herokuapp.com
+info:
+  title: "GlutenVoid"
+  description: API para la comunidad de trastornos alimentarios al gluten.
+  version: "1.0.0"
+tags:
+  - name: user
+    description: Gestión de usuarios
+  - name: recipe
+    description: Gestion de recetas
+  - name: establishment
+    description: Gestion de establecimientos
+paths:
+  /users:
+    get:
+      tags:
+        - user
+      summary: Listado de usuarios.
+      description: Obtiene la información de todos los usuarios almacenados en la base de datos.
+      parameters:
+        - name: glutenCondition
+          in: query
+          description: se filtra por condición al gluten
+          required: false
+          schema:
+            type: string
+            enum:
+              - Sensibilidad
+              - Ninguna
+              - Celiaquia
+              - Alergia
+            example: Celiaquia
+      responses:
+        '200':
+          description: Se obtiene una respuesta correcta con los usuarios listados (OK)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '404':
+          description: No se han encontrado los usuarios
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+              example:
+                EntityNotFound: 404
+                message: "No se han encontrado los usuarios"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    post:
+      tags:
+        - user
+      operationId: addUser
+      summary: Registro de un nuevo cliente
+      description: Se registra un nuevo cliente a la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: El usuario se ha registrado correctamente (OK)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Error de validación (KO)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+
+        '500':
+          description: Error interno del servidor (KO)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /users/{id}:
+    get:
+      tags:
+        - user
+      operationId: getUserById
+      summary: Muestra un usuario.
+      description: Se obtiene un usuario indicando su ID registrado en la Base de Datos.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          examples:
+            Ejemplo1:
+              value: 4
+      responses:
+        '200':
+          description: Se obtiene una respuesta correcta con el usuario mostrado (OK)
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/User'
+        '404':
+          description: No se ha encontrado el usuario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+              example:
+                EntityNotFound: 404
+                message: "No se ha encontrado el cliente"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    patch:
+      tags:
+        - user
+      operationId: updateUserPartially
+      summary: Modificación parcial de los datos de un usuario
+      description: Modifica los datos de un usuario de manera parcial por medio de un ID
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+            format: int64
+          examples:
+            Ejemplo1:
+              value: 12
+          required: true
+      requestBody:
+        description: Actualiza un dato específico de un usuario existente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+            example:
+              name: "Ana"
+      responses:
+        '200':
+          description: El usuario se ha modificado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              example:
+                id: 12
+                name: "Ana"
+        '400':
+          description: Error de validación
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '403':
+          description: Sin autorizacion
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: No se ha encontrado el usuario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+              example:
+                EntityNotFound: 404
+                message: "No se ha encontrado el cliente"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    delete:
+      tags:
+        - user
+      operationId: deleteUser
+      summary: Eliminar un usuario
+      description: Eliminar un usuario a partir de un ID
+      parameters:
+        - name: id
+          in: path
+          description: ID del cliente
+          required: true
+          schema:
+            type: integer
+            format: int64
+          example: 12
+      responses:
+        '204':
+          description: Usuario eliminado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoContent'
+        '403':
+          description: Sin autorizacion
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: No se ha encontrado el usuario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+              example:
+                EntityNotFound: 404
+                message: "No se ha podido encontrar el usuario"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /recipes:
+    get:
+      tags:
+        - recipe
+      summary: Listado de recetas.
+      description: Obtiene la información de todos las recetas almacenadas.
+      parameters:
+        - name: approved
+          in: query
+          description: Filtra por receta aprobada
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Se obtiene una respuesta correcta con las recetas listadas (OK)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Recipe'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    post:
+      tags:
+        - discount
+      operationId: addRecipe
+      summary: Registro de una nueva receta
+      description: Se registra una nueva receta a la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Recipe'
+      responses:
+        '201':
+          description: La receta se ha registrado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+        '400':
+          description: Error de validación
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '404':
+          description: No se han encontrado las recetas (KO)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+              example:
+                EntityNotFound: 404
+                message: "No se han encontrado las recetas"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /recipes/{id}:
+    get:
+      tags:
+        - recipe
+      operationId: getRecipeById
+      summary: Muestra una receta
+      description: Se obtiene una receta indicando su ID registrado en la Base de Datos.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          examples:
+            Ejemplo1:
+              value: 1
+      responses:
+        '200':
+          description: Se obtiene una respuesta correcta con la receta mostrada (OK)
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Recipe'
+        '404':
+          description: No se ha encontrado la receta (KO)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+              example:
+                EntityNotFound: 404
+                message: "No se ha encontrado la receta"
+        '500':
+          description: Error interno del servidor (KO)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    patch:
+      tags:
+        - recipe
+      operationId: updateRecipePartially
+      summary: Modificación parcial de los datos de una receta
+      description: Modifica los datos de una receta de manera parcial por medio de un ID
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+            format: int64
+          examples:
+            Ejemplo1:
+              value: 2
+          required: true
+      requestBody:
+        description: Actualiza un dato específico de una receta existente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Recipe'
+            example:
+              preparationTime: 20
+      responses:
+        '200':
+          description: la receta se ha modificado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recipe'
+              example:
+                preparationTime: 20
+        '400':
+          description: Error de validación
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '403':
+          description: Sin autorizacion
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: No se ha encontrado el descuento
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+              example:
+                EntityNotFound: 404
+                message: "No se ha encontrado el cliente"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    delete:
+      tags:
+        - recipe
+      operationId: deleteRecipe
+      summary: Eliminar una receta
+      description: Eliminar una receta a partir de un ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          examples:
+            Ejemplo1:
+              value: 2
+      responses:
+        '204':
+          description: Receta eliminada (OK)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoContent'
+        '403':
+          description: Sin autorizacion
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: No se ha encontrado el descuento (KO)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+              example:
+                EntityNotFound: 404
+                message: "No se ha podido encontrar el descuento"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /establishments:
+    get:
+      tags:
+        - establishment
+      summary: Listado de establecimientos.
+      description: Obtiene la información de todos los establecimientos de la tienda almacenados en la base de datos.
+      parameters:
+        - name: city
+          in: query
+          description: filtra por Ciudad
+          required: false
+          schema:
+            type: string
+            default: false
+      responses:
+        '200':
+          description: Se obtiene una respuesta correcta con los establecimientos listados (OK)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Establishment'
+        '404':
+          description: No se han encontrado los establecimientos (KO)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+              example:
+                EntityNotFound: 404
+                message: "No se han encontrado los establecimientos"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    post:
+      tags:
+        - establishment
+      operationId: addEstablishment
+      summary: Registro de un nuevo establecimiento
+      description: Se registra un nuevo establecimiento a la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Establishment'
+      responses:
+        '201':
+          description: El establecimiento se ha registrado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Establishment'
+        '400':
+          description: Error de validación
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '403':
+          description: Sin autorizacion
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /establishments/{id}:
+    get:
+      tags:
+        - establishment
+      operationId: getEstablishmentById
+      summary: Muestra un establecimiento.
+      description: Se obtiene un establecimiento indicando su ID registrado en la Base de Datos.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          examples:
+            Ejemplo1:
+              value: 1
+      responses:
+        '200':
+          description: Se obtiene una respuesta correcta con el establecimiento mostrado (OK)
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Establishment'
+        '404':
+          description: No se ha encontrado el establecimiento (KO)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+              example:
+                EntityNotFound: 404
+                message: "No se ha encontrado el establecimiento"
+        '500':
+          description: Error interno del servidor (KO)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    patch:
+      tags:
+        - establishment
+      operationId: updateEstablishmentPartially
+      summary: Modificación parcial de los datos de un establecimiento
+      description: Modifica los datos de un establecimiento de manera parcial por medio de un ID
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+            format: int64
+          examples:
+            Ejemplo1:
+              value: 4
+          required: true
+      requestBody:
+        description: Actualiza un dato específico de un establecimiento existente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Establishment'
+            example:
+              phoneNumber: 976876543
+      responses:
+        '200':
+          description: El establecimiento se ha modificado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Establishment'
+              example:
+                id: 4
+                phoneNumber: 976876543
+        '400':
+          description: Error de validación
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '403':
+          description: Sin autorizacion
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: No se ha encontrado el establecimiento
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+              example:
+                EntityNotFound: 404
+                message: "No se ha encontrado el establecimiento"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+    delete:
+      tags:
+        - establishment
+      operationId: deleteEstablishment
+      summary: Eliminar un establecimiento
+      description: Eliminar un establecimiento a partir de un ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+          examples:
+            Ejemplo1:
+              value: 2
+      responses:
+        '204':
+          description: Establecimiento eliminado (OK)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoContent'
+        '403':
+          description: Sin autorizacion
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: No se ha encontrado el establecimiento (KO)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityNotFound'
+              example:
+                EntityNotFound: 404
+                message: "No se ha podido encontrar el establecimiento"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+components:
+  schemas:
+    User:
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 12
+        name:
+          type: string
+          description: Nombre del usuario
+          example: "Joserra"
+        surname:
+          type: string
+          description: Apellido del usuario
+          example: "Gimeno"
+        email:
+          type: string
+          description: Email del usuario
+          example: "jose90@gmail.com"
+        username:
+          type: string
+          description: Usuario
+          example: "joserra23"
+        password:
+          type: string
+          description: Contraseña
+          example: "1234"
+        profileBio:
+          type: string
+          description: Biografia del usuario
+          example: "Soy celíaco, y tengo 35 años"
+        glutenCondition:
+          type: string
+          format: float
+          description: Condicion relacionada con el gluten
+          enum:
+            - Sensibilidad
+            - Ninguno
+            - Celiaquia
+            - Alergia
+          example: Celiaquia
+        admin:
+          type: boolean
+          description: Rol de administardor del usuario
+          example: true
+    Recipe:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 12
+        name:
+          type: string
+          description: Nombre de la receta
+          example: "Galletas sin gluten"
+        description:
+          type: string
+          description: Decripcion de la receta
+          example: "Hechas sin gluten"
+        ingredients:
+          type: string
+          description: Ingredientes de la receta
+          example: "harina de maiz, pimienta..."
+        instructions:
+          type: string
+          format: date
+          description: Instrucciones de elaboracion de la receta
+          example: "Calentar en horno a 200 grados"
+        preparationTime:
+          type: integer
+          format: int64
+          description: Indicar tiempo de preaparacion
+          example: 60
+        approvedRecipe:
+          type: boolean
+          description: Verificar una receta aprobada
+          example: false
+    Establishment:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 12
+        name:
+          type: string
+          description: Nombre del establecimiento
+          example: "Jaula de Grillos"
+        description:
+          type: string
+          description: Descripcion del establecimiento
+          example: "Consola"
+        phoneNumber:
+          type: integer
+          format: int64
+          description: Telefono del establecimiento
+          example: 976543245
+        address:
+          type: string
+          description: Direccion del establecimiento
+          example: "Calle Juan Bruil"
+        city:
+          type: string
+          description: Ciudad donde se encuentra el establecimiento
+          example: "Zaragoza"
+        latitude:
+          type: number
+          format: float
+          description: Indica la latitud
+          example: 41.6503
+        longitude:
+          type: number
+          format: float
+          description: Indica la longitud
+          example: -0.87565
+        approvedRecipe:
+          type: boolean
+          description: Verificar si tiene opcion sin gluten
+          example: true
+
+    NoContent:
+      description: Eliminado pero no aparece el contenido eliminado
+      example:
+        "No se muestra nada porque el registro se ha borrado"
+    ErrorResponse:
+      properties:
+        internalError:
+          type: number
+          format: int32
+        message:
+          type: string
+      type: object
+
+    BadRequest:
+      properties:
+        campo:
+          type: string
+      type: object
+      example:
+        campo: "Este campo no puede estar vacio"
+
+    EntityNotFound:
+      allOf:
+        - type: object
+        - $ref: '#/components/schemas/ErrorResponse'
+      example:
+        internalError: 2
+        message: "Entity not Found"
+
+    InternalServerError:
+      allOf:
+        - type: object
+        - $ref: '#/components/schemas/ErrorResponse'
+      example:
+        internalError: 500
+        message: "Internal Server Error"
+
+    ForbiddenError:
+      allOf:
+        - type: object
+        - $ref: '#/components/schemas/ErrorResponse'
+      example:
+        code: 403
+        message: "Access is forbidden"

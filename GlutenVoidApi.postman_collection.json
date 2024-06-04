@@ -1,0 +1,466 @@
+{
+	"info": {
+		"_postman_id": "61fa9d9f-8e1b-47c1-b85c-77a7ab97c720",
+		"name": "GlutenVoidApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33082667"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "get users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/users/43",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"43"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Joserra\",\r\n    \"surname\": \"Gimeno\",\r\n    \"email\": \"joserra2304@gmail.com\",\r\n    \"username\": \"user1990\",\r\n    \"password\": \"user\",\r\n    \"profileBio\": \"Soy celíaco desde 2015, lo llevo bien aunque a veces eche de menos el pan y sobre todo... la Guinness\",\r\n    \"glutenCondition\": \"Celiaquia\",\r\n    \"admin\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/users/44",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user partially",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"profileBio\": \"Jose\",\r\n    \"glutenCondition\": \"Alergia\",\r\n    \"username\": \"jose23\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/users/43",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"43"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginRequest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/users/login",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recipe",
+			"item": [
+				{
+					"name": "get recipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/recipes",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get recipe by ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "add recipes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE3MTc1MDcwNTksImV4cCI6MTcyMDEzNjg1OX0.F9Tqf-maxsVqIiVMUQurYcmvDqd4QFFreXxbjpCf-OU"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Galletas sin gluten\",\r\n    \"description\": \"Galletas saludables y fáciles de preparar, perfectas para un snack rápido.\",\r\n    \"ingredients\": \"1 taza de avena sin gluten, 1/2 taza de azúcar, 1 huevo, 1/2 taza de mantequilla, 1 cucharadita de esencia de vainilla\",\r\n    \"instructions\": \"Mezcla todos los ingredientes en un bol hasta que estén bien combinados. Forma pequeñas bolas con la masa y aplástalas ligeramente sobre una bandeja de hornear. Hornea a 180°C durante 15 minutos o hasta que estén doradas.\",\r\n    \"preparationTime\": 30,\r\n    \"aprovedRecipe\": false\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/recipes",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete recipe by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE3MTc1MDcwNTksImV4cCI6MTcyMDEzNjg1OX0.F9Tqf-maxsVqIiVMUQurYcmvDqd4QFFreXxbjpCf-OU"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/recipes/42",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"recipes",
+								"42"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update recipe partially",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE3MTc1MDcwNTksImV4cCI6MTcyMDEzNjg1OX0.F9Tqf-maxsVqIiVMUQurYcmvDqd4QFFreXxbjpCf-OU"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"approvedRecipe\": \"true\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/recipes/43",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"recipes",
+								"43"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Establishment",
+			"item": [
+				{
+					"name": "get establishments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/establishments",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"establishments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get establishments by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/establishments/35",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"establishments",
+								"35"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add establishment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE3MTc1MDcwNTksImV4cCI6MTcyMDEzNjg1OX0.F9Tqf-maxsVqIiVMUQurYcmvDqd4QFFreXxbjpCf-OU"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Restaurante GlutenFree\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/establishments",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"establishments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete establishment by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE3MTc1MDcwNTksImV4cCI6MTcyMDEzNjg1OX0.F9Tqf-maxsVqIiVMUQurYcmvDqd4QFFreXxbjpCf-OU"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/establishments/45",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"establishments",
+								"45"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update establishment by ID",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImFkbWluIjp0cnVlLCJpYXQiOjE3MTc1MDcwNTksImV4cCI6MTcyMDEzNjg1OX0.F9Tqf-maxsVqIiVMUQurYcmvDqd4QFFreXxbjpCf-OU"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"GlutenVoid Restaurant\",\r\n    \"phoneNumber\": 639092765\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://glutenvoid-api-0697772007f6.herokuapp.com/establishments/44",
+							"protocol": "https",
+							"host": [
+								"glutenvoid-api-0697772007f6",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"establishments",
+								"44"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
